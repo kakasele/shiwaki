@@ -17,3 +17,6 @@
         >Download</a
     >
 </div>
+<div class="text-xs text-gray-500 flex items-center justify-between mb-2 -mt-1">
+    <span>Uploaded by <a class="text-blue-400 hover:no-underline hover:text-blue-400" href="{{route('member-profile',$file->user->username)}}">{{$file->user->username}}</a> </span> <small class="italic">{{$file->created_at->diffForHumans()}}</small>
+</div>

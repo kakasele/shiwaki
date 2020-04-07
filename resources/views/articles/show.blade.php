@@ -98,7 +98,7 @@
             <div class="mt-3">
                 <a
                     class="bg-green-400 shadow px-4 py-2 block text-center no-underline hover:no-underline sm:w-2/3 text-white rounded-full w-full font-semibold"
-                    href="{{route('member-profile',$article->user->name)}}"
+                    href="{{route('member-profile',$article->user->username)}}"
                 >
                     View Profile
                 </a>
