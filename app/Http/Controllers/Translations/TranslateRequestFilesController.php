@@ -10,6 +10,11 @@ class TranslateRequestFilesController extends Controller
 {
     public function update(Request $request, TranslateRequest $translateRequest)
     {
+        request()->validate([
+            'project_file' => 'required'
+        ]);
+
+
         $file = request()->file('project_file');
 
         $name = $file->getClientOriginalName();

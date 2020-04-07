@@ -29,6 +29,7 @@ class ComposerStaticInitab119fdfe5f3d99c81abc29c076d5021
         'ed962a97bd972bc82007176b647d4e36' => __DIR__ . '/..' . '/facade/ignition/src/helpers.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         '6b34c85f7b1ad6faa15aa12109e030f2' => __DIR__ . '/..' . '/realrashid/sweet-alert/src/functions.php',
+        'b4e3f29b106af37a2bb239f73cdf68c7' => __DIR__ . '/../..' . '/app/helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -508,6 +509,7 @@ class ComposerStaticInitab119fdfe5f3d99c81abc29c076d5021
         'App\\Http\\Controllers\\Stories\\StoriesController' => __DIR__ . '/../..' . '/app/Http/Controllers/Stories/StoriesController.php',
         'App\\Http\\Controllers\\Translations\\TranslateRequestCommentController' => __DIR__ . '/../..' . '/app/Http/Controllers/Translations/TranslateRequestCommentController.php',
         'App\\Http\\Controllers\\Translations\\TranslateRequestController' => __DIR__ . '/../..' . '/app/Http/Controllers/Translations/TranslateRequestController.php',
+        'App\\Http\\Controllers\\Translations\\TranslateRequestFilesController' => __DIR__ . '/../..' . '/app/Http/Controllers/Translations/TranslateRequestFilesController.php',
         'App\\Http\\Controllers\\Translations\\TranslateRequestInvitationsController' => __DIR__ . '/../..' . '/app/Http/Controllers/Translations/TranslateRequestInvitationsController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',

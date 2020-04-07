@@ -25,6 +25,7 @@ return array(
     'App\\Http\\Controllers\\Stories\\StoriesController' => $baseDir . '/app/Http/Controllers/Stories/StoriesController.php',
     'App\\Http\\Controllers\\Translations\\TranslateRequestCommentController' => $baseDir . '/app/Http/Controllers/Translations/TranslateRequestCommentController.php',
     'App\\Http\\Controllers\\Translations\\TranslateRequestController' => $baseDir . '/app/Http/Controllers/Translations/TranslateRequestController.php',
+    'App\\Http\\Controllers\\Translations\\TranslateRequestFilesController' => $baseDir . '/app/Http/Controllers/Translations/TranslateRequestFilesController.php',
     'App\\Http\\Controllers\\Translations\\TranslateRequestInvitationsController' => $baseDir . '/app/Http/Controllers/Translations/TranslateRequestInvitationsController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\Authenticate' => $baseDir . '/app/Http/Middleware/Authenticate.php',

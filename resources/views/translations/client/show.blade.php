@@ -30,14 +30,14 @@
     >
         <div class="client-avatar p-3 flex flex-col text-center">
             <img
-                class="w-12 h-12 rounded-full object-cover items-center mx-auto"
+                class="w-12 h-12 rounded-full object-cover items-center mx-auto border-2 border-green-200"
                 src="{{asset($project->user->avatar())}}"
                 alt=""
             />
             <span class="text-gray-700 text-sm">{{$project->user->name}}</span>
         </div>
         <div class="flex justify-between p-3 items-center">
-            <h1 class="text-gray-600 text-lg">Shiwaki MOU</h1>
+            <h1 class="text-gray-600 text-lg">{{$project->title}}</h1>
             <p
                 class="bg-pink-300 px-2 rounded-full text-white font-bold shadow-sm"
             >

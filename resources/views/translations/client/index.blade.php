@@ -16,7 +16,7 @@
         <div class="projects-card sm:grid sm:grid-cols-3 gap-5">
             @foreach ($projects as $project)
             <div
-                class="project-card rounded-lg mt-3 shadow-sm bg-white flex flex-col"
+                class="project-card rounded-lg mt-3 shadow-sm bg-white flex flex-col overflow-hidden"
             >
                 <div
                     class="flex justify-between border-b border-b border-blue-200 p-3 items-center"
@@ -43,14 +43,16 @@
                 <div class="proect-details">
                     <h1 class="text-center mt-3 text-gray-600 text-lg">{{$project->title}}</h1>
 
-                    <div class="description p-3 text-gray-700 flex-1">
+                    <div class="description p-3 text-gray-700">
                         <p>
                             {{Str::of($project->description)->words(12,'...')}}
                         </p>
                     </div>
                 </div>
+                @if ($project->requestfiles->count()>0)
                  <h1 class="text-lg text-gray-600 mt-6 px-3">Project files</h1>
-                <div class="px-3 flex justify-between mt-2">
+                @endif
+                <div class="px-3 flex justify-between my-2 flex-1">
                     <div class="w-full">
                     @forelse ($project->requestfiles as $file)
                         @include('translations.client.includes.index-file')
@@ -64,7 +66,7 @@
                     @endforelse
                     </div>
                 </div>
-                <footer class="bg-gray-100 p-3 flex justify-between mt-3">
+                <footer class="bg-gray-100 p-3 flex justify-between items-center">
                     <p><span>{{$project->user->name}}</span></p>
                     <p>Posted <span>{{$project->created_at->diffForHumans()}}</span></p>
                 </footer>
