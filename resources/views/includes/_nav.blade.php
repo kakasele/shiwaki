@@ -147,7 +147,7 @@
                         </a>
 
                         <a
-                            href="{{route('member-profile',auth()->user()->name)}}"
+                            href="{{route('member-profile',auth()->user()->username)}}"
                             class="flex items-center block px-2 py- no-underline hover:no-underline hover:bg-blue-400 hover:text-white"
                         >
                             <svg

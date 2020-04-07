@@ -62,7 +62,7 @@ Route::group(['prefix' => 'frontend/resources/stories/', 'namespace' => 'Stories
 
 Route::group(['prefix' => 'frontend/resources/profiles', 'namespace' => 'Api\Users'], function () {
 
-    Route::get('{user:name}', 'ProfilesController@show')->name('member-profile');
+    Route::get('{user:username}', 'ProfilesController@show')->name('member-profile');
     Route::post('', 'ProfilesController@store')->name('save-profile');
     Route::get('', 'ProfilesController@index');
 });
