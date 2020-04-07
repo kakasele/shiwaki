@@ -23,7 +23,7 @@ class TranslateRequestController extends Controller
     public function index()
     {
         return view('translations.client.index', [
-            'projects' => TranslateRequest::latest('created_at')->get()
+            'projects' => auth()->user()->accessibleRequests()->get()
         ]);
     }
 

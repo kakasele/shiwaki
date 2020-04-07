@@ -66,6 +66,15 @@ class User extends Authenticatable
         return $this->hasMany(TranslateRequest::class)->latest('updated_at');
     }
 
+    public function accessibleRequests()
+    {
+
+        return TranslateRequest::where('user_id', $this->id)
+            ->orWhereHas('members', function ($query) {
+                $query->where('user_id', $this->id);
+            })->latest('updated_at');
+    }
+
     public function requestcomments()
     {
         return $this->hasMany(TranslateRequestComment::class)->latest('updated_at');
