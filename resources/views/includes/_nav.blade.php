@@ -1,5 +1,5 @@
 <nav
-    class="navbar z-50 left-0 top-0 right-0 navbar-expand-md bg-blue-500 shadow-sm text-gray-800"
+    class="navbar navbar-expand-md bg-blue-500 shadow-sm text-gray-800"
 >
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
@@ -51,14 +51,14 @@
                 </li>
                 <li>
                     <a
-                        href="{{route('articles')}}"
+                        href="{{route('poems')}}"
                         class="no-underline hover:no-underline sm:ml-6 text-lg text-white tracking-wide"
                         >Ushairi</a
                     >
                 </li>
                 <li>
                     <a
-                        href="{{route('articles')}}"
+                        href="{{route('quotes')}}"
                         class="no-underline hover:no-underline sm:ml-6 text-lg text-white tracking-wide"
                         >Nasaha</a
                     >
@@ -126,8 +126,8 @@
                         class="dropdown-menu dropdown-menu-right w-32 sm:w-auto shadow outline-none border-0 py-2"
                         aria-labelledby="navbarDropdown"
                     >
-                        <a
-                            href="{{route('home')}}"
+                         <a
+                            href="{{route('dashboard',auth()->user()->username)}}"
                             class="flex items-center block px-2 py- no-underline hover:no-underline hover:bg-blue-400 hover:text-white"
                         >
                             <svg
@@ -144,7 +144,7 @@
                                 ></path>
                             </svg>
                             Dashboard
-                        </a>
+                        </a> 
 
                         <a
                             href="{{route('member-profile',auth()->user()->username)}}"

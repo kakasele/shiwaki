@@ -5,21 +5,21 @@
     <div class="sm:flex sm:justify-start hidden sm:ml-8">
         <a
             class="bg-blue-400 px-3 py-1 rounded-full text-white shadow sm:mr-8 font-semibold hover:no-underline"
-            href="{{route('new-story')}}"
-            >New story</a
+            href="{{route('new-poem')}}"
+            >New Poem</a
         >
     </div>
     <div
         class="sm:px-6 lg:px-8 mx-w-lg mx-auto py-6 grid gap-4 lg:grid-cols-3 lg:mx-w-none hover:translate-x-2"
     >
-        @foreach ($stories as $story) 
-          <a href="{{$story->path()}}" class="no-underline hover:no-underline">
-              @include('includes.stories._story-card')
+        @foreach ($poems as $poem) 
+          <a href="{{$poem->path()}}" class="no-underline hover:no-underline">
+              @include('includes.poems._poem-card')
           </a>
         @endforeach
     </div>
     <a
-    href="{{route('new-story')}}"
+    href="{{route('new-poem')}}"
         class="shiwaki-pen bg-green-400 text-lg shadow font-normal rounded-full w-16 h-16 right-0 mr-6 flex items-center sm:hidden"
         style="{right:25px; bottom:25px;position:fixed;}"
     >
@@ -39,7 +39,7 @@
         </svg>
     </a>
     <div class="sm:ml-8">
-        {{$stories->links()}}
+        {{$poems->links()}}
     </div>
 </div>
 

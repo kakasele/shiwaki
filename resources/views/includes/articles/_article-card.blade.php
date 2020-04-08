@@ -7,7 +7,7 @@
             class="h-48 w-full object-cover"
         />
     </div>
-    <div class="section-content p-6 flex flex-1 flex-col justify-between">
+    <div class="section-content p-6 flex flex-col justify-between">
         <div class="flex-1">
             <h3 class="mt-2 text-xl leading-7 font-semibold text-gray-900">
                 {{$article->title}}

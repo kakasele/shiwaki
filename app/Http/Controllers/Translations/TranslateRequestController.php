@@ -23,7 +23,10 @@ class TranslateRequestController extends Controller
     public function index()
     {
         return view('translations.client.index', [
-            'projects' => auth()->user()->accessibleRequests()->get()
+            'projects' => auth()
+                ->user()->accessibleRequests()
+                ->latest('updated_at', 'asc')
+                ->get()
         ]);
     }
 

@@ -72,7 +72,9 @@ class User extends Authenticatable
         return TranslateRequest::where('user_id', $this->id)
             ->orWhereHas('members', function ($query) {
                 $query->where('user_id', $this->id);
-            })->latest('updated_at');
+            })->latest(
+                'updated_at'
+            );
     }
 
     public function requestcomments()
@@ -83,5 +85,17 @@ class User extends Authenticatable
     public function requestfiles()
     {
         return $this->hasMany(RequestFile::class)->latest('updated_at');
+    }
+
+    // Poems
+    public function poems()
+    {
+        return $this->hasMany(Poem::class);
+    }
+
+    // Poems
+    public function quotes()
+    {
+        return $this->hasMany(Quote::class);
     }
 }

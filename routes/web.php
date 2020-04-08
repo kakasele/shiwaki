@@ -26,6 +26,7 @@ Route::get('/', function () {
 });
 
 
+
 /**
  * Contact us 
  
@@ -44,8 +45,6 @@ Route::group(['prefix' => 'frontend/resources/articles/', 'namespace' => 'Articl
     Route::post('', 'ArticlesController@store')->name('store-article');
 });
 
-
-
 /**
  * Stories route group 
  * 
@@ -59,12 +58,30 @@ Route::group(['prefix' => 'frontend/resources/stories/', 'namespace' => 'Stories
     Route::post('', 'StoriesController@store')->name('store-story');
 });
 
-
+//Articles
 Route::group(['prefix' => 'frontend/resources/profiles', 'namespace' => 'Api\Users'], function () {
 
     Route::get('{user:username}', 'ProfilesController@show')->name('member-profile');
     Route::post('', 'ProfilesController@store')->name('save-profile');
     Route::get('', 'ProfilesController@index');
+});
+
+//quotes
+Route::group(['prefix' => 'frontend/resources/poems/', 'namespace' => 'Poems'], function () {
+
+    Route::get('', 'PoemsController@index')->name('poems');
+    Route::get('create', 'PoemsController@create')->name('new-poem')->middleware('auth');
+    Route::get('{poem:slug}', 'PoemsController@show')->name('show-poem');
+    Route::post('', 'PoemsController@store')->name('store-poem')->middleware('auth');
+});
+
+//Quotes
+Route::group(['prefix' => 'frontend/resources/quotes/', 'namespace' => 'Quotes'], function () {
+
+    Route::get('', 'QuotesController@index')->name('quotes');
+    Route::get('create', 'QuotesController@create')->name('new-quote')->middleware('auth');
+    Route::get('{quote}', 'QuotesController@show')->name('show-quote');
+    Route::post('', 'QuotesController@store')->name('store-quote')->middleware('auth');
 });
 
 /**
@@ -83,6 +100,9 @@ Route::group(['prefix' => 'api/v1/work/translate-work', 'namespace' => 'Translat
     Route::post('{translateRequest:sub_url}/file', 'TranslateRequestFilesController@update')->name('add-file');
 });
 
-Auth::routes();
+Route::get(
+    'frontend/resources/dashboards/{user:username}',
+    'DashboardsController@index'
+)->name('dashboard');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Auth::routes();

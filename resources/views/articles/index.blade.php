@@ -1,7 +1,7 @@
 @extends('layouts.app') 
 
 @section('content')
-<div class="container mt-24">
+<div class="container mt-6">
     <div class="sm:flex sm:justify-start hidden sm:ml-8">
         <a
             class="bg-blue-400 px-3 py-1 rounded-full text-white shadow sm:mr-8 font-semibold hover:no-underline"
