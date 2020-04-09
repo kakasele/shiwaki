@@ -99,7 +99,7 @@ Route::group(['prefix' => 'nasaha/', 'namespace' => 'Quotes'], function () {
  * Translate work routes
  */
 
-Route::group(['prefix' => 'ofisi/kazi/tafsiri-kazi', 'namespace' => 'Translations'], function () {
+Route::group(['prefix' => 'ofisini/kazi/tafsiri-kazi', 'namespace' => 'Translations'], function () {
 
     Route::get('', 'TranslateRequestController@index')->name('translate-index');
     Route::get('/submit-new-material', 'TranslateRequestController@create')->name('submit-work');
