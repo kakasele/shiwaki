@@ -1,9 +1,14 @@
 @extends('layouts.app') 
 
 @section('content')
-<div class="container mt-32">
-    <div class="form-container bg-white shadow-sm rounded sm:w-1/2 sm:mx-auto mt-20">
-        <h1 class="text-center pt-8 text-xl text-gray-600">Create your article</h1>
+<div class="container mt-6">
+            <h1 class="mx-auto sm:text-center mb-3 text-xl font-semibold text-gray-600">Write your Review</h1>
+        @if (session('error'))
+            <div class="alert alert-error">
+                {{session('error')}}
+            </div>
+        @endif
+    <div class="form-container bg-white shadow-sm rounded sm:w-1/2 sm:mx-auto mt-6">
         <form class="p-4" action="{{route('store-article')}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group">

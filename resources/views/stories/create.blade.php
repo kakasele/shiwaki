@@ -1,7 +1,7 @@
 @extends('layouts.app') 
 
 @section('content')
-<div class="container mt-24">
+<div class="container mt-6">
     <h1 class="mx-auto sm:text-center mb-3 text-xl font-semibold text-gray-600">Write your story</h1>
         @if (session('error'))
             <div class="alert alert-error">

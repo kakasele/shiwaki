@@ -1,8 +1,8 @@
 @extends('layouts.app') 
 
 @section('content')
-<div class="container mt-24">
-    <h1 class="mx-auto sm:text-center mb-3 text-xl font-semibold text-gray-600">Write your Poem</h1>
+<div class="container mt-6">
+    <h1 class="mx-auto sm:text-center mb-3 text-xl font-semibold text-gray-600 mt-3">Write your Poem</h1>
         @if (session('error'))
             <div class="alert alert-error">
                 {{session('error')}}
