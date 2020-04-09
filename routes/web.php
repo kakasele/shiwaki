@@ -38,7 +38,7 @@ Route::post('/contact', 'ContactController@store')->middleware('auth')->name('co
  * Articles route group 
  * 
  * */
-Route::group(['prefix' => 'frontend/resources/articles/', 'namespace' => 'Articles'], function () {
+Route::group(['prefix' => 'habari/', 'namespace' => 'Articles'], function () {
 
     Route::get('', 'ArticlesController@index')->name('articles');
     Route::get('create', 'ArticlesController@create')->name('new-article')->middleware('auth');
@@ -47,7 +47,7 @@ Route::group(['prefix' => 'frontend/resources/articles/', 'namespace' => 'Articl
     Route::post('', 'ArticlesController@store')->name('store-article');
 });
 
-Route::group(['prefix' => 'frontend/resources/reviews/', 'namespace' => 'Reviews'], function () {
+Route::group(['prefix' => 'makala/', 'namespace' => 'Reviews'], function () {
 
     Route::get('', 'ReviewsController@index')->name('reviews');
     Route::get('create', 'ReviewsController@create')->name('new-review')->middleware('auth');
@@ -60,7 +60,7 @@ Route::group(['prefix' => 'frontend/resources/reviews/', 'namespace' => 'Reviews
  * Stories route group 
  * 
  * */
-Route::group(['prefix' => 'frontend/resources/stories/', 'namespace' => 'Stories'], function () {
+Route::group(['prefix' => 'hadithi/', 'namespace' => 'Stories'], function () {
 
     Route::get('', 'StoriesController@index')->name('stories');
     Route::get('create', 'StoriesController@create')->name('new-story')->middleware('auth');
@@ -70,7 +70,7 @@ Route::group(['prefix' => 'frontend/resources/stories/', 'namespace' => 'Stories
 });
 
 //Profiles
-Route::group(['prefix' => 'frontend/resources/profiles', 'namespace' => 'Api\Users'], function () {
+Route::group(['prefix' => 'profiles', 'namespace' => 'Api\Users'], function () {
 
     Route::get('{user:name}', 'ProfilesController@show')->name('member-profile');
     Route::post('', 'ProfilesController@store')->name('save-profile');
@@ -78,7 +78,7 @@ Route::group(['prefix' => 'frontend/resources/profiles', 'namespace' => 'Api\Use
 });
 
 //quotes
-Route::group(['prefix' => 'frontend/resources/poems/', 'namespace' => 'Poems'], function () {
+Route::group(['prefix' => 'ushairi/', 'namespace' => 'Poems'], function () {
 
     Route::get('', 'PoemsController@index')->name('poems');
     Route::get('create', 'PoemsController@create')->name('new-poem')->middleware('auth');
@@ -87,7 +87,7 @@ Route::group(['prefix' => 'frontend/resources/poems/', 'namespace' => 'Poems'], 
 });
 
 //Quotes
-Route::group(['prefix' => 'frontend/resources/quotes/', 'namespace' => 'Quotes'], function () {
+Route::group(['prefix' => 'nasaha/', 'namespace' => 'Quotes'], function () {
 
     Route::get('', 'QuotesController@index')->name('quotes');
     Route::get('create', 'QuotesController@create')->name('new-quote')->middleware('auth');
@@ -99,7 +99,7 @@ Route::group(['prefix' => 'frontend/resources/quotes/', 'namespace' => 'Quotes']
  * Translate work routes
  */
 
-Route::group(['prefix' => 'api/v1/work/translate-work', 'namespace' => 'Translations'], function () {
+Route::group(['prefix' => 'ofisi/kazi/tafsiri-kazi', 'namespace' => 'Translations'], function () {
 
     Route::get('', 'TranslateRequestController@index')->name('translate-index');
     Route::get('/submit-new-material', 'TranslateRequestController@create')->name('submit-work');
@@ -112,7 +112,7 @@ Route::group(['prefix' => 'api/v1/work/translate-work', 'namespace' => 'Translat
 });
 
 Route::get(
-    'frontend/resources/dashboards/{user:name}',
+    'dashboards/{user:name}',
     'DashboardsController@index'
 )->name('dashboard');
 
