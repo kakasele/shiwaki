@@ -1,14 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Stories;
+namespace App\Http\Controllers\Reviews;
 
 use App\Http\Controllers\Controller;
-use App\Story;
+use App\Review;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 
-class StoriesController extends Controller
+class ReviewsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +16,8 @@ class StoriesController extends Controller
      */
     public function index()
     {
-        return view('stories.index', [
-            'stories' => Story::latest()->paginate(6)
+        return view('reviews.index', [
+            'reviews' => Review::latest()->paginate(6)
         ]);
     }
 
@@ -29,7 +28,7 @@ class StoriesController extends Controller
      */
     public function create()
     {
-        return view('stories.create');
+        return view('reviews.create');
     }
 
     /**
@@ -40,45 +39,38 @@ class StoriesController extends Controller
      */
     public function store(Request $request)
     {
+        $slug = Str::slug(request('title'), '-');
+        $path = $request->file('review_cover')->store('reviews/images', 'public');
 
-        $validator = Validator::make(request()->all(), [
-            'title' => 'required|min:5',
+        $validatedAttributes = request()->validate([
+            'title' => 'required',
             'body' => 'required',
         ]);
 
 
-        $slug = Str::slug(request('title'), '-');
+        $validatedAttributes['image_path'] = $path;
+        $validatedAttributes['slug'] = $slug;
 
-        if ($validator->fails()) {
 
-            alert('Aaaah...nah', $validator->messages()->all(), 'error');
+        // Save the article
+        $review = auth()->user()->reviews()->create($validatedAttributes);
 
-            return back();
-        }
-
-        auth()->user()->stories()->create([
-            'title' => request('title'),
-            'body' => request('body'),
-            'slug' => $slug
-        ]);
-
-        return redirect(route('stories'))
-            ->with('success', 'Your story has been saved');
+        return redirect(route('reviews'));
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Story  $story
+     * @param  \App\Review  $review
      * @return \Illuminate\Http\Response
      */
-    public function show(Story $story)
+    public function show(Review $review)
     {
         return view(
-            'stories.show',
+            'reviews.show',
             [
-                'story' => $story,
-                'user_stories' => Story::where('user_id', $story->user_id)->latest()->get()
+                'review' => $review,
+                'user_reviews' => review::where('user_id', $review->user_id)->latest()->get()
             ]
         );
     }
@@ -86,10 +78,10 @@ class StoriesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Story  $story
+     * @param  \App\Review  $review
      * @return \Illuminate\Http\Response
      */
-    public function edit(Story $story)
+    public function edit(Review $review)
     {
         //
     }
@@ -98,10 +90,10 @@ class StoriesController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Story  $story
+     * @param  \App\Review  $review
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Story $story)
+    public function update(Request $request, Review $review)
     {
         //
     }
@@ -109,10 +101,10 @@ class StoriesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Story  $story
+     * @param  \App\Review  $review
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Story $story)
+    public function destroy(Review $review)
     {
         //
     }

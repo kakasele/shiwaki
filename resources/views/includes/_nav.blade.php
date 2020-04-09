@@ -65,7 +65,7 @@
                 </li>
                 <li>
                     <a
-                        href="{{route('articles')}}"
+                        href="{{route('reviews')}}"
                         class="no-underline hover:no-underline sm:ml-6 text-lg text-white tracking-wide"
                         >Makala</a
                     >

@@ -1,7 +1,7 @@
 @extends('layouts.app') 
 
 @section('content')
-<div class="container mt-24 sm:flex">
+<div class="container mt-6 sm:flex">
     <div class="bg-white sm:w-2/3 rounded overflow-hidden shadow-sm mb-2">
         <div>
             <img

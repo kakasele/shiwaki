@@ -11,8 +11,9 @@
             <h3 class="mt-2 text-xl leading-7 font-semibold text-gray-900 text-center">
                 {{$poem->title}}
             </h3>
-            <p class="mt-3 text-base leading-6 text-gray-600">
-                {{Str::of($poem->body)->words(20,'')}} ....
+            <div class="mt-3 text-base leading-6 text-gray-600 ashmif-content">
+                {!!Str::of($poem->body)->words(20,'</div>')!!} 
+            </div>
         </div>
         <div class="author flex items-center mt-6 bg-gray-100 py-3 px-6">
             <div class="w-full">

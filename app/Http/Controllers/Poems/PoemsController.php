@@ -73,17 +73,24 @@ class PoemsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Story  $poem
+     * @param  \App\Poem  $poem
      * @return \Illuminate\Http\Response
      */
     public function show(Poem $poem)
     {
+        return view(
+            'poems.show',
+            [
+                'poem' => $poem,
+                'user_poems' => poem::where('user_id', $poem->user_id)->latest()->get()
+            ]
+        );
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Story  $poem
+     * @param  \App\Poem  $poem
      * @return \Illuminate\Http\Response
      */
     public function edit(Poem $poem)
@@ -95,10 +102,10 @@ class PoemsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Story  $poem
+     * @param  \App\Poem  $poem
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Story $poem)
+    public function update(Request $request, Poem $poem)
     {
         //
     }
@@ -106,7 +113,7 @@ class PoemsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Story  $poem
+     * @param  \App\Poem  $poem
      * @return \Illuminate\Http\Response
      */
     public function destroy(Poem $poem)

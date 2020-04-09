@@ -31,8 +31,8 @@
                 <span class="text-sm text-gray-500">Shared by</span>
                 <a
                     class="ml-2 text-sm text-blue-300"
-                    href="{{route('member-profile',$quote->user->username)}}"
-                    >{{$quote->user->username}}</a
+                    href="{{route('member-profile',$quote->user->name)}}"
+                    >{{$quote->user->name}}</a
                 >
             </div>
         </div>

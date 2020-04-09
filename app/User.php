@@ -98,4 +98,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Quote::class);
     }
+
+    // Reviews
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
 }

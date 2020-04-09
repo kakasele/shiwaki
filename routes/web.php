@@ -45,6 +45,15 @@ Route::group(['prefix' => 'frontend/resources/articles/', 'namespace' => 'Articl
     Route::post('', 'ArticlesController@store')->name('store-article');
 });
 
+Route::group(['prefix' => 'frontend/resources/reviews/', 'namespace' => 'Reviews'], function () {
+
+    Route::get('', 'ReviewsController@index')->name('reviews');
+    Route::get('create', 'ReviewsController@create')->name('new-review')->middleware('auth');
+    Route::get('{review:slug}', 'ReviewsController@show')->name('show-review');
+    Route::post('{review:slug}/comments', 'ReviewsController@saveComment')->name('post-comment')->middleware('auth');
+    Route::post('', 'ReviewsController@store')->name('store-review');
+});
+
 /**
  * Stories route group 
  * 
@@ -58,7 +67,7 @@ Route::group(['prefix' => 'frontend/resources/stories/', 'namespace' => 'Stories
     Route::post('', 'StoriesController@store')->name('store-story');
 });
 
-//Articles
+//Profiles
 Route::group(['prefix' => 'frontend/resources/profiles', 'namespace' => 'Api\Users'], function () {
 
     Route::get('{user:name}', 'ProfilesController@show')->name('member-profile');
