@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Role;
 use App\User;
+use Gate;
 use Illuminate\Http\Request;
 
 class UsersController extends Controller
@@ -34,6 +35,8 @@ class UsersController extends Controller
      */
     public function edit(User $user)
     {
+
+
         $roles = Role::all();
 
         return view('admin.users.edit')->with([
@@ -53,7 +56,13 @@ class UsersController extends Controller
     {
         $user->roles()->sync($request->roles);
 
-        return redirect('admin.users.index');
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->username = $request->username;
+
+        $user->save();
+
+        return redirect(route('admin.users.index'));
     }
 
     /**
@@ -64,6 +73,13 @@ class UsersController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+
+
+        $user->roles()->detach();
+
+        $user->delete();
+
+        return redirect(route('admin.users.index'))
+            ->with('Oooh no', 'The user has been deleted');
     }
 }

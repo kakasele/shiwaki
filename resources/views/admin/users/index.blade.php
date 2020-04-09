@@ -30,13 +30,15 @@
                             <th
                                 class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"
                             >
-                                Role
+                                Roles
                             </th>
+                            @can('manage_users')
                             <th
                                 class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"
                             >
                                 Actions
                             </th>
+                            @endcan
                         </tr>
                     </thead>
                     <tbody class="bg-white">
@@ -74,11 +76,12 @@
                             <td
                                 class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500"
                             >
-                                Owner
+                                {{implode(', ',$user->roles()->get()->pluck('label')->toArray())}}
                             </td>
                             <td
                                 class="px-6 py-4 whitespace-no-wrap text-right text-sm leading-5 font-medium"
                             >
+                            @can('manage_users')
                                 <div
                                     class="flex flex-end text-indigo-600 hover:text-indigo-900 focus:outline-none focus:underline z-50"
                                 >
@@ -97,8 +100,12 @@
                                             ></path>
                                         </svg>
                                     </a>
-                                    <a href="{{route('admin.users.destroy',$user->id)}}">
-                                        <svg
+                                    <div href="{{route('admin.users.destroy',$user->id)}}">
+                                        <form action="{{route('admin.users.destroy',$user->id)}}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit">
+                                                                                        <svg
                                             fill="none"
                                             stroke="currentColor"
                                             stroke-linecap="round"
@@ -111,8 +118,11 @@
                                                 d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
                                             ></path>
                                         </svg>
-                                    </a>
+                                            </button>
+                                        </form>
+                                    </div>
                                 </div>
+                                @endcan
                             </td>
                         </tr>
                         @endforeach
