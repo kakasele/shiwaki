@@ -11,8 +11,9 @@
                     Edit user details
                 </h2>
             </div>
-            <form class="mt-8" action="{{route('register')}}" method="POST">
+            <form class="mt-8" action="{{route('admin.users.update',$user->id)}}" method="POST">
                 @csrf
+                @method('PUT')
                 <div class="rounded-md">
                     <div class="mb-2">
                         <input
@@ -62,6 +63,16 @@
                         </span>
                         @enderror
                     </div>
+                    
+                        <div class="flex items-center justify-between rounded-lg bg-white mb-2 relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5">
+                            @foreach ($roles as $role)
+                          <div class="flex items-center">
+                            <input type="checkbox" name="roles[]" value="{{$role->id}}">
+                            <label class="mt-2 ml-1 text-gray-600" for="role">{{$role->label}}</label>
+                          </div>
+                    @endforeach
+
+                        </div>
                 </div>
 
                 <div class="mt-6">
