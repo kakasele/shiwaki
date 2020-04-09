@@ -21,13 +21,8 @@
                 <label for="title" class="text-sm block text-gray-600"
                     >Body</label
                 >
-                <textarea
-                    type="text"
-                    name="body"
-                    id="body"
-                    class="appearance-none bg-gray-100 p-2 rounded w-full"
-                    rows="7"
-                ></textarea>
+                <input id="x" type="hidden" name="body">
+                <trix-editor input="x" class="ashmif-content"></trix-editor>
             </div>
             <div class="form-group">
                 <label for="article_cover" class="text-sm block text-gray-600"

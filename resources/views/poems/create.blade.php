@@ -26,13 +26,16 @@
                 <label for="title" class="text-sm block text-gray-600"
                     >Body</label
                 >
-                <textarea
+
+                <input id="x" type="hidden" name="body">
+                <trix-editor input="x" class="trix-content"></trix-editor>
+                {{-- <textarea
                     type="text"
                     name="body"
                     id="body"
                     class="appearance-none bg-gray-100 p-2 rounded w-full"
                     rows="5"
-                ></textarea>
+                ></textarea> --}}
             </div>
 
             <div>

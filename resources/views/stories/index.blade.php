@@ -10,7 +10,7 @@
         >
     </div>
     <div
-        class="sm:px-6 lg:px-8 mx-w-lg mx-auto py-6 grid gap-4 lg:grid-cols-3 lg:mx-w-none hover:translate-x-2"
+        class="sm:px-6 lg:px-8 mx-w-lg py-6 grid gap-4 lg:grid-cols-3"
     >
         @foreach ($stories as $story) 
           <a href="{{$story->path()}}" class="no-underline hover:no-underline">

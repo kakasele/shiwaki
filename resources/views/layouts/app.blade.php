@@ -14,6 +14,8 @@
         <script src="https://unpkg.com/turbolinks"></script>
         <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
+        <script src="https://www.unpkg.com/trix@1.2.3/dist/trix.js"></script>
+
 
         <!-- Fonts -->
         <link rel="dns-prefetch" href="//fonts.gstatic.com" />
@@ -24,10 +26,13 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+
+
         <script src="https://kit.fontawesome.com/ec6e0bb911.js" crossorigin="anonymous"></script>
         <link href="{{ asset('css/app.css') }}" rel="stylesheet" />
         <link href="{{ asset('css/main.css') }}" rel="stylesheet" />
         @livewireStyles
+        <link rel="stylesheet" href="https://www.unpkg.com/trix@1.2.3/dist/trix.css">
     </head>
 
     <body class="">

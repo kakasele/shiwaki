@@ -12,8 +12,9 @@
             <h3 class="mt-2 text-xl leading-7 font-semibold text-gray-900">
                 {{$article->title}}
             </h3>
-            <p class="mt-3 text-base leading-6 text-gray-600">
-                {{Str::of($article->body)->words(15,'')}} ...
+            <div class="mt-3 text-base leading-6 text-gray-600 ashmif-content flex-1">
+                {!!Str::of($article->body)->words(20,'</div>')!!}
+            </div>
         </div>
         <div class="author flex items-center mt-6">
             <div class="flex-shrink-0">

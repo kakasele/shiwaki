@@ -59,15 +59,15 @@ class ArticlesController extends Controller
         return redirect(route('articles'));
     }
 
-    public function saveComment(Request $request,Article $article)
+    public function saveComment(Request $request, Article $article)
     {
         $articleId = $article->id;
         $validatedComment = request()->validate([
-            'body'=>'required',
+            'body' => 'required',
         ]);
 
-        $validatedComment['article_id']=$articleId;
-        
+        $validatedComment['article_id'] = $articleId;
+
         auth()->user()->comments()->create($validatedComment);
 
         return back();

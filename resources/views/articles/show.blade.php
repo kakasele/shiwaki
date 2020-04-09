@@ -15,8 +15,8 @@
                 <h2 class="text-2xl text-gray-900 leading-6 mt-2">
                     {{$article->title}}
                 </h2>
-                <div class="text-gray-700 mt-3 text-base">
-                    {{$article->body}}
+                <div class="text-gray-700 mt-3 text-base ashmif-content">
+                    {!! $article->body !!}
                 </div>
             </div>
             <div>
@@ -98,7 +98,7 @@
             <div class="mt-3">
                 <a
                     class="bg-green-400 shadow px-4 py-2 block text-center no-underline hover:no-underline sm:w-2/3 text-white rounded-full w-full font-semibold"
-                    href="{{route('member-profile',$article->user->username)}}"
+                    href="{{route('member-profile',$article->user->name)}}"
                 >
                     View Profile
                 </a>
@@ -119,7 +119,9 @@
                         href="{{route('show-article',$article->slug)}}"
                         class="no-underline hover:no-underline px-2 w-full"
                     >
-                        @include('includes.articles._article-card')
+                    <div class="ashmif-content">
+                         @include('includes.articles._article-card') 
+                    </div>
                     </a>
                 </div>
                 @endforeach

@@ -127,7 +127,7 @@
                         aria-labelledby="navbarDropdown"
                     >
                          <a
-                            href="{{route('dashboard',auth()->user()->username)}}"
+                            href="{{route('dashboard',auth()->user()->name)}}"
                             class="flex items-center block px-2 py- no-underline hover:no-underline hover:bg-blue-400 hover:text-white"
                         >
                             <svg
@@ -147,7 +147,7 @@
                         </a> 
 
                         <a
-                            href="{{route('member-profile',auth()->user()->username)}}"
+                            href="{{route('member-profile',auth()->user()->name)}}"
                             class="flex items-center block px-2 py- no-underline hover:no-underline hover:bg-blue-400 hover:text-white"
                         >
                             <svg

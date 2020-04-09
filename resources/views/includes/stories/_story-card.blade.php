@@ -6,13 +6,16 @@
             class="h-12 rounded-full mx-auto object-cover shadow-sm"
         />
     </div>
-    <div class="section-content flex-1 flex flex-col justify-between min-h-64">
+    <div class="section-content flex-1 flex flex-col justify-between min-h-6 trix-content">
         <div class="flex-1 p-6">
             <h3 class="mt-2 text-xl leading-7 font-semibold text-gray-900 text-center">
                 {{$story->title}}
             </h3>
-            <p class="mt-3 text-base leading-6 text-gray-600">
-                {{Str::of($story->body)->words(20,'')}} ....
+            <div class="mt-3 text-base leading-6 text-gray-600 trix-content">
+                <div class="">
+                    {!!Str::of($story->body)->words(25,'</div>')!!}
+                </div> 
+            </div>   
         </div>
         <div class="author flex items-center mt-6 bg-gray-100 py-3 px-6">
             <div class="w-full">

@@ -61,7 +61,7 @@ Route::group(['prefix' => 'frontend/resources/stories/', 'namespace' => 'Stories
 //Articles
 Route::group(['prefix' => 'frontend/resources/profiles', 'namespace' => 'Api\Users'], function () {
 
-    Route::get('{user:username}', 'ProfilesController@show')->name('member-profile');
+    Route::get('{user:name}', 'ProfilesController@show')->name('member-profile');
     Route::post('', 'ProfilesController@store')->name('save-profile');
     Route::get('', 'ProfilesController@index');
 });
@@ -101,7 +101,7 @@ Route::group(['prefix' => 'api/v1/work/translate-work', 'namespace' => 'Translat
 });
 
 Route::get(
-    'frontend/resources/dashboards/{user:username}',
+    'frontend/resources/dashboards/{user:name}',
     'DashboardsController@index'
 )->name('dashboard');
 
