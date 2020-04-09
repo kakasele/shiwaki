@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="">
-    <div class="slider py-12 bg-white" styles="height:450px; opacity:.3; background:url('{{asset('/images/banner_new.jpeg')}}') center/cover no-repeat">
+    <div class="slider py-8 bg-white" styles="height:450px; opacity:.3; background:url('{{asset('/images/banner_new.jpeg')}}') center/cover no-repeat">
         <div class="main-carousel" data-flickity='{ "cellAlign": "left", "contain": true,"autoPlay":true }'>
             @foreach ($slider_articles as $article)
             <a
