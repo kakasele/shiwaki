@@ -1,4 +1,10 @@
 <div class="bg-white flex flex-col rounded-lg shadow-lg overflow-hidden mt-2">
+            <div class="text-center my-3">
+            <h2 class="text-xl text-gray-700 leading-6 mt-2 text-center font-semibold">
+                {{$review->title}}
+            </h2>
+            <span class="text-xs text-gray-600 italic">{{$review->created_at->toFormattedDateString()}}</span>
+        </div>
     <div class="flex-shrink-0 shadow-sm">
         <img
             src="{{asset($review->image_path)}}"
@@ -9,9 +15,6 @@
     </div>
     <div class="section-content p-6 flex flex-col justify-between">
         <div class="flex-1">
-            <h3 class="mt-2 text-xl leading-7 font-semibold text-gray-900">
-                {{$review->title}}
-            </h3>
             <div class="mt-3 text-base leading-6 text-gray-600 ashmif-content flex-1">
                 {!!Str::of($review->body)->words(20,'</div>')!!}
             </div>

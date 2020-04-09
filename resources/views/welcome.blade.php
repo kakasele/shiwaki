@@ -83,6 +83,40 @@
             >
         </div>
     </div>
+        <!-- Reviews come here-->
+
+    <div class="reviews border-b border-blue-200 border-dashed mt-4">
+        <div class="flex justify-between">
+            <h1 class="text-blue-400 mt-2 sm:ml-8 text-2xl">Makala</h1>
+            <a
+                class="hidden sm:block text-lg text-gray-600 shadow mt-2 sm:mr-8 hover:no-underline bg-indigo-400 px-4 text-white rounded-full py-1 text-center text-xl font-semibold"
+                href="{{route('reviews')}}
+            
+            "
+                >Makala zaidi</a
+            >
+        </div>
+
+        <div
+            class="sm:px-6 lg:px-8 mx-w-lg mx-auto py-6 grid gap-4 lg:grid-cols-3 lg:mx-w-none hover:translate-x-2"
+        >
+            @foreach ($reviews as $review)
+            <a
+                href="{{route('show-review',$review->slug)}}"
+                class="no-underline hover:no-underline"
+            >
+                @include('includes.reviews._review-card')
+            </a>
+            @endforeach
+            <a
+                class="sm:hidden text-lg text-gray-600 shadow mt-2 sm:mr-8 hover:no-underline bg-indigo-400 px-4 text-white rounded-full py-1 text-center text-xl font-semibold pb-1"
+                href="{{route('reviews')}}
+            
+            "
+                >Makala zaidi</a
+            >
+        </div>
+    </div>
 </div>
 
 <div class="container">

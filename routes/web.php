@@ -1,6 +1,7 @@
 <?php
 
 use App\Article;
+use App\Review;
 use App\Story;
 use Illuminate\Support\Facades\Route;
 // use RealRashid\SweetAlert\Facades\Alert;
@@ -21,7 +22,8 @@ Route::get('/', function () {
     return view('welcome', [
         'articles' => Article::latest()->get()->take(3),
         'slider_articles' => Article::latest()->get(),
-        'stories' => Story::latest()->get()->take(3)
+        'stories' => Story::latest()->get()->take(3),
+        'reviews' => Review::latest()->get()->take(3)
     ]);
 });
 
