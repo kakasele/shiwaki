@@ -74,7 +74,7 @@
                     <a
                         href="{{$project->path()}}"
                         class="bg-blue-400 block w-full py-2 text-lg hover:no-underline font-semibold text-center text-white flex-1 mb-0"
-                        >View</a
+                        >View Project</a
                     >
                 </div>
             </div>
