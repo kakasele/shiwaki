@@ -16,7 +16,7 @@
                 class="align-middle inline-block min-w-full shadow overflow-hidden sm:rounded-lg border-b border-gray-200"
             >
                 <table class="min-w-full">
-                    <thead class="bg-blue-300 text-white">
+                    <thead class="bg-green-300 text-white">
                         <tr>
                             <th
                                 class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-semibold text-white uppercase tracking-wider"

@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Articles;
 
-use App\Poem;
+use App\Article;
+use App\Comment;
 use App\Http\Controllers\Controller;
-use App\User;
 use Illuminate\Http\Request;
 
-class PublicationsPoemsController extends Controller
+class ArticleCommentsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +16,7 @@ class PublicationsPoemsController extends Controller
      */
     public function index()
     {
-        return view('admin.publications.poems.index', [
-            'poems' => Poem::latest()->get()
-        ]);
+        //
     }
 
     /**
@@ -37,66 +35,63 @@ class PublicationsPoemsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Article $article)
     {
-        //
+
+
+        $validatedComment = request()->validate([
+            'body' => 'required',
+        ]);
+
+        $validatedComment['article_id'] = $article->id;
+
+        auth()->user()->comments()->create($validatedComment);
+
+        return back();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Poem  $poem
+     * @param  \App\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function show(Poem $poem, User $user)
+    public function show(Comment $comment)
     {
-        return view('poems.show', [
-            'poem' => $poem,
-            'user_poem' => $poem->user->stories()->get()
-        ]);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Poem  $poem
+     * @param  \App\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function edit(Poem $poem)
+    public function edit(Comment $comment)
     {
-        return view('admin.publications.poems.edit', compact('poem'));
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Poem  $poem
+     * @param  \App\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Poem $poem)
+    public function update(Request $request, Comment $comment)
     {
-
-        $poem->title = $request->title;
-        $poem->body = $request->body;
-
-        $poem->status = true;
-
-        $poem->save();
-
-        return redirect(route('admin.poems.index'));
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Poem  $poem
+     * @param  \App\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Poem $poem)
+    public function destroy(Comment $comment)
     {
-        $poem->delete();
-
-        return back();
+        //
     }
 }

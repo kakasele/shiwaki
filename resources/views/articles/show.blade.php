@@ -45,7 +45,7 @@
                     <div class="text-input p-3">
                         <form
                             class="flex items-center"
-                            action="{{route('post-comment',$article->slug)}}"
+                            action="{{route('post-article-comment',$article->slug)}}"
                             method="POST"
                         >
                             @csrf

@@ -23,7 +23,7 @@ class Article extends Model
 
     public function path()
     {
-        return 'habari/' . $this->slug;
+        return 'articles/' . $this->slug;
     }
 
     public function status()

@@ -14,7 +14,7 @@ class ArticlesController extends Controller
     public function index()
     {
         return view('articles.index', [
-            'articles' => Article::latest()->paginate(6)
+            'articles' => Article::where('status', 1)->paginate(6)
         ]);
     }
 
@@ -40,39 +40,21 @@ class ArticlesController extends Controller
     public function store(Request $request)
     {
 
-        $slug = Str::slug(request('title'), '-');
-        $path = $request->file('article_cover')->store('posts/images', 'public');
-
-        $validatedAttributes = request()->validate([
+        $attributes = request()->validate([
             'title' => 'required',
             'body' => 'required',
         ]);
 
 
-        $validatedAttributes['image_path'] = $path;
-        $validatedAttributes['slug'] = $slug;
+        $attributes['image_path'] = $request->file('article_cover')->store('posts/images', 'public');
+        $attributes['slug'] = Str::slug(request('title'), '-');
 
 
-        // Save the article
-        $article = auth()->user()->articles()->create($validatedAttributes);
+        auth()->user()->articles()->create($attributes);
 
-        Mail::to('suleiman665@gmail.com')->send(new PostAwaitingApproval($article));
+        // Mail::to('suleiman665@gmail.com')->send(new PostAwaitingApproval($article));
 
 
         return redirect(route('articles'));
-    }
-
-    public function saveComment(Request $request, Article $article)
-    {
-        $articleId = $article->id;
-        $validatedComment = request()->validate([
-            'body' => 'required',
-        ]);
-
-        $validatedComment['article_id'] = $articleId;
-
-        auth()->user()->comments()->create($validatedComment);
-
-        return back();
     }
 }

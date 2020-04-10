@@ -37,29 +37,30 @@ Route::post('/contact', 'ContactController@store')->middleware('auth')->name('co
  * Articles route group 
  * 
  * */
-Route::group(['prefix' => 'habari/', 'namespace' => 'Articles'], function () {
+Route::group(['prefix' => 'articles/', 'namespace' => 'Articles'], function () {
 
     Route::get('', 'ArticlesController@index')->name('articles');
     Route::get('create', 'ArticlesController@create')->name('new-article')->middleware('auth');
     Route::get('{article:slug}', 'ArticlesController@show')->name('show-article');
-    Route::post('{article:slug}/comments', 'ArticlesController@saveComment')->name('post-comment')->middleware('auth');
     Route::post('', 'ArticlesController@store')->name('store-article');
+    Route::post('{article:slug}/comments', 'ArticleCommentsController@store')->name('post-article-comment')->middleware('auth');
 });
 
-Route::group(['prefix' => 'makala/', 'namespace' => 'Reviews'], function () {
+Route::group(['prefix' => 'reviews/', 'namespace' => 'Reviews'], function () {
 
     Route::get('', 'ReviewsController@index')->name('reviews');
     Route::get('create', 'ReviewsController@create')->name('new-review')->middleware('auth');
-    Route::get('{review:slug}', 'ReviewsController@show')->name('show-review');
-    Route::post('{review:slug}/comments', 'ReviewsController@saveComment')->name('post-comment')->middleware('auth');
     Route::post('', 'ReviewsController@store')->name('store-review');
+
+    Route::get('{review:slug}', 'ReviewsController@show')->name('show-review');
+    Route::post('{review:slug}/comments', 'ReviewsController@saveComment')->name('post-review-comment')->middleware('auth');
 });
 
 /**
  * Stories route group 
  * 
  * */
-Route::group(['prefix' => 'hadithi/', 'namespace' => 'Stories'], function () {
+Route::group(['prefix' => 'stories/', 'namespace' => 'Stories'], function () {
 
     Route::get('', 'StoriesController@index')->name('stories');
     Route::get('create', 'StoriesController@create')->name('new-story')->middleware('auth');
@@ -69,7 +70,7 @@ Route::group(['prefix' => 'hadithi/', 'namespace' => 'Stories'], function () {
 });
 
 //Profiles
-Route::group(['prefix' => 'profiles', 'namespace' => 'Api\Users'], function () {
+Route::group(['prefix' => 'profiles/', 'namespace' => 'Api\Users'], function () {
 
     Route::get('{user:name}', 'ProfilesController@show')->name('member-profile');
     Route::post('', 'ProfilesController@store')->name('save-profile');
@@ -77,7 +78,7 @@ Route::group(['prefix' => 'profiles', 'namespace' => 'Api\Users'], function () {
 });
 
 //quotes
-Route::group(['prefix' => 'ushairi/', 'namespace' => 'Poems'], function () {
+Route::group(['prefix' => 'poems/', 'namespace' => 'Poems'], function () {
 
     Route::get('', 'PoemsController@index')->name('poems');
     Route::get('create', 'PoemsController@create')->name('new-poem')->middleware('auth');
@@ -86,7 +87,7 @@ Route::group(['prefix' => 'ushairi/', 'namespace' => 'Poems'], function () {
 });
 
 //Quotes
-Route::group(['prefix' => 'nasaha/', 'namespace' => 'Quotes'], function () {
+Route::group(['prefix' => 'quotes/', 'namespace' => 'Quotes'], function () {
 
     Route::get('', 'QuotesController@index')->name('quotes');
     Route::get('create', 'QuotesController@create')->name('new-quote')->middleware('auth');
