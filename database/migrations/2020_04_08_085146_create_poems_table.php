@@ -19,6 +19,7 @@ class CreatePoemsTable extends Migration
             $table->string('title');
             $table->text('body');
             $table->string('slug');
+            $table->boolean('status')->default(false);
             $table->timestamps();
 
             $table->foreign('user_id')

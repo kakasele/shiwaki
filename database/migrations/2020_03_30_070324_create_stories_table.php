@@ -19,6 +19,7 @@ class CreateStoriesTable extends Migration
             $table->string('title');
             $table->string('slug');
             $table->text('body');
+            $table->boolean('status')->default(false);
             $table->timestamps();
 
             $table->foreign('user_id')

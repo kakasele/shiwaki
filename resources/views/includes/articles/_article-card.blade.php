@@ -13,14 +13,14 @@
                 {{$article->title}}
             </h3>
             <div class="mt-3 text-base leading-6 text-gray-600 ashmif-content flex-1">
-                {!!Str::of($article->body)->words(20,'</div>')!!}
+                {!!Str::of($article->body)->words(12,'</div>')!!}
             </div>
         </div>
         <div class="author flex items-center mt-6">
             <div class="flex-shrink-0">
                 <img
                     class="h-10 w-10 rounded-full"
-                    src="{{asset($article->user->avatar_path)}}"
+                    src="{{asset($article->user->avatar())}}"
                     alt=""
                 />
             </div>

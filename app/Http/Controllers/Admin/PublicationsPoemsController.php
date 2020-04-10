@@ -1,14 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Poems;
+namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use App\Poem;
+use App\Http\Controllers\Controller;
+use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Str;
 
-class PoemsController extends Controller
+class PublicationsPoemsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +16,8 @@ class PoemsController extends Controller
      */
     public function index()
     {
-        return view('poems.index', [
-            'poems' => Poem::where('status', 1)->paginate(6)
+        return view('admin.publications.poems.index', [
+            'poems' => Poem::latest()->get()
         ]);
     }
 
@@ -29,7 +28,7 @@ class PoemsController extends Controller
      */
     public function create()
     {
-        return view('poems.create');
+        //
     }
 
     /**
@@ -40,34 +39,7 @@ class PoemsController extends Controller
      */
     public function store(Request $request)
     {
-
-        $validator = Validator::make(request()->all(), [
-            'title' => 'required|min:5',
-            'body' => 'required',
-        ]);
-
-
-
-        if ($validator->fails()) {
-
-            alert('Aaaah...nah', $validator->messages()->all(), 'error');
-
-            return back();
-        }
-
-        $slug = Str::slug(request('title'), '-');
-
-        auth()->user()->poems()->create([
-            'title' => request('title'),
-            'body' => request('body'),
-            'slug' => $slug
-        ]);
-
-        return redirect(route('poems'))
-            ->with(
-                'success',
-                'Your poem has been published'
-            );
+        //
     }
 
     /**
@@ -76,15 +48,12 @@ class PoemsController extends Controller
      * @param  \App\Poem  $poem
      * @return \Illuminate\Http\Response
      */
-    public function show(Poem $poem)
+    public function show(Poem $poem, User $user)
     {
-        return view(
-            'poems.show',
-            [
-                'poem' => $poem,
-                'user_poems' => poem::where('user_id', $poem->user_id)->latest()->get()
-            ]
-        );
+        return view('poems.show', [
+            'poem' => $poem,
+            'user_poem' => $poem->user->stories()->get()
+        ]);
     }
 
     /**
@@ -95,7 +64,7 @@ class PoemsController extends Controller
      */
     public function edit(Poem $poem)
     {
-        //
+        return view('admin.publications.poems.edit', compact('poem'));
     }
 
     /**
@@ -107,7 +76,15 @@ class PoemsController extends Controller
      */
     public function update(Request $request, Poem $poem)
     {
-        //
+
+        $poem->title = $request->title;
+        $poem->body = $request->body;
+
+        $poem->status = true;
+
+        $poem->save();
+
+        return redirect(route('admin.stories.index'));
     }
 
     /**
@@ -118,6 +95,8 @@ class PoemsController extends Controller
      */
     public function destroy(Poem $poem)
     {
-        //
+        $poem->delete();
+
+        return back();
     }
 }

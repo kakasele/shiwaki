@@ -20,12 +20,15 @@ class ArticlesController extends Controller
 
     public function show(Article $article)
     {
+
+
         return view(
             'articles.show',
             [
                 'article' => $article,
                 'user_articles' => Article::where('user_id', $article->user_id)->latest()->get()
             ]
+
         );
     }
 

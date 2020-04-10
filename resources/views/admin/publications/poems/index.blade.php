@@ -1,27 +1,14 @@
 @extends('layouts.app') @section('content')
 <div class="container-users">
-    <header class="bg-white sm:px-12 sm:py-6 p-6 mx-auto shadow-sm sm:flex justify-between items-center">
+    <header class="bg-white p-6  mx-auto shadow-sm flex items-center justify-between">
         <h1 class="text-lg text-gray-700">
             Welcome back,
-            <span class="text-blue-300">{{auth()->user()->name}}</span>
             &#x1F91F;
         </h1>
-        <div class="hidden sm:flex  items-center uppercase">
-            <div class="mr-2 bg-green-400 px-3 py-1 text-white rounded-full shadow "><a href="{{route('admin.articles.index')}}" class="hover:no-underline hover:text-white">Articles</a></div>
-            <div class="mr-2 bg-blue-400 px-3 py-1 text-white rounded-full shadow"><a href="{{route('admin.stories.index')}}" class="hover:no-underline hover:text-white">Stories</a></div>
-            <div class="mr-2 bg-red-400 px-3 py-1 text-white rounded-full shadow"><a href="{{route('admin.poems.index')}}" class="hover:no-underline hover:text-white">Poems</a></div>
-            <div class="mr-2 bg-indigo-400 px-3 py-1 text-white rounded-full shadow"><a href="{{route('admin.reviews.index')}}" class="hover:no-underline hover:text-white">Reviews</a></div>
-        </div>
-
-        <div class="sm:hidden flex  items-center uppercase mt-3">
-            <div class="mr-1 bg-green-400 px-2 py-1 text-white rounded-full shadow "><a href="{{route('admin.articles.index')}}" class="hover:no-underline hover:text-white">Articles</a></div>
-            <div class="mr-1 bg-blue-400 px-2 py-1 text-white rounded-full shadow"><a href="{{route('admin.stories.index')}}" class="hover:no-underline hover:text-white">Stories</a></div>
-            <div class="mr-1 bg-red-400 px-2 py-1 text-white rounded-full shadow"><a href="{{route('admin.poems.index')}}" class="hover:no-underline hover:text-white">Poems</a></div>
-            <div class="mr-1 bg-indigo-400 px-2 py-1 text-white rounded-full shadow"><a href="{{route('admin.reviews.index')}}" class="hover:no-underline hover:text-white">Reviews</a></div>
-        </div>
+        <a href="{{route('admin.users.index')}}"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-6 h-6 text-gray-600"><path d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"></path></svg></a>
     </header>
     <div class="flex flex-col container mt-3 mb-12">
-        <h1 class="mb-2 text-gray-800 text-xl">Manage site users</h1>
+        <h1 class="mb-2 text-gray-600 text-xl">Manage poems</h1>
         <div
             class="-my-2 py-2 overflow-x-auto overflow-y-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8"
         >
@@ -29,26 +16,31 @@
                 class="align-middle inline-block min-w-full shadow overflow-hidden sm:rounded-lg border-b border-gray-200"
             >
                 <table class="min-w-full">
-                    <thead>
+                    <thead class="bg-blue-300 text-white">
                         <tr>
                             <th
-                                class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"
+                                class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-semibold text-white uppercase tracking-wider"
                             >
-                                Name
+                                Author
                             </th>
                             <th
-                                class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"
+                                class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-semibold text-white uppercase tracking-wider"
                             >
-                                Username
+                                Title
                             </th>
                             <th
-                                class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"
+                                class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-semibold text-white uppercase tracking-wider"
                             >
-                                Roles
+                                Published
+                            </th>
+                            <th
+                                class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-semibold text-white uppercase tracking-wider"
+                            >
+                                Status
                             </th>
                             @can('manage_users')
                             <th
-                                class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"
+                                class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-semibold text-white uppercase tracking-wider"
                             >
                                 Actions
                             </th>
@@ -56,14 +48,14 @@
                         </tr>
                     </thead>
                     <tbody class="bg-white">
-                        @foreach ($users as $user)
+                        @foreach ($poems as $poem)
                         <tr class="border-b">
                             <td class="px-6 py-4 whitespace-no-wrap">
                                 <div class="flex items-center">
                                     <div class="flex-shrink-0 h-10 w-10">
                                         <img
                                             class="h-10 w-10 rounded-full"
-                                            src="{{asset($user->avatar())}}"
+                                            src="{{asset($poem->user->avatar())}}"
                                             alt=""
                                         />
                                     </div>
@@ -71,26 +63,32 @@
                                         <div
                                             class="text-sm leading-5 font-medium text-gray-900"
                                         >
-                                            {{$user->name}}
+                                            {{$poem->user->name}}
                                         </div>
                                         <div
                                             class="text-sm leading-5 text-gray-500"
                                         >
-                                            {{$user->email}}
+                                            {{$poem->user->username}}
                                         </div>
                                     </div>
                                 </div>
                             </td>
                             <td class="px-6 py-4 whitespace-no-wrap">
                                 <div class="text-sm leading-5 text-gray-900">
-                                    {{$user->username}}
+                                    {{$poem->title}}
+                                </div>
+                            </td>
+
+                            <td class="px-6 py-4 whitespace-no-wrap">
+                                <div class="text-sm leading-5 text-gray-900">
+                                    {{$poem->created_at->toFormattedDateString()}}
                                 </div>
                             </td>
 
                             <td
                                 class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500"
                             >
-                                {{implode(', ',$user->roles()->get()->pluck('label')->toArray())}}
+                              {!!$poem->status()!!}
                             </td>
                             <td
                                 class="px-6 py-4 whitespace-no-wrap text-right text-sm leading-5 font-medium"
@@ -99,7 +97,10 @@
                                 <div
                                     class="flex flex-end text-indigo-600 hover:text-indigo-900 focus:outline-none focus:underline z-50"
                                 >
-                                    <a href="{{route('admin.users.edit',$user->id)}}" class="mr-2">
+                                <a href="{{route('admin.poems.show',$poem->id)}}" class="mr-2">
+                                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-blue-300"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                                    </a>
+                                    <a href="{{route('admin.poems.edit',$poem->id)}}" class="mr-2">
                                         <svg
                                             fill="none"
                                             stroke="currentColor"
@@ -114,8 +115,8 @@
                                             ></path>
                                         </svg>
                                     </a>
-                                    <div href="{{route('admin.users.destroy',$user->id)}}">
-                                        <form action="{{route('admin.users.destroy',$user->id)}}" method="POST">
+                                    <div href="{{route('admin.poems.destroy',$poem->id)}}">
+                                        <form action="{{route('admin.poems.destroy',$poem->id)}}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit">

@@ -5,7 +5,7 @@
         <a class="navbar-brand" href="{{ url('/') }}">
             {{-- {{ config('app.name', 'Shiwaki') }} --}}
             <div class="sm:ml-2 overflow-hidden">
-                <img class="h-14 w-16 object-cover" src="{{asset('/images/logo-final.png')}}" alt="" />
+                <img class="h-14 w-16 object-cover flex-shrink-0" src="{{asset('/images/logo-final.png')}}" alt="" />
             </div>
         </a>
         <div
@@ -151,8 +151,8 @@
                             href="{{route('admin.users.index')}}"
                             class="flex items-center block px-2 py- no-underline hover:no-underline hover:bg-blue-400 hover:text-white"
                         >
-<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-4 h-4 text-sm mr-1"><path d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
-                            Manage Users
+                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-4 h-4 text-sm mr-1"><path d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                            Admin Dashboard
                         </a>                        
                         @endcan
 

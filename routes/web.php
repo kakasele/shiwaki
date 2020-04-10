@@ -20,9 +20,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
 
     return view('welcome', [
-        'articles' => Article::latest()->get()->take(3),
-        'slider_articles' => Article::latest()->get(),
-        'stories' => Story::latest()->get()->take(3),
+        'articles' => Article::where('status', 1)->get()->take(6),
+        'slider_articles' => Article::where('status', 1)->get(),
+        'stories' => Story::where('status', 1)->get()->take(3),
         'reviews' => Review::latest()->get()->take(3)
     ]);
 });
@@ -118,6 +118,10 @@ Route::get(
 
 Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:manage_users')->group(function () {
     Route::resource('/users', 'UsersController', ['except' => ['show', 'create', 'store']]);
+    Route::resource('/publications/articles', 'PublicationsArticlesController', ['except' => ['create', 'store']]);
+    Route::resource('/publications/stories', 'PublicationsStoriesController', ['except' => ['create', 'store']]);
+    Route::resource('/publications/poems', 'PublicationsPoemsController', ['except' => ['create', 'store']]);
+    Route::resource('/publications/reviews', 'PublicationsReviewsController', ['except' => ['create', 'store']]);
 });
 
 Auth::routes();

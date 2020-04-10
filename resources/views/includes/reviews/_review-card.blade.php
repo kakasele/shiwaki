@@ -23,7 +23,7 @@
             <div class="flex-shrink-0">
                 <img
                     class="h-10 w-10 rounded-full"
-                    src="{{asset($review->user->avatar_path)}}"
+                    src="{{asset($review->user->avatar())}}"
                     alt=""
                 />
             </div>

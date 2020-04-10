@@ -3,7 +3,7 @@
     class="container bg-indigo-600 px-4 py-3 rounded-b shadow text-white mb-3"
 >
     <div class="flex justify-between items-center">
-        <h1 class="text-xl">Work<span class="font-bold">Board</span></h1>
+        <a class="hover:text-white hover:no-underline text-lg" href="{{route('translate-index')}}" class="text-xl">Work<span class="font-bold">Board</span></a>
         <a
             href="{{route('submit-work')}}"
             class="bg-green-400 text-white px-3 py-1 flex justify-between rounded-full text-lg shadow no-underline hover:no-underline"

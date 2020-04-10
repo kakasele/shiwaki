@@ -1,14 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Stories;
+namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use App\Story;
+use App\Http\Controllers\Controller;
+use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Str;
 
-class StoriesController extends Controller
+class PublicationsstoriesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +16,8 @@ class StoriesController extends Controller
      */
     public function index()
     {
-        return view('stories.index', [
-            'stories' => Story::where('status', 1)->paginate(6)
+        return view('admin.publications.stories.index', [
+            'stories' => Story::latest()->get()
         ]);
     }
 
@@ -29,7 +28,7 @@ class StoriesController extends Controller
      */
     public function create()
     {
-        return view('stories.create');
+        //
     }
 
     /**
@@ -40,30 +39,7 @@ class StoriesController extends Controller
      */
     public function store(Request $request)
     {
-
-        $validator = Validator::make(request()->all(), [
-            'title' => 'required|min:5',
-            'body' => 'required',
-        ]);
-
-
-        $slug = Str::slug(request('title'), '-');
-
-        if ($validator->fails()) {
-
-            alert('Aaaah...nah', $validator->messages()->all(), 'error');
-
-            return back();
-        }
-
-        auth()->user()->stories()->create([
-            'title' => request('title'),
-            'body' => request('body'),
-            'slug' => $slug
-        ]);
-
-        return redirect(route('stories'))
-            ->with('success', 'Your story has been saved');
+        //
     }
 
     /**
@@ -72,15 +48,12 @@ class StoriesController extends Controller
      * @param  \App\Story  $story
      * @return \Illuminate\Http\Response
      */
-    public function show(Story $story)
+    public function show(Story $story, User $user)
     {
-        return view(
-            'stories.show',
-            [
-                'story' => $story,
-                'user_stories' => Story::where('user_id', $story->user_id)->latest()->get()
-            ]
-        );
+        return view('stories.show', [
+            'story' => $story,
+            'user_stories' => $story->user->stories()->get()
+        ]);
     }
 
     /**
@@ -91,7 +64,7 @@ class StoriesController extends Controller
      */
     public function edit(Story $story)
     {
-        //
+        return view('admin.publications.stories.edit', compact('story'));
     }
 
     /**
@@ -103,7 +76,15 @@ class StoriesController extends Controller
      */
     public function update(Request $request, Story $story)
     {
-        //
+
+        $story->title = $request->title;
+        $story->body = $request->body;
+
+        $story->status = true;
+
+        $story->save();
+
+        return redirect(route('admin.stories.index'));
     }
 
     /**
@@ -114,6 +95,8 @@ class StoriesController extends Controller
      */
     public function destroy(Story $story)
     {
-        //
+        $story->delete();
+
+        return back();
     }
 }

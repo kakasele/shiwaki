@@ -17,7 +17,7 @@ class ReviewsController extends Controller
     public function index()
     {
         return view('reviews.index', [
-            'reviews' => Review::latest()->paginate(6)
+            'reviews' => Review::where('status', 1)->paginate(6)
         ]);
     }
 

@@ -14,7 +14,7 @@
                     alt=""
                 />
                 <p
-                    class="comment-body pl-10 pr-3 py-2 sm:max-w-4/5 w-full bg-white shadow-sm -ml-8 text-gray-800"
+                    class="comment-body pl-10 pr-3 py-2 sm:max-w-4/5 bg-white shadow-sm -ml-8 text-gray-800"
                 >
                     {{$comment->body}}
                 </p>

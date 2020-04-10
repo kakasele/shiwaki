@@ -20,6 +20,7 @@ class CreateReviewsTable extends Migration
             $table->string('slug');
             $table->text('body');
             $table->string('image_path')->nullable();
+            $table->boolean('status')->default(false);
             $table->timestamps();
 
 
