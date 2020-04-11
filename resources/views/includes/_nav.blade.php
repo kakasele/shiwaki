@@ -128,7 +128,7 @@
                     >
                          <a
                             href="{{route('dashboard',auth()->user()->name)}}"
-                            class="flex items-center block px-2 py- no-underline hover:no-underline hover:bg-blue-400 hover:text-white"
+                            class="flex items-center block px-2 py-1 no-underline hover:no-underline hover:bg-blue-400 hover:text-white"
                         >
                             <svg
                                 fill="none"
@@ -149,7 +149,7 @@
                         @can('manage_users')
                          <a
                             href="{{route('admin.users.index')}}"
-                            class="flex items-center block px-2 py- no-underline hover:no-underline hover:bg-blue-400 hover:text-white"
+                            class="flex items-center block px-2 py-1 no-underline hover:no-underline hover:bg-blue-400 hover:text-white"
                         >
                         <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-4 h-4 text-sm mr-1"><path d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
                             Admin Dashboard
@@ -157,8 +157,8 @@
                         @endcan
 
                         <a
-                            href="{{route('member-profile',auth()->user()->name)}}"
-                            class="flex items-center block px-2 py- no-underline hover:no-underline hover:bg-blue-400 hover:text-white"
+                            href="{{route('member-profile',auth()->user()->username)}}"
+                            class="flex items-center block px-2 py-1 no-underline hover:no-underline hover:bg-blue-400 hover:text-white"
                         >
                             <svg
                                 fill="none"
@@ -176,7 +176,7 @@
                                     d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
                                 ></path>
                             </svg>
-                            Settings
+                            My Profile
                         </a>
                         <a
                             class="flex items-center block px-2 py-1 no-underline hover:no-underline hover:bg-blue-400 hover:text-white"

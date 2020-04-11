@@ -70,10 +70,11 @@ Route::group(['prefix' => 'stories/', 'namespace' => 'Stories'], function () {
 });
 
 //Profiles
-Route::group(['prefix' => 'profiles/', 'namespace' => 'Api\Users'], function () {
+Route::group(['prefix' => 'members/profiles/', 'namespace' => 'Api\Users'], function () {
 
-    Route::get('{user:name}', 'ProfilesController@show')->name('member-profile');
-    Route::post('', 'ProfilesController@store')->name('save-profile');
+    Route::get('{user:username}', 'ProfilesController@show')->name('member-profile')->middleware('auth');
+    Route::get('{user:username}/edit', 'ProfilesController@edit')->name('member-profile-edit')->middleware('auth');
+    Route::patch('{user:username}', 'ProfilesController@update')->name('save-profile')->middleware('auth');
     Route::get('', 'ProfilesController@index');
 });
 

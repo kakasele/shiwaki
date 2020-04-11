@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api\Users;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
-
+use Illuminate\Contracts\Validation\Rule;
 
 class ProfilesController extends Controller
 {
@@ -17,27 +17,56 @@ class ProfilesController extends Controller
 
     public function show(User $user)
     {
-        return view('profiles.super-profile', [
+        return view('profiles.show-profile', [
             'profileUser' => $user,
             'articles' => $user->articles()->latest()->get(),
         ]);
     }
 
-    public function store()
+    public function edit(User $user)
     {
+        return view('profiles.edit', [
+            'profileUser' => $user
+        ]);
+    }
 
-        request()->validate([
-            'avatar' => ['required', 'image'],
+    public function update(Request $request, User $user)
+    {
+        $profileUser = $user;
+
+        $attributes = request()->validate([
+            'username' => [
+                'string',
+                'max:255',
+                'alpha_dash',
+            ],
+
+
+            'name' => [
+                'string',
+                'max:255'
+            ],
+
+            'bio' => [
+                'max:255'
+            ],
+
+
+            'avatar' => ['file'],
+
+            'email' => [
+                'string',
+                'max:255',
+                'email',
+            ],
         ]);
 
-        auth()->user()->update([
-            'avatar_path' => request()
-                ->file('avatar')
-                ->store('avatars', 'public'),
-            'username' => request('username'),
-            'bio' => request('bio'),
-        ]);
+        if (request()->has('avatar')) {
+            $attributes['avatar_path'] = request()->file('avatar')->store('avatars');
+        }
 
-        return back();
+        $user->update($attributes);
+
+        return redirect(route('member-profile', $profileUser->username));
     }
 }

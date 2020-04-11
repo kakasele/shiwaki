@@ -97,7 +97,7 @@
             <div class="mt-3">
                 <a
                     class="bg-indigo-400 shadow px-4 py-2 block text-center no-underline hover:no-underline sm:w-2/3 text-white rounded-full w-full font-semibold"
-                    href="{{route('member-profile',$article->user->name)}}"
+                    href="{{route('member-profile',$article->user->username)}}"
                 >
                     View Profile
                 </a>
@@ -130,7 +130,7 @@
         <div class="mt-2 block shadow-sm rounded bg-white">
             <h1 class="px-3 pt-3 text-lg text-gray-500">
                 More from
-                <span class=""><a href="">{{$article->user->name}}</a></span>
+                <span class=""><a href="">{{$article->user->username}}</a></span>
             </h1>
             <div
                 class="main-carousel"

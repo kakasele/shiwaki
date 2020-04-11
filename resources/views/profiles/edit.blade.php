@@ -1,17 +1,21 @@
-@extends('layouts.app') @section('content')
+@extends('layouts.app') 
+
+@section('content')
 <div class="container mt-16">
-    <div class="form-container bg-white">
-        <form class="mt-8" action="{{route('register')}}" method="POST">
+    <div class="form-container bg-white sm:w-1/2 mx-auto p-3 rounded-lg">
+        <h1 class="text-lg text-gray-700 pt-3">Update your details</h1>
+        <form class="mt-8" action="{{route('save-profile',$profileUser->username)}}" method="POST" enctype="multipart/form-data">
             @csrf
+            @method('PATCH')
             <div class="rounded-md">
                 <div class="mb-2">
                     <input
                         aria-label="Name"
                         name="name"
                         type="text"
-                        required
                         class="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5"
                         placeholder="Your name"
+                        value="{{$profileUser->name}}"
                     />
                     @error('name')
                     <span class="invalid-feedback" role="alert">
@@ -21,12 +25,27 @@
                 </div>
                 <div class="mb-2">
                     <input
+                        aria-label="Username"
+                        name="username"
+                        type="text"
+                        value="{{$profileUser->username}}"
+                        class="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5"
+                        placeholder="Your Username"
+                    />
+                    @error('username')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>                
+                <div class="mb-2">
+                    <input
                         aria-label="Email address"
                         name="email"
                         type="email"
-                        required
                         class="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5"
                         placeholder="Email address"
+                        value="{{$profileUser->email}}"
                     />
                     @error('email')
                     <span class="invalid-feedback" role="alert">
@@ -35,35 +54,33 @@
                     @enderror
                 </div>
                 <div class="mb-2">
-                    <input
-                        aria-label="Password"
-                        id="password"
-                        type="password"
-                        name="password"
-                        required
-                        autocomplete="new-password"
-                        class="@error('password') is-invalid @enderror appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5"
-                        placeholder="Password"
-                    />
-                    @error('password')
+                    <textarea
+                        aria-label="Bio"
+                        name="bio"
+                        type="text"
+                        class="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5"
+                        placeholder="Bio"
+                    >{{$profileUser->bio}}</textarea>
+                    @error('bio')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
                     @enderror
-                </div>
-                <div>
+                </div>                
+                <div class="mb-2">
                     <input
-                        id="password-confirm"
-                        name="password_confirmation"
-                        required
-                        autocomplete="new-password"
-                        aria-label="Confirm password"
-                        type="password"
-                        required
+                        aria-label="Email address"
+                        name="avatar"
+                        type="file"
                         class="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5"
-                        placeholder="Confirm password"
+                        placeholder="Avatar"
                     />
-                </div>
+                    @error('email')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>                
             </div>
 
             <div class="mt-6">
@@ -84,21 +101,8 @@
                             ></path>
                         </svg>
                     </span>
-                    Create your account
+                    Update your account
                 </button>
-            </div>
-            <div class="mt-6 flex items-center justify-between">
-                <div class="flex items-center">
-                    Already have an account ?
-                </div>
-
-                <div class="text-sm leading-5">
-                    @if (Route::has('password.request'))
-                    <a class="btn btn-link" href="{{ route('login') }}">
-                        {{ __('Login to your account') }}
-                    </a>
-                    @endif
-                </div>
             </div>
         </form>
     </div>
