@@ -37,7 +37,7 @@ Route::post('/contact', 'ContactController@store')->middleware('auth')->name('co
  * Articles route group 
  * 
  * */
-Route::group(['prefix' => 'articles/', 'namespace' => 'Articles'], function () {
+Route::group(['prefix' => 'habari/', 'namespace' => 'Articles'], function () {
 
     Route::get('', 'ArticlesController@index')->name('articles');
     Route::get('create', 'ArticlesController@create')->name('new-article')->middleware('auth');

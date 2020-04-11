@@ -12,11 +12,13 @@
     <div
         class="sm:px-6 lg:px-8 mx-w-lg mx-auto py-6 grid gap-4 lg:grid-cols-3 lg:mx-w-none hover:translate-x-2"
     >
-        @foreach ($articles as $article) 
+        @forelse ($articles as $article) 
           <a href="{{$article->path()}}" class="no-underline hover:no-underline">
               @include('includes.articles._article-card')
           </a>
-        @endforeach
+        @empty
+            <p>No relevant articles yet</p>
+        @endforelse
     </div>
     <a
     href="{{route('new-article')}}"
@@ -39,7 +41,7 @@
         </svg>
     </a>
     <div class="sm:ml-8">
-        {{$articles->links()}}
+        {{-- {{$articles->links()}} --}}
     </div>
 </div>
 

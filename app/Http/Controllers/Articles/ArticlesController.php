@@ -7,14 +7,21 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Article;
 use App\Mail\PostAwaitingApproval;
+use App\Tag;
 use Illuminate\Support\Facades\Mail;
 
 class ArticlesController extends Controller
 {
     public function index()
     {
+        if (request('tag')) {
+            $articles = Tag::where('name', request('tag'))->firstOrFail()->articles;
+        } else {
+            $articles = Article::where('status', 1)->latest()->get();
+        }
+
         return view('articles.index', [
-            'articles' => Article::where('status', 1)->paginate(6)
+            'articles' => $articles
         ]);
     }
 
@@ -34,27 +41,38 @@ class ArticlesController extends Controller
 
     public function create()
     {
-        return view('articles.create');
+        return view('articles.create', [
+
+            'tags' => Tag::all()
+
+        ]);
     }
 
     public function store(Request $request)
     {
 
-        $attributes = request()->validate([
-            'title' => 'required',
-            'body' => 'required',
-        ]);
+        $this->validateArticle();
 
+        $article = new Article(request(['title', 'body']));
+        $article->image_path = $request->file('article_cover')->store('posts/images', 'public');
+        $article->slug = Str::slug(request('title'), '-');
+        $article->user_id = auth()->user()->id;
 
-        $attributes['image_path'] = $request->file('article_cover')->store('posts/images', 'public');
-        $attributes['slug'] = Str::slug(request('title'), '-');
-
-
-        auth()->user()->articles()->create($attributes);
+        $article->save();
+        $article->tags()->sync(request('tags'));
 
         // Mail::to('suleiman665@gmail.com')->send(new PostAwaitingApproval($article));
 
 
         return redirect(route('articles'));
+    }
+
+    public function validateArticle()
+    {
+        return request()->validate([
+            'title' => 'required',
+            'body' => 'required',
+            'tags' => 'exists:tags,id',
+        ]);
     }
 }

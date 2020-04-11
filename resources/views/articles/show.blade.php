@@ -104,6 +104,13 @@
                 </a>
             </div>
         </div>
+         <div class="bg-white rounded p-3 mt-2 flex justify-around shadow-sm">
+            @forelse ($article->tags as $tag)
+                <a class="bg-pink-400 px-2 rounded-full text-white hover:no-underline hover:text-white" href="{{route('articles',['tag'=>$tag->name])}}">{{$tag->name}}</a>
+            @empty
+                
+            @endforelse
+        </div>
         <div class="mt-2 block shadow-sm rounded bg-white">
             <h1 class="px-3 pt-3 text-lg text-gray-500">
                 More from

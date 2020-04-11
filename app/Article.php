@@ -23,7 +23,13 @@ class Article extends Model
 
     public function path()
     {
-        return 'articles/' . $this->slug;
+        return 'habari/' . $this->slug;
+    }
+
+    public function tags()
+    {
+
+        return $this->belongsToMany(Tag::class)->withTimestamps();
     }
 
     public function status()
