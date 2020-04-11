@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
 
     return view('welcome', [
-        'articles' => Article::where('status', 1)->get()->take(6),
+        'articles' => Article::where('status', 1)->latest()->get()->take(6),
         'slider_articles' => Article::where('status', 1)->get(),
         'stories' => Story::where('status', 1)->get()->take(3),
         'reviews' => Review::latest()->get()->take(3)

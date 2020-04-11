@@ -20,7 +20,7 @@
                 </div>
             </div>
             <div>
-                <div class="comments bg-gray-200 pb-3 py-4">
+                <div class="comments bg-gray-100 pb-3 py-4">
                     @if($article->comments->count() < 1)
                     <h1 class="px-3 pt-3 text-gray-600">
                         Be the first to comment &#x1F91F;
@@ -74,7 +74,6 @@
     </div>
 
     <div class="block sm:flex-1 sm:ml-4 rounded">
-        <h1 class="pb-2 sm:hidden text-base text-blue-400">Published by...</h1>
         <div class="shadow-sm bg-white rounded-lg px-4 p-3">
             <div class="author-info flex items-center mx-auto">
                 <div>
@@ -97,20 +96,37 @@
             </div>
             <div class="mt-3">
                 <a
-                    class="bg-green-400 shadow px-4 py-2 block text-center no-underline hover:no-underline sm:w-2/3 text-white rounded-full w-full font-semibold"
+                    class="bg-indigo-400 shadow px-4 py-2 block text-center no-underline hover:no-underline sm:w-2/3 text-white rounded-full w-full font-semibold"
                     href="{{route('member-profile',$article->user->name)}}"
                 >
                     View Profile
                 </a>
             </div>
         </div>
-         <div class="bg-white rounded p-3 mt-2 flex justify-around shadow-sm">
+        @if ($article->tags->count()>0)
+          <div class="bg-white rounded-lg flex justify-around p-3 mt-2 shadow-sm">
             @forelse ($article->tags as $tag)
-                <a class="bg-pink-400 px-2 rounded-full text-white hover:no-underline hover:text-white" href="{{route('articles',['tag'=>$tag->name])}}">{{$tag->name}}</a>
+                <a class="
+                 @if($tag->name==='Laravel')
+                 bg-green-300
+                 @elseif($tag->name==='Business')
+                 bg-pink-300
+                 @elseif($tag->name==='Tech')
+                 bg-blue-300                 
+                 @else
+                 bg-purple-500
+                 @endif
+                 px-3 rounded-full text-white hover:no-underline hover:text-white shadow-sm" 
+                href="{{route('articles',['tag'=>$tag->name])}}">{{$tag->name}}</a>
             @empty
                 
             @endforelse
-        </div>
+        </div>           
+        @else
+        <p class="bg-white rounded-lg p-3 mt-2 shadow-sm text-gray-600">
+            This article has no tags
+        </p>
+        @endif
         <div class="mt-2 block shadow-sm rounded bg-white">
             <h1 class="px-3 pt-3 text-lg text-gray-500">
                 More from
