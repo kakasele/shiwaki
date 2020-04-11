@@ -104,7 +104,7 @@
             </div>
         </div>
         @if ($article->tags->count()>0)
-          <div class="bg-white rounded-lg flex justify-around p-3 mt-2 shadow-sm">
+          <div class="bg-white rounded-lg flex justify-around flex-wrap p-2 mt-2 shadow-xs">
             @forelse ($article->tags as $tag)
                 <a class="
                  @if($tag->name==='Laravel')
@@ -116,7 +116,7 @@
                  @else
                  bg-purple-500
                  @endif
-                 px-3 rounded-full text-white hover:no-underline hover:text-white shadow-sm" 
+                 px-3 rounded-full text-white hover:no-underline hover:text-white shadow-sm my-1" 
                 href="{{route('articles',['tag'=>$tag->name])}}">{{$tag->name}}</a>
             @empty
                 

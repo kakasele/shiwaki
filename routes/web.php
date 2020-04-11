@@ -119,9 +119,14 @@ Route::get(
 
 Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:manage_users')->group(function () {
     Route::resource('/users', 'UsersController', ['except' => ['show', 'create', 'store']]);
+    Route::resource('/misc/tags', 'Misc\TagsController');
+
     Route::resource('/publications/articles', 'PublicationsArticlesController', ['except' => ['create', 'store']]);
+
     Route::resource('/publications/stories', 'PublicationsStoriesController', ['except' => ['create', 'store']]);
+
     Route::resource('/publications/poems', 'PublicationsPoemsController', ['except' => ['create', 'store']]);
+
     Route::resource('/publications/reviews', 'PublicationsReviewsController', ['except' => ['create', 'store']]);
 });
 
