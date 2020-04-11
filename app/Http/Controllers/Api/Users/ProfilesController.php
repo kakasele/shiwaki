@@ -20,6 +20,9 @@ class ProfilesController extends Controller
         return view('profiles.show-profile', [
             'profileUser' => $user,
             'articles' => $user->articles()->latest()->get(),
+            'reviews' => $user->reviews()->latest()->get(),
+            'stories' => $user->stories()->latest()->get(),
+            'poems' => $user->poems()->latest()->get(),
         ]);
     }
 
