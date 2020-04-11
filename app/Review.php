@@ -18,6 +18,10 @@ class Review extends Model
         return 'reviews/' . $this->slug;
     }
 
+    public function reviewcomments()
+    {
+        return $this->hasMany(ReviewComment::class);
+    }
 
     public function status()
     {

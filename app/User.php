@@ -127,4 +127,10 @@ class User extends Authenticatable
 
         return false;
     }
+
+    // Reviews
+    public function reviewcomments()
+    {
+        return $this->hasMany(ReviewComment::class);
+    }
 }

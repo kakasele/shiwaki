@@ -53,7 +53,7 @@ Route::group(['prefix' => 'reviews/', 'namespace' => 'Reviews'], function () {
     Route::post('', 'ReviewsController@store')->name('store-review');
 
     Route::get('{review:slug}', 'ReviewsController@show')->name('show-review');
-    Route::post('{review:slug}/comments', 'ReviewsController@saveComment')->name('post-review-comment')->middleware('auth');
+    Route::post('{review:slug}/comments', 'ReviewCommentsController@store')->name('post-review-comment')->middleware('auth');
 });
 
 /**

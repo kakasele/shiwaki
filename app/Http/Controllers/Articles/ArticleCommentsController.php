@@ -45,7 +45,9 @@ class ArticleCommentsController extends Controller
 
         $validatedComment['article_id'] = $article->id;
 
-        auth()->user()->comments()->create($validatedComment);
+        auth()->user()
+            ->comments()
+            ->create($validatedComment);
 
         return back();
     }

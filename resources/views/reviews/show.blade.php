@@ -21,13 +21,13 @@
                 </div>
             </div>
             <div>
-                {{--
+
                 <div class="comments bg-gray-200 pb-3 py-4">
-                    @if($review->comments->count() < 1)
+                    @if($review->reviewcomments->count() < 1)
                     <h1 class="px-3 pt-3 text-gray-600">
                         Be the first to comment &#x1F91F;
                     </h1>
-                    @endif @forelse($review->comments as $comment)
+                    @endif @forelse($review->reviewcomments as $comment)
                     <div class="comment px-3 mb-3 flex items-center">
                         <img
                             src="{{asset($comment->user->avatar())}}"
@@ -45,7 +45,7 @@
                     <div class="text-input p-3">
                         <form
                             class="flex items-center"
-                            action="{{route('post-comment',$review->slug)}}"
+                            action="{{route('post-review-comment',$review->slug)}}"
                             method="POST"
                         >
                             @csrf
@@ -69,7 +69,7 @@
                         >
                     </div>
                 </div>
-                --}}
+            
             </div>
         </div>
     </div>
