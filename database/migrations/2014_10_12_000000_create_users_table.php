@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('avatar_path')->nullable();
             $table->text('bio')->nullable();
-            $table->string('username')->nullable();
+            $table->string('username')->default('UserName')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
