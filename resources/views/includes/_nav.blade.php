@@ -4,8 +4,8 @@
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
             {{-- {{ config('app.name', 'Shiwaki') }} --}}
-            <div class="sm:ml-2 overflow-hidden">
-                <img class="h-14 w-16 object-cover flex-shrink-0" src="{{asset('/images/logo-final.png')}}" alt="" />
+            <div class="sm:ml-2 overflow-hidden bg-white px-2">
+                <img class="h-14 w-20 object-cover flex-shrink-0" src="{{asset('/images/logo-final.png')}}" alt="" />
             </div>
         </a>
         <div

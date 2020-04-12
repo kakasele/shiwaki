@@ -31,9 +31,23 @@ class UsersTableSeeder extends Seeder
             'password' => Hash::make('password')
         ]);
 
+        $owner = User::create([
+            'name' => 'Junaid Suleiman',
+            'email' => 'junai@gmail.com',
+            'username' => 'JuneBoy',
+            'password' => Hash::make('password')
+        ]);
+
         $admin = User::create([
             'name' => 'Fatma Shafii',
             'email' => 'fatma.shafii@gmail.com',
+            'username' => 'Fafi',
+            'password' => Hash::make('password')
+        ]);
+
+        $admin = User::create([
+            'name' => 'Adil Alamin',
+            'email' => 'adil@gmail.com',
             'username' => 'Fafi',
             'password' => Hash::make('password')
         ]);
@@ -53,6 +67,8 @@ class UsersTableSeeder extends Seeder
         ]);
 
         $owner->roles()->attach($ownerRole);
+        $owner->roles()->attach($ownerRole);
+        $admin->roles()->attach($adminRole);
         $admin->roles()->attach($adminRole);
         $author->roles()->attach($authorRole);
         $user->roles()->attach($userRole);
