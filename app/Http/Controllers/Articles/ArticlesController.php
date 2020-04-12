@@ -48,6 +48,42 @@ class ArticlesController extends Controller
         ]);
     }
 
+    public function edit(Article $article)
+    {
+        return view('articles.edit', [
+
+            'tags' => Tag::all(),
+            'article' => $article
+
+        ]);
+    }
+
+    public function update(Request $request, Article $article)
+    {
+        $attributes = request()->validate([
+            'title' => 'required',
+            'body' => 'required',
+            'artcile_cover' => 'file'
+        ]);
+
+        $attributes['slug'] = Str::slug(request('title'), '-');
+
+        if (request()->has('article_cover')) {
+            $image_path = $request->file('article_cover')->store('posts/images', 'public');
+
+            $attributes['image_path'] = $image_path;
+        } else {
+            $article->update($attributes);
+        }
+
+
+        if (request()->has('tags')) {
+            $article->tags()->sync(request('tags'));
+        }
+
+        return redirect('/');
+    }
+
     public function store(Request $request)
     {
 
@@ -65,6 +101,16 @@ class ArticlesController extends Controller
 
 
         return redirect(route('articles'));
+    }
+
+    public function destroy(Article $article)
+    {
+        $article->tags()->detach();
+
+        $article->delete();
+
+        return redirect('/')
+            ->with('success', 'Article was deleted');
     }
 
     public function validateArticle()

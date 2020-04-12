@@ -18,6 +18,16 @@
                 <div class="text-gray-700 mt-3 text-base ashmif-content">
                     {!! $article->body !!}
                 </div>
+                <div class="flex justify-end items-end mt-2">
+                    <a href="{{route('edit-article',$article->slug)}}" class="bg-blue-300 px-3 rounded-full text-white mr-2 hover:no-underline" href="">Edit</a>
+                    <div class="bg-red-400 px-3 rounded-full text-white">
+                        <form action="{{route('delete-article',$article->slug)}}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit">Delete</button>
+                        </form>
+                    </div>
+                </div>
             </div>
             <div>
                 <div class="comments bg-gray-100 pb-3 py-4">
@@ -38,9 +48,7 @@
                             {{$comment->body}}
                         </p>
                     </div>
-                    @empty 
-                    
-                    @endforelse
+                    @empty @endforelse
 
                     <div class="text-input p-3">
                         <form
@@ -104,9 +112,12 @@
             </div>
         </div>
         @if ($article->tags->count()>0)
-          <div class="bg-white rounded-lg flex justify-around flex-wrap p-2 mt-2 shadow-xs">
+        <div
+            class="bg-white rounded-lg flex justify-around flex-wrap p-2 mt-2 shadow-xs"
+        >
             @forelse ($article->tags as $tag)
-                <a class="
+            <a
+                class="
                  @if($tag->name==='Laravel')
                  bg-green-300
                  @elseif($tag->name==='Business')
@@ -116,12 +127,12 @@
                  @else
                  bg-purple-500
                  @endif
-                 px-3 rounded-full text-white hover:no-underline hover:text-white shadow-sm my-1" 
-                href="{{route('articles',['tag'=>$tag->name])}}">{{$tag->name}}</a>
-            @empty
-                
-            @endforelse
-        </div>           
+                 px-3 rounded-full text-white hover:no-underline hover:text-white shadow-sm my-1"
+                href="{{route('articles',['tag'=>$tag->name])}}"
+                >{{$tag->name}}</a
+            >
+            @empty @endforelse
+        </div>
         @else
         <p class="bg-white rounded-lg p-3 mt-2 shadow-sm text-gray-600">
             This article has no tags
@@ -130,7 +141,9 @@
         <div class="mt-2 block shadow-sm rounded bg-white">
             <h1 class="px-3 pt-3 text-lg text-gray-500">
                 More from
-                <span class=""><a href="">{{$article->user->username}}</a></span>
+                <span class=""
+                    ><a href="">{{$article->user->username}}</a></span
+                >
             </h1>
             <div
                 class="main-carousel"
@@ -142,9 +155,9 @@
                         href="{{route('show-article',$article->slug)}}"
                         class="no-underline hover:no-underline px-2 w-full"
                     >
-                    <div class="ashmif-content">
-                         @include('includes.articles._article-card') 
-                    </div>
+                        <div class="ashmif-content">
+                            @include('includes.articles._article-card')
+                        </div>
                     </a>
                 </div>
                 @endforeach

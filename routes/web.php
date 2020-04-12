@@ -41,6 +41,9 @@ Route::group(['prefix' => 'habari/', 'namespace' => 'Articles'], function () {
 
     Route::get('', 'ArticlesController@index')->name('articles');
     Route::get('create', 'ArticlesController@create')->name('new-article')->middleware('auth');
+    Route::get('{article:slug}/edit', 'ArticlesController@edit')->name('edit-article')->middleware('auth');
+    Route::patch('{article:slug}/edit', 'ArticlesController@update')->name('edit-article')->middleware('auth');
+    Route::delete('{article:slug}/', 'ArticlesController@destroy')->name('delete-article')->middleware('auth');
     Route::get('{article:slug}', 'ArticlesController@show')->name('show-article');
     Route::post('', 'ArticlesController@store')->name('store-article');
     Route::post('{article:slug}/comments', 'ArticleCommentsController@store')->name('post-article-comment')->middleware('auth');

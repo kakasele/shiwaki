@@ -28,8 +28,8 @@
                 <label for="title" class="text-sm block text-gray-600"
                     >Body</label
                 >
-                <input id="x"  value="{{$review->body}} type="hidden" name="body">
-                <trix-editor input="x" class="ashmif-content"></trix-editor>
+                <input id="x" type="hidden" name="body">
+                <trix-editor input="x" class="ashmif-content">{!!$review->body!!}</trix-editor>
             </div>
             <div>
                 <button 

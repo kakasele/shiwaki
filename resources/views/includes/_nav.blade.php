@@ -5,7 +5,7 @@
         <a class="navbar-brand" href="{{ url('/') }}">
             {{-- {{ config('app.name', 'Shiwaki') }} --}}
             <div class="sm:ml-2 overflow-hidden bg-white px-2">
-                <img class="h-14 w-20 object-cover flex-shrink-0" src="{{asset('/images/logo-final.png')}}" alt="" />
+                <img class="h-14 w-20 object-cover flex-shrink-0 rounded" src="{{asset('/images/logo-final.png')}}" alt="" />
             </div>
         </a>
         <div
@@ -84,15 +84,15 @@
                 <!-- Authentication Links -->
                 @guest
                 <li
-                    class="nav-item sm:rounded-full sm:px-3 sm:bg-white mr-3 text-gray-900"
+                    class="nav-item sm:rounded-full sm:px-3  mr-3 text-white text-lg"
                 >
-                    <a class="nav-link" href="{{ route('login') }}"
+                    <a class="nav-link sm:hover:text-white hover:no-underline" href="{{ route('login') }}"
                         >{{ __('Login') }}</a
                     >
                 </li>
                 @if (Route::has('register'))
                 <li
-                    class="nav-item sm:rounded-full sm:px-3 sm:bg-green-400 mr-3 text-white"
+                    class="nav-item sm:rounded-full sm:px-3 sm:bg-green-400 mr-3 text-white text-lg focus:text-white"
                 >
                     <a class="nav-link" href="{{ route('register') }}"
                         >{{ __('Register') }}</a

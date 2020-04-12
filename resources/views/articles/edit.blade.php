@@ -2,16 +2,16 @@
 
 @section('content')
 <div class="container mt-6">
-            <h1 class="mx-auto sm:text-center mb-3 text-xl font-semibold text-gray-600">Write your Review</h1>
+            <h1 class="mx-auto sm:text-center mb-3 text-xl font-semibold text-gray-600">Edit The Article</h1>
         @if (session('error'))
             <div class="alert alert-error">
                 {{session('error')}}
             </div>
         @endif
     <div class="form-container bg-white shadow-sm rounded sm:w-1/2 sm:mx-auto mt-6">
-        <form class="p-4" action="{{route('admin.articles.update',$article->id)}}" method="POST" enctype="multipart/form-data">
+        <form class="p-4" action="{{route('edit-article',$article->slug)}}" method="POST" enctype="multipart/form-data">
             @csrf
-            @method('put')
+            @method('PATCH')
             <div class="form-group">
                 <label for="title" class="text-sm block text-gray-600"
                     >Title</label
@@ -31,6 +31,29 @@
                 <input id="x" type="hidden" name="body">
                 <trix-editor input="x" class="ashmif-content">{!!$article->body!!}</trix-editor>
             </div>
+            <div class="form-group">
+                <label for="article_cover" class="text-sm block text-gray-600"
+                    >Cover Image</label
+                >
+                <input
+                    type="file"
+                    name="article_cover"
+                    id="article_cover"
+                    class="appearance-none bg-gray-100 p-2 rounded w-full"
+                    value="{{asset($article->image_path)}}"
+                />
+            </div>
+            <div class="form-group">
+                <label for="tags" 
+                class="text-sm block text-gray-600"
+                    >Tags</label
+                >
+                <select name="tags[]" multiple class="appearance-none bg-gray-100 p-2 rounded">
+                    @foreach ($tags as $tag)
+                        <option value="{{$tag->id}}">{{$tag->name}}</option>
+                    @endforeach
+                </select>
+            </div>            
             <div>
                 <button 
                 type="submit"
