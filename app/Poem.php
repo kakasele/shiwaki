@@ -15,7 +15,7 @@ class Poem extends Model
 
     public function path()
     {
-        return 'poems/' . $this->slug;
+        return route('poems') . '/' . $this->slug;
     }
 
     public function status()

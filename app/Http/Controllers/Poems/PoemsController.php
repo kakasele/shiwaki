@@ -95,7 +95,7 @@ class PoemsController extends Controller
      */
     public function edit(Poem $poem)
     {
-        //
+        return view('poems.edit', compact('poem'));
     }
 
     /**
@@ -107,7 +107,15 @@ class PoemsController extends Controller
      */
     public function update(Request $request, Poem $poem)
     {
-        //
+        $attributes = request()->validate([
+            'title' => 'required',
+            'body' => 'required'
+        ]);
+
+        $poem->update($attributes);
+
+        return redirect(route('poems'))
+            ->with('success', 'Poem was updated');
     }
 
     /**
@@ -118,6 +126,9 @@ class PoemsController extends Controller
      */
     public function destroy(Poem $poem)
     {
-        //
+        $poem->delete();
+
+        return redirect(route('poems'))
+            ->with('success', 'The poem was deleted');
     }
 }

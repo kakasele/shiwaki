@@ -40,7 +40,6 @@
                     name="article_cover"
                     id="article_cover"
                     class="appearance-none bg-gray-100 p-2 rounded w-full"
-                    value="{{asset($article->image_path)}}"
                 />
             </div>
             <div class="form-group">

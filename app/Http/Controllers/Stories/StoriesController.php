@@ -91,7 +91,7 @@ class StoriesController extends Controller
      */
     public function edit(Story $story)
     {
-        //
+        return view('stories.edit', compact('story'));
     }
 
     /**
@@ -103,7 +103,15 @@ class StoriesController extends Controller
      */
     public function update(Request $request, Story $story)
     {
-        //
+        $attributes = request()->validate([
+            'title' => 'required',
+            'body' => 'required'
+        ]);
+
+        $story->update($attributes);
+
+        return redirect(route('stories'))
+            ->with('success', 'Story updated successfully');
     }
 
     /**
@@ -114,6 +122,9 @@ class StoriesController extends Controller
      */
     public function destroy(Story $story)
     {
-        //
+        $story->delete();
+
+        return redirect(route('stories'))
+            ->with('success', 'Story deleted successfully');
     }
 }

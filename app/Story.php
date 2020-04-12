@@ -15,7 +15,7 @@ class Story extends Model
 
     public function path()
     {
-        return 'stories/' . $this->slug;
+        return route('stories') . '/' . $this->slug;
     }
 
     public function status()

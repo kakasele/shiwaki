@@ -11,6 +11,32 @@
                 <div class="text-gray-700 mt-3 text-base ashmif-content">
                     {!! $poem->body !!}
                 </div>
+                                @if (Auth::check()) 
+                    @if($poem->user->id===auth()->user()->id)
+                        <div class="flex justify-end items-end mt-2">
+                            <a
+                                href="{{route('edit-poem',$poem->slug)}}"
+                                class="bg-blue-300 px-3 rounded-full text-white mr-2 hover:no-underline"
+                                href=""
+                                >Edit</a
+                            >
+                            <div class="">
+                                <form
+                                    action="{{route('delete-poem',$poem->slug)}}"
+                                    method="POST"
+                                >
+                                    @csrf @method('DELETE')
+                                    <button
+                                        class="bg-red-400 px-3 rounded-full text-white outline-none focus:outline-none "
+                                        type="submit"
+                                    >
+                                        Delete
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    @endif 
+                @endif
             </div>
         </div>
     </div>

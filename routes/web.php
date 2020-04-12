@@ -43,7 +43,7 @@ Route::group(['prefix' => 'habari/', 'namespace' => 'Articles'], function () {
     Route::get('create', 'ArticlesController@create')->name('new-article')->middleware('auth');
     Route::get('{article:slug}/edit', 'ArticlesController@edit')->name('edit-article')->middleware('auth');
     Route::patch('{article:slug}/edit', 'ArticlesController@update')->name('edit-article')->middleware('auth');
-    Route::delete('{article:slug}/', 'ArticlesController@destroy')->name('delete-article')->middleware('auth');
+    Route::delete('{article:slug}', 'ArticlesController@destroy')->name('delete-article')->middleware('auth');
     Route::get('{article:slug}', 'ArticlesController@show')->name('show-article');
     Route::post('', 'ArticlesController@store')->name('store-article');
     Route::post('{article:slug}/comments', 'ArticleCommentsController@store')->name('post-article-comment')->middleware('auth');
@@ -68,7 +68,9 @@ Route::group(['prefix' => 'stories/', 'namespace' => 'Stories'], function () {
     Route::get('', 'StoriesController@index')->name('stories');
     Route::get('create', 'StoriesController@create')->name('new-story')->middleware('auth');
     Route::get('{story:slug}', 'StoriesController@show')->name('show-story');
-    Route::post('', 'StoriesController@store')->name('store-story');
+    Route::get('{story:slug}/edit', 'StoriesController@edit')->name('edit-story');
+    Route::patch('{story:slug}', 'StoriesController@update')->name('update-story');
+    Route::delete('{story:slug}', 'StoriesController@destroy')->name('delete-story');
     Route::post('', 'StoriesController@store')->name('store-story');
 });
 
@@ -85,8 +87,11 @@ Route::group(['prefix' => 'members/profiles/', 'namespace' => 'Api\Users'], func
 Route::group(['prefix' => 'poems/', 'namespace' => 'Poems'], function () {
 
     Route::get('', 'PoemsController@index')->name('poems');
-    Route::get('create', 'PoemsController@create')->name('new-poem')->middleware('auth');
     Route::get('{poem:slug}', 'PoemsController@show')->name('show-poem');
+    Route::get('create', 'PoemsController@create')->name('new-poem')->middleware('auth');
+    Route::get('{poem:slug}/edit', 'PoemsController@edit')->name('edit-poem');
+    Route::patch('{poem:slug}', 'PoemsController@update')->name('update-poem')->middleware('auth');
+    Route::delete('{poem:slug}', 'PoemsController@destroy')->name('delete-poem')->middleware('auth');
     Route::post('', 'PoemsController@store')->name('store-poem')->middleware('auth');
 });
 

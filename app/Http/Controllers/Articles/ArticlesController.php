@@ -97,10 +97,8 @@ class ArticlesController extends Controller
         $article->save();
         $article->tags()->sync(request('tags'));
 
-        // Mail::to('suleiman665@gmail.com')->send(new PostAwaitingApproval($article));
-
-
-        return redirect(route('articles'));
+        return redirect(route('articles'))
+            ->with('success', 'Article was created successfully');
     }
 
     public function destroy(Article $article)

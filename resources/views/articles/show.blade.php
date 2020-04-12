@@ -1,6 +1,4 @@
-@extends('layouts.app') 
-
-@section('content')
+@extends('layouts.app') @section('content')
 <div class="container mt-6 sm:flex">
     <div class="bg-white sm:w-2/3 rounded overflow-hidden shadow-sm mb-2">
         <div>
@@ -18,16 +16,32 @@
                 <div class="text-gray-700 mt-3 text-base ashmif-content">
                     {!! $article->body !!}
                 </div>
-                <div class="flex justify-end items-end mt-2">
-                    <a href="{{route('edit-article',$article->slug)}}" class="bg-blue-300 px-3 rounded-full text-white mr-2 hover:no-underline" href="">Edit</a>
-                    <div class="bg-red-400 px-3 rounded-full text-white">
-                        <form action="{{route('delete-article',$article->slug)}}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit">Delete</button>
-                        </form>
-                    </div>
-                </div>
+                @if (Auth::check()) 
+                    @if($article->user->id===auth()->user()->id)
+                        <div class="flex justify-end items-end mt-2">
+                            <a
+                                href="{{route('edit-article',$article->slug)}}"
+                                class="bg-blue-300 px-3 rounded-full text-white mr-2 hover:no-underline"
+                                href=""
+                                >Edit</a
+                            >
+                            <div class="">
+                                <form
+                                    action="{{route('delete-article',$article->slug)}}"
+                                    method="POST"
+                                >
+                                    @csrf @method('DELETE')
+                                    <button
+                                        class="bg-red-400 px-3 rounded-full text-white outline-none focus:outline-none "
+                                        type="submit"
+                                    >
+                                        Delete
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    @endif 
+                @endif
             </div>
             <div>
                 <div class="comments bg-gray-100 pb-3 py-4">
@@ -35,7 +49,9 @@
                     <h1 class="px-3 pt-3 text-gray-600">
                         Be the first to comment &#x1F91F;
                     </h1>
-                    @endif @forelse($article->comments as $comment)
+                    @endif 
+                    
+                    @forelse($article->comments as $comment)
                     <div class="comment px-3 mb-3 flex items-center">
                         <img
                             src="{{asset($comment->user->avatar())}}"
@@ -48,7 +64,9 @@
                             {{$comment->body}}
                         </p>
                     </div>
-                    @empty @endforelse
+                    @empty 
+                    
+                    @endforelse
 
                     <div class="text-input p-3">
                         <form
@@ -131,7 +149,9 @@
                 href="{{route('articles',['tag'=>$tag->name])}}"
                 >{{$tag->name}}</a
             >
-            @empty @endforelse
+            @empty 
+            
+            @endforelse
         </div>
         @else
         <p class="bg-white rounded-lg p-3 mt-2 shadow-sm text-gray-600">
