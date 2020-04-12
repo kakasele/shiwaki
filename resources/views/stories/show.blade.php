@@ -15,7 +15,7 @@
                     @if($story->user->id===auth()->user()->id)
                     <div class="flex justify-end items-end mt-2">
                         <a
-                            href="{{route('update-story',$story->slug)}}"
+                            href="{{route('edit-story',$story->slug)}}"
                             class="bg-blue-300 px-3 rounded-full text-white mr-2 hover:no-underline"
                             href=""
                             >Edit</a
@@ -70,6 +70,35 @@
                 </a>
             </div>
         </div>
+                @if ($story->tags->count()>0)
+        <div
+            class="bg-white rounded-lg flex justify-around flex-wrap p-2 mt-2 shadow-xs"
+        >
+            @forelse ($story->tags as $tag)
+            <a
+                class="
+                 @if($tag->name==='Laravel')
+                 bg-green-300
+                 @elseif($tag->name==='Business')
+                 bg-pink-300
+                 @elseif($tag->name==='Tech')
+                 bg-blue-300                 
+                 @else
+                 bg-purple-500
+                 @endif
+                 px-3 rounded-full text-white hover:no-underline hover:text-white shadow-sm my-1"
+                href="{{route('stories',['tag'=>$tag->name])}}"
+                >{{$tag->name}}</a
+            >
+            @empty 
+            
+            @endforelse
+        </div>
+        @else
+        <p class="bg-white rounded-lg p-3 mt-2 shadow-sm text-gray-600">
+            This storie has no tags
+        </p>
+        @endif
         <div class="mt-2 block shadow-sm rounded bg-white">
             <h1 class="px-3 pt-3 text-lg text-gray-500">
                 Other from stories

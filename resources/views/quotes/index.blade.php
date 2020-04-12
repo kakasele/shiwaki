@@ -15,8 +15,7 @@
         <div class="bg-white rounded shadow-sm flex flex-col">
             <div class="p-6 flex-1">
                 <p class="mb-2 px-1">
-                    <i class="fas text-sm text-gray-400 fa-quote-left mr-2"></i
-                    >{{$quote->body}}
+                    {{$quote->body}}
                     <i
                         class="fas text-sm text-gray-400 fa-quote-right ml-2"
                     ></i>

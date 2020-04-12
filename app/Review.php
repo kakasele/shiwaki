@@ -18,6 +18,13 @@ class Review extends Model
         return 'reviews/' . $this->slug;
     }
 
+    public function tags()
+    {
+
+        return $this->belongsToMany(Tag::class)->withTimestamps();
+    }
+
+
     public function reviewcomments()
     {
         return $this->hasMany(ReviewComment::class);

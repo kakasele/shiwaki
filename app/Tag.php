@@ -13,4 +13,19 @@ class Tag extends Model
     {
         return $this->BelongsToMany(Article::class);
     }
+
+    public function stories()
+    {
+        return $this->BelongsToMany(Article::class);
+    }
+
+    public function reviews()
+    {
+        return $this->BelongsToMany(Article::class);
+    }
+
+    public function poems()
+    {
+        return $this->BelongsToMany(Article::class);
+    }
 }

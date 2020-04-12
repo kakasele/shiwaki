@@ -13,6 +13,12 @@ class Story extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function tags()
+    {
+
+        return $this->belongsToMany(Tag::class)->withTimestamps();
+    }
+
     public function path()
     {
         return route('stories') . '/' . $this->slug;

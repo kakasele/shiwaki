@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Poems;
 
 use App\Http\Controllers\Controller;
 use App\Poem;
+use App\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
@@ -29,7 +30,9 @@ class PoemsController extends Controller
      */
     public function create()
     {
-        return view('poems.create');
+        return view('poems.create', [
+            'tags' => Tag::all()
+        ]);
     }
 
     /**
@@ -57,11 +60,15 @@ class PoemsController extends Controller
 
         $slug = Str::slug(request('title'), '-');
 
-        auth()->user()->poems()->create([
+        $poem = auth()->user()->poems()->create([
             'title' => request('title'),
             'body' => request('body'),
             'slug' => $slug
         ]);
+
+        if (request()->has('tags')) {
+            $poem->tags()->sync(request('tags'));
+        }
 
         return redirect(route('poems'))
             ->with(
@@ -95,7 +102,8 @@ class PoemsController extends Controller
      */
     public function edit(Poem $poem)
     {
-        return view('poems.edit', compact('poem'));
+        $tags = Tag::all();
+        return view('poems.edit', compact(['poem', 'tags']));
     }
 
     /**
@@ -112,6 +120,10 @@ class PoemsController extends Controller
             'body' => 'required'
         ]);
 
+        if (request()->has('tags')) {
+            $poem->tags()->sync(request('tags'));
+        }
+
         $poem->update($attributes);
 
         return redirect(route('poems'))
@@ -126,6 +138,8 @@ class PoemsController extends Controller
      */
     public function destroy(Poem $poem)
     {
+        $poem->tags()->sync(request('tags'));
+
         $poem->delete();
 
         return redirect(route('poems'))

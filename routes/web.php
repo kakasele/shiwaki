@@ -88,9 +88,9 @@ Route::group(['prefix' => 'members/profiles/', 'namespace' => 'Api\Users'], func
 //quotes
 Route::group(['prefix' => 'poems/', 'namespace' => 'Poems'], function () {
 
+    Route::get('create', 'PoemsController@create')->name('new-poem')->middleware('auth');
     Route::get('', 'PoemsController@index')->name('poems');
     Route::get('{poem:slug}', 'PoemsController@show')->name('show-poem');
-    Route::get('create', 'PoemsController@create')->name('new-poem')->middleware('auth');
     Route::get('{poem:slug}/edit', 'PoemsController@edit')->name('edit-poem');
     Route::patch('{poem:slug}', 'PoemsController@update')->name('update-poem')->middleware('auth');
     Route::delete('{poem:slug}', 'PoemsController@destroy')->name('delete-poem')->middleware('auth');

@@ -28,15 +28,18 @@
                 >
                 <input id="x" type="hidden" name="body">
                 <trix-editor input="x" class="trix-content"></trix-editor>
-                {{-- <textarea
-                    type="text"
-                    name="body"
-                    id="body"
-                    class="appearance-none bg-gray-100 p-2 rounded w-full"
-                    rows="5"
-                ></textarea> --}}
             </div>
-
+            <div class="form-group">
+                <label for="tags" 
+                class="text-sm block text-gray-600"
+                    >Tags</label
+                >
+                <select name="tags[]" multiple class="appearance-none bg-gray-100 p-2 rounded">
+                    @foreach ($tags as $tag)
+                        <option value="{{$tag->id}}">{{$tag->name}}</option>
+                    @endforeach
+                </select>
+            </div>
             <div>
                 <button 
                 type="submit"

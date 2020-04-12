@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Stories;
 
 use App\Http\Controllers\Controller;
 use App\Story;
+use App\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
@@ -29,7 +30,9 @@ class StoriesController extends Controller
      */
     public function create()
     {
-        return view('stories.create');
+        return view('stories.create', [
+            'tags' => Tag::all()
+        ]);
     }
 
     /**
@@ -56,11 +59,15 @@ class StoriesController extends Controller
             return back();
         }
 
-        auth()->user()->stories()->create([
+        $story = auth()->user()->stories()->create([
             'title' => request('title'),
             'body' => request('body'),
             'slug' => $slug
         ]);
+
+        if (request()->has('tags')) {
+            $story->tags()->sync(request('tags'));
+        }
 
         return redirect(route('stories'))
             ->with('success', 'Your story has been saved');
@@ -91,7 +98,9 @@ class StoriesController extends Controller
      */
     public function edit(Story $story)
     {
-        return view('stories.edit', compact('story'));
+
+        $tags = Tag::all();
+        return view('stories.edit', compact(['story', 'tags']));
     }
 
     /**
@@ -110,6 +119,10 @@ class StoriesController extends Controller
 
         $story->update($attributes);
 
+        if (request()->has('tags')) {
+            $story->tags()->sync(request('tags'));
+        }
+
         return redirect(route('stories'))
             ->with('success', 'Story updated successfully');
     }
@@ -122,6 +135,8 @@ class StoriesController extends Controller
      */
     public function destroy(Story $story)
     {
+        $story->tags()->detach();
+
         $story->delete();
 
         return redirect(route('stories'))

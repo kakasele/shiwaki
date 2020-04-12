@@ -32,7 +32,17 @@
                 <input id="x" type="hidden" name="body" value="{{$poem->body}}">
                 <trix-editor input="x" class="ashmif-content"></trix-editor>
             </div>
-
+            <div class="form-group">
+                <label for="tags" 
+                class="text-sm block text-gray-600"
+                    >Tags</label
+                >
+                <select name="tags[]" multiple class="appearance-none bg-gray-100 p-2 rounded">
+                    @foreach ($tags as $tag)
+                        <option value="{{$tag->id}}">{{$tag->name}}</option>
+                    @endforeach
+                </select>
+            </div>
             <div>
                 <button 
                 type="submit"

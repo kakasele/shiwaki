@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Reviews;
 
 use App\Http\Controllers\Controller;
 use App\Review;
+use App\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -28,7 +29,9 @@ class ReviewsController extends Controller
      */
     public function create()
     {
-        return view('reviews.create');
+        return view('reviews.create', [
+            'tags' => Tag::all()
+        ]);
     }
 
     /**
@@ -55,7 +58,12 @@ class ReviewsController extends Controller
         // Save the article
         $review = auth()->user()->reviews()->create($validatedAttributes);
 
-        return redirect(route('reviews'));
+        if (request()->has('tags')) {
+            $review->tags()->sync(request('tags'));
+        }
+
+        return redirect(route('reviews'))
+            ->with('success', 'The editorial piece was saved');
     }
 
     /**
@@ -83,7 +91,8 @@ class ReviewsController extends Controller
      */
     public function edit(Review $review)
     {
-        return view('reviews.edit', compact('review'));
+        $tags = Tag::all();
+        return view('reviews.edit', compact(['review', 'tags']));
     }
 
     /**
@@ -116,7 +125,8 @@ class ReviewsController extends Controller
             $review->tags()->sync(request('tags'));
         }
 
-        return redirect('/');
+        return redirect('/')
+            ->with('success', 'The editorial piece was updated');
     }
 
     /**
@@ -127,7 +137,7 @@ class ReviewsController extends Controller
      */
     public function destroy(Review $review)
     {
-        // $review->tags()->detach();
+        $review->tags()->detach();
 
         $review->delete();
 
