@@ -115,6 +115,8 @@ class PoemsController extends Controller
      */
     public function update(Request $request, Poem $poem)
     {
+        $this->authorize('update', $poem);
+
         $attributes = request()->validate([
             'title' => 'required',
             'body' => 'required'
@@ -138,6 +140,8 @@ class PoemsController extends Controller
      */
     public function destroy(Poem $poem)
     {
+        $this->authorize('update', $poem);
+
         $poem->tags()->sync(request('tags'));
 
         $poem->delete();

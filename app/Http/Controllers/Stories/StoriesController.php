@@ -112,6 +112,8 @@ class StoriesController extends Controller
      */
     public function update(Request $request, Story $story)
     {
+        $this->authorize('update', $story);
+
         $attributes = request()->validate([
             'title' => 'required',
             'body' => 'required'
@@ -135,6 +137,8 @@ class StoriesController extends Controller
      */
     public function destroy(Story $story)
     {
+        $this->authorize('update', $story);
+
         $story->tags()->detach();
 
         $story->delete();

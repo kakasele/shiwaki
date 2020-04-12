@@ -11,8 +11,7 @@
                 <div class="text-gray-700 mt-3 text-base ashmif-content">
                     {!! $poem->body !!}
                 </div>
-                                @if (Auth::check()) 
-                    @if($poem->user->id===auth()->user()->id)
+                                @can('update',$poem)
                         <div class="flex justify-end items-end mt-2">
                             <a
                                 href="{{route('edit-poem',$poem->slug)}}"
@@ -35,8 +34,7 @@
                                 </form>
                             </div>
                         </div>
-                    @endif 
-                @endif
+                @endcan
             </div>
             @include('poems._poem-comments')
         </div>

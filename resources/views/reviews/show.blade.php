@@ -19,8 +19,7 @@
                 <div class="text-gray-700 mt-3 text-lg ashmif-content">
                     {!! $review->body !!}
                 </div>
-                @if (Auth::check()) 
-                    @if($review->user->id===auth()->user()->id)
+                @can('update',$review)
                         <div class="flex justify-end items-end mt-2">
                             <a
                                 href="{{route('edit-review',$review->slug)}}"
@@ -43,8 +42,7 @@
                                 </form>
                             </div>
                         </div>
-                    @endif 
-                @endif
+                    @endcan
             </div>
             @include('reviews._review-comments')
         </div>

@@ -19,7 +19,7 @@
                 <div class="text-gray-700 mt-3 text-base ashmif-content">
                     {!! $article->body !!}
                 </div>
-                @if (Auth::check()) @if($article->user->id===auth()->user()->id)
+                @can('update',$article)
                 <div class="flex justify-end items-end mt-2">
                     <a
                         href="{{route('edit-article',$article->slug)}}"
@@ -42,7 +42,7 @@
                         </form>
                     </div>
                 </div>
-                @endif @endif
+                @endcan
             </div>
         </div>
         @include('articles._article-comments')

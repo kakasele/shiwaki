@@ -51,7 +51,7 @@ class ArticlePolicy
      * @param  \App\Article  $article
      * @return mixed
      */
-    public function updateArticle(User $user, Article $article)
+    public function update(User $user, Article $article)
     {
         return $user->is($article->user);
     }

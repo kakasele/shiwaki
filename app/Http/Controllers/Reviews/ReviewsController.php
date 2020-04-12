@@ -104,6 +104,8 @@ class ReviewsController extends Controller
      */
     public function update(Request $request, Review $review)
     {
+        $this->authorize('update', $review);
+
         $attributes = request()->validate([
             'title' => 'required',
             'body' => 'required',
@@ -137,6 +139,8 @@ class ReviewsController extends Controller
      */
     public function destroy(Review $review)
     {
+        $this->authorize('update', $review);
+
         $review->tags()->detach();
 
         $review->delete();

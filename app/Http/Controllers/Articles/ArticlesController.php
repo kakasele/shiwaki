@@ -60,6 +60,8 @@ class ArticlesController extends Controller
 
     public function update(Request $request, Article $article)
     {
+        $this->authorize('update', $article);
+
         $attributes = request()->validate([
             'title' => 'required',
             'body' => 'required',
@@ -103,6 +105,8 @@ class ArticlesController extends Controller
 
     public function destroy(Article $article)
     {
+        $this->authorize('update', $article);
+
         $article->tags()->detach();
 
         $article->delete();

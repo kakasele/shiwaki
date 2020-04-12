@@ -14,8 +14,7 @@
                 <div class="text-gray-700 mt-3 sm:text-lg text-base ashmif-content tracking-wider sm:tracking-normal ">
                     {!! $story->body !!}
                 </div>
-                @if (Auth::check()) 
-                    @if($story->user->id===auth()->user()->id)
+                @can('update',$story)
                     <div class="flex justify-end items-end mt-2">
                         <a
                             href="{{route('edit-story',$story->slug)}}"
@@ -35,9 +34,7 @@
                             </form>
                         </div>
                     </div>
-                    @endif 
-                @endif
-
+                    @endcan
             </div>
             @include('stories._story-comments')
         </div>
