@@ -9,7 +9,7 @@
             </div>
         @endif
     <div class="form-container bg-white shadow-sm rounded sm:w-1/2 sm:mx-auto">
-        <form class="p-4" action="{{route('update-poem',$poem->slug)}}" method="POST">
+        <form class="p-4 text-lg" action="{{route('update-poem',$poem->slug)}}" method="POST">
             @csrf
             @method('PATCH')
             <div class="form-group">

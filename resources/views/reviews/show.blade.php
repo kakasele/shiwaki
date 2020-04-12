@@ -16,7 +16,7 @@
         </div>
         <div>
             <div class="p-3">
-                <div class="text-gray-700 mt-3 text-base ashmif-content">
+                <div class="text-gray-700 mt-3 text-lg ashmif-content">
                     {!! $review->body !!}
                 </div>
                 @if (Auth::check()) 

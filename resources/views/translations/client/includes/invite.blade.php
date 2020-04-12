@@ -11,12 +11,13 @@
             type="email"
             name="email"
             id=""
-            class="border border-gray-300 mb-2 w-full rounded-lg p-1 block"
+            class="border border-gray-300 mb-2 w-full rounded-lg px-2 py-2 block"
             placeholder="Invitee's email address"
+            required
         />
         <button
             type="submit"
-            class="bg-indigo-400 w-full rounded-full text-white py-1 uppercase"
+            class="bg-indigo-400 w-full rounded-full text-white py-1 uppercase font-semibold"
         >
             Invite
         </button>

@@ -9,7 +9,7 @@
             </div>
         @endif
     <div class="form-container bg-white shadow-sm rounded sm:w-1/2 sm:mx-auto">
-        <form class="p-4" action="{{route('store-poem')}}" method="POST">
+        <form class="p-4 text-lg" action="{{route('store-poem')}}" method="POST">
             @csrf
             <div class="form-group">
                 <label for="title" class="text-sm block text-gray-600"

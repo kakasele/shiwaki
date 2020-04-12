@@ -9,7 +9,7 @@
             </div>
         @endif
     <div class="form-container bg-white shadow-sm rounded sm:w-1/2 sm:mx-auto">
-        <form class="p-4" action="{{route('update-story',$story->slug)}}" method="POST">
+        <form class="p-4 text-lg" action="{{route('update-story',$story->slug)}}" method="POST">
             @csrf
             @method('PATCH')
             <div class="form-group">
@@ -28,8 +28,8 @@
                 <label for="title" class="text-sm block text-gray-600"
                     >Body</label
                 >
-                <input id="x" type="hidden" name="body">
-                <trix-editor input="x" class="ashmif-content">{!!$story->body!!}</trix-editor>
+                <input id="x" type="hidden" name="body" value="{{$story->body}}">
+                <trix-editor input="x" class="ashmif-content"></trix-editor>
             </div>
             <div class="form-group">
                 <label for="tags" 

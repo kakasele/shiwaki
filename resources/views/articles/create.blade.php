@@ -2,14 +2,14 @@
 
 @section('content')
 <div class="container mt-6">
-            <h1 class="mx-auto sm:text-center mb-3 text-xl font-semibold text-gray-600">Write your Review</h1>
+            <h1 class="mx-auto sm:text-center mb-3 text-xl font-semibold text-gray-600">Write your article</h1>
         @if (session('error'))
             <div class="alert alert-error">
                 {{session('error')}}
             </div>
         @endif
     <div class="form-container bg-white shadow-sm rounded sm:w-1/2 sm:mx-auto mt-6">
-        <form class="p-4" action="{{route('store-article')}}" method="POST" enctype="multipart/form-data">
+        <form class="p-4 text-lg" action="{{route('store-article')}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
                 <label for="title" class="text-sm block text-gray-600"
@@ -54,7 +54,7 @@
             <div>
                 <button 
                 type="submit"
-                class="bg-blue-400 px-2 py-1 rounded-full text-white shadow font-semibold"
+                class="bg-blue-400 px-3 py-2 sm:py-1 rounded-full text-white text-lg sm:text-base shadow font-semibold w-full sm:w-auto"
                 >Save Article</button>
             </div>
         </form>

@@ -1,23 +1,25 @@
 @extends('layouts.app') @section('content')
 <div class="container-users">
     <header class="bg-white sm:px-12 sm:py-6 p-6 mx-auto shadow-sm sm:flex justify-between items-center">
-        <h1 class="text-lg text-gray-700">
+        <h1 class="text-lg text-gray-700 hidden sm:block">
             Welcome back,
             <span class="text-blue-300">{{auth()->user()->name}}</span>
             &#x1F91F;
         </h1>
-        <div class="hidden sm:flex  items-center uppercase">
+        <div class="hidden sm:flex  items-center uppercase font-semibold">
             <div class="mr-2 bg-green-400 px-3 py-1 text-white rounded-full shadow "><a href="{{route('admin.articles.index')}}" class="hover:no-underline hover:text-white">Articles</a></div>
             <div class="mr-2 bg-blue-400 px-3 py-1 text-white rounded-full shadow"><a href="{{route('admin.stories.index')}}" class="hover:no-underline hover:text-white">Stories</a></div>
             <div class="mr-2 bg-red-400 px-3 py-1 text-white rounded-full shadow"><a href="{{route('admin.poems.index')}}" class="hover:no-underline hover:text-white">Poems</a></div>
             <div class="mr-2 bg-indigo-400 px-3 py-1 text-white rounded-full shadow"><a href="{{route('admin.reviews.index')}}" class="hover:no-underline hover:text-white">Reviews</a></div>
+            <div class="mr-2 bg-white  px-3 py-1 text-gray-900 rounded-full shadow-outline"><a href="{{route('admin.tags.index')}}" class="hover:no-underline hover:text-white">Tags</a></div>
         </div>
 
-        <div class="sm:hidden flex  items-center uppercase mt-3">
+        <div class="sm:hidden flex  items-center uppercase justify-around font-semibold">
             <div class="mr-1 bg-green-400 px-2 py-1 text-white rounded-full shadow "><a href="{{route('admin.articles.index')}}" class="hover:no-underline hover:text-white">Articles</a></div>
             <div class="mr-1 bg-blue-400 px-2 py-1 text-white rounded-full shadow"><a href="{{route('admin.stories.index')}}" class="hover:no-underline hover:text-white">Stories</a></div>
             <div class="mr-1 bg-red-400 px-2 py-1 text-white rounded-full shadow"><a href="{{route('admin.poems.index')}}" class="hover:no-underline hover:text-white">Poems</a></div>
             <div class="mr-1 bg-indigo-400 px-2 py-1 text-white rounded-full shadow"><a href="{{route('admin.reviews.index')}}" class="hover:no-underline hover:text-white">Reviews</a></div>
+            <div class="mr-2 bg-white  px-3 py-1 text-gray-900 rounded-full shadow-outline"><a href="{{route('admin.tags.index')}}" class="hover:no-underline hover:text-white">Tags</a></div>
         </div>
     </header>
     <div class="flex flex-col container mt-3 mb-12">

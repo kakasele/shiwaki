@@ -15,7 +15,7 @@
     </div>
     <div class="section-content p-6 flex flex-col justify-between">
         <div class="flex-1">
-            <div class="mt-3 text-base leading-6 text-gray-600 ashmif-content flex-1">
+            <div class="mt-3 text-lg leading-6 text-gray-600 ashmif-content flex-1">
                 {!!Str::of($review->body)->words(20,'</div>')!!}
             </div>
         </div>

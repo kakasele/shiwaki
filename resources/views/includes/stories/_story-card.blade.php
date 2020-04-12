@@ -13,7 +13,7 @@
             </h3>
             <div class="mt-3 text-base leading-6 text-gray-600 trix-content">
                 <div class="">
-                    {!!Str::of($story->body)->words(25,'</div>')!!}
+                    {!!Str::of($story->body)->words(20,'</div>')!!}
                 </div> 
             </div>   
         </div>

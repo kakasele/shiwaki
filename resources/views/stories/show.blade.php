@@ -5,10 +5,13 @@
     <div class="bg-white sm:w-2/3 rounded overflow-hidden shadow-sm mb-2">
         <div>
             <div class="p-3">
-                <h2 class="text-2xl text-gray-900 leading-6 mt-2">
-                    {{$story->title}}
-                </h2>
-                <div class="text-gray-700 mt-3 text-base ashmif-content">
+                <div class="flex flex-col items-center">
+                    <h2 class="text-4xl text-gray-900 leading-6 mt-2 text-center">
+                        {{$story->title}}
+                    </h2>
+                    <span class="mt-2 text-xs italic text-gray-600">{{$story->created_at->toFormattedDateString()}}</span>
+                </div>
+                <div class="text-gray-700 mt-3 sm:text-lg text-base ashmif-content tracking-wider sm:tracking-normal ">
                     {!! $story->body !!}
                 </div>
                 @if (Auth::check()) 

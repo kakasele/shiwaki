@@ -41,9 +41,9 @@
                     >
                 </div>
                 <div class="proect-details">
-                    <h1 class="text-center mt-3 text-gray-600 text-lg">{{$project->title}}</h1>
+                    <h1 class="text-center mt-3 text-gray-600 text-2xl">{{$project->title}}</h1>
 
-                    <div class="description p-3 text-gray-700">
+                    <div class="description text-lg p-3 text-gray-700">
                         <p>
                             {{Str::of($project->description)->words(12,'...')}}
                         </p>

@@ -18,7 +18,7 @@
     >
         <section class="secription p-3 text-gray-700 tracking-wide leading-7">
             <h1 class="text-2xl text-center mb-2">{{$project->title}}</h1>
-            <p>
+            <p class="text-lg text-gray-600">
                 {{$project->description}}
             </p>
         </section>
@@ -69,7 +69,7 @@
         @csrf
             <input type="file" name="project_file" id="" />
             <button
-                class="px-3 bg-blue-300 mr-4 rounded-full text-white shadow"
+                class="px-3 bg-blue-300 mr-4 rounded-full text-white shadow-sm font-semibold"
                 type="submit"
             >
                 Save

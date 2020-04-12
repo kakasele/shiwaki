@@ -9,7 +9,7 @@
             </div>
         @endif
     <div class="form-container bg-white shadow-sm rounded sm:w-1/2 sm:mx-auto mt-6">
-        <form class="p-4" action="{{route('update-review',$review->slug)}}" method="POST" enctype="multipart/form-data">
+        <form class="p-4 text-lg" action="{{route('update-review',$review->slug)}}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PATCH')
             <div class="form-group">
@@ -56,7 +56,7 @@
             <div>
                 <button 
                 type="submit"
-                class="bg-blue-400 px-2 py-1 rounded-full text-white shadow font-semibold"
+                class="bg-blue-400 px-3  py-2 sm:py-1 rounded-full text-white shadow font-semibold"
                 >Save Your Review</button>
             </div>
         </form>
