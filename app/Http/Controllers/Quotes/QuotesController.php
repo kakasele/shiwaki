@@ -43,7 +43,7 @@ class QuotesController extends Controller
 
         $validator = Validator::make(request()->all(), [
             'source' => 'required',
-            'body' => 'required|max:120',
+            'body' => 'required|max:280',
         ]);
 
 
@@ -81,7 +81,7 @@ class QuotesController extends Controller
      */
     public function edit(Quote $quote)
     {
-        //
+        return view('quotes.edit', compact('quote'));
     }
 
     /**
@@ -93,7 +93,15 @@ class QuotesController extends Controller
      */
     public function update(Request $request, Quote $quote)
     {
-        //
+        $attributes = request()->validate([
+            'source' => 'required',
+            'body' => 'required',
+        ]);
+
+        $quote->update($attributes);
+
+        return redirect(route('quotes'))
+            ->with('success', 'Quote was updated');
     }
 
     /**
@@ -104,6 +112,9 @@ class QuotesController extends Controller
      */
     public function destroy(Quote $quote)
     {
-        //
+        $quote->delete();
+
+        return redirect(route('quotes'))
+            ->with('success', 'The quote was deleted');
     }
 }

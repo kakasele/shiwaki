@@ -27,6 +27,30 @@
                     >{{$quote->source}}</span
                 >
             </div>
+                            @if (Auth::check()) 
+                    @if($quote->user->id===auth()->user()->id)
+                    <div class="flex justify-end items-end mt-2 mr-3">
+                        <a
+                            href="{{route('edit-quote',$quote->id)}}"
+                            class="bg-blue-300 px-3 rounded-full text-white mr-2 hover:no-underline"
+                            href=""
+                            >Edit</a
+                        >
+                        <div class="">
+                            <form action="{{route('delete-quote',$quote->id)}}" method="POST">
+                                @csrf 
+                                @method('DELETE')
+                                <button
+                                    class="bg-red-400 px-3 rounded-full text-white outline-none focus:outline-none "
+                                    type="submit"
+                                >
+                                    Delete
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    @endif 
+                @endif
             <div class="border-t border-green-300 mt-2 px-6 py-2 bg-gray-200">
                 <span class="text-sm text-gray-500">Shared by</span>
                 <a

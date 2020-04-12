@@ -54,8 +54,10 @@ Route::group(['prefix' => 'reviews/', 'namespace' => 'Reviews'], function () {
     Route::get('', 'ReviewsController@index')->name('reviews');
     Route::get('create', 'ReviewsController@create')->name('new-review')->middleware('auth');
     Route::post('', 'ReviewsController@store')->name('store-review');
-
+    Route::patch('{review:slug}', 'ReviewsController@update')->name('update-review');
+    Route::delete('{review:slug}', 'ReviewsController@destroy')->name('delete-review');
     Route::get('{review:slug}', 'ReviewsController@show')->name('show-review');
+    Route::get('{review:slug}/edit', 'ReviewsController@edit')->name('edit-review');
     Route::post('{review:slug}/comments', 'ReviewCommentsController@store')->name('post-review-comment')->middleware('auth');
 });
 
@@ -101,6 +103,9 @@ Route::group(['prefix' => 'quotes/', 'namespace' => 'Quotes'], function () {
     Route::get('', 'QuotesController@index')->name('quotes');
     Route::get('create', 'QuotesController@create')->name('new-quote')->middleware('auth');
     Route::get('{quote}', 'QuotesController@show')->name('show-quote');
+    Route::get('{quote}/edit', 'QuotesController@edit')->name('edit-quote')->middleware('auth');
+    Route::patch('{quote}', 'QuotesController@update')->name('update-quote')->middleware('auth');
+    Route::delete('{quote}', 'QuotesController@destroy')->name('delete-quote')->middleware('auth');
     Route::post('', 'QuotesController@store')->name('store-quote')->middleware('auth');
 });
 

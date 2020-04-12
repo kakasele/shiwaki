@@ -83,7 +83,7 @@ class ReviewsController extends Controller
      */
     public function edit(Review $review)
     {
-        //
+        return view('reviews.edit', compact('review'));
     }
 
     /**
@@ -95,7 +95,28 @@ class ReviewsController extends Controller
      */
     public function update(Request $request, Review $review)
     {
-        //
+        $attributes = request()->validate([
+            'title' => 'required',
+            'body' => 'required',
+            'artcile_cover' => 'file'
+        ]);
+
+        $attributes['slug'] = Str::slug(request('title'), '-');
+
+        if (request()->has('article_cover')) {
+            $image_path = $request->file('review_cover')->store('reviews/images', 'public');
+
+            $attributes['image_path'] = $image_path;
+        } else {
+            $review->update($attributes);
+        }
+
+
+        if (request()->has('tags')) {
+            $review->tags()->sync(request('tags'));
+        }
+
+        return redirect('/');
     }
 
     /**
@@ -106,6 +127,11 @@ class ReviewsController extends Controller
      */
     public function destroy(Review $review)
     {
-        //
+        // $review->tags()->detach();
+
+        $review->delete();
+
+        return redirect(route('reviews'))
+            ->with('success', 'Review was deleted');
     }
 }
