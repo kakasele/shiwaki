@@ -13,6 +13,11 @@ class Story extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function storyComments()
+    {
+        return $this->hasMany(StoryComment::class);
+    }
+
     public function tags()
     {
 

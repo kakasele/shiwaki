@@ -74,6 +74,7 @@ Route::group(['prefix' => 'stories/', 'namespace' => 'Stories'], function () {
     Route::patch('{story:slug}', 'StoriesController@update')->name('update-story');
     Route::delete('{story:slug}', 'StoriesController@destroy')->name('delete-story');
     Route::post('', 'StoriesController@store')->name('store-story');
+    Route::post('{story:slug}/comments', 'StoryCommentsController@store')->name('post-story-comment')->middleware('auth');
 });
 
 //Profiles
@@ -95,6 +96,7 @@ Route::group(['prefix' => 'poems/', 'namespace' => 'Poems'], function () {
     Route::patch('{poem:slug}', 'PoemsController@update')->name('update-poem')->middleware('auth');
     Route::delete('{poem:slug}', 'PoemsController@destroy')->name('delete-poem')->middleware('auth');
     Route::post('', 'PoemsController@store')->name('store-poem')->middleware('auth');
+    Route::post('{poem:slug}/comments', 'PoemCommentsController@store')->name('post-poem-comment')->middleware('auth');
 });
 
 //Quotes

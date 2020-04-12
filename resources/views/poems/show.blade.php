@@ -38,6 +38,7 @@
                     @endif 
                 @endif
             </div>
+            @include('poems._poem-comments')
         </div>
     </div>
 

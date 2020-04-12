@@ -87,6 +87,16 @@ class User extends Authenticatable
         return $this->hasMany(TranslateRequestComment::class)->latest('updated_at');
     }
 
+    public function storycomments()
+    {
+        return $this->hasMany(StoryComment::class)->latest('updated_at');
+    }
+
+    public function poemcomments()
+    {
+        return $this->hasMany(PoemComment::class)->latest('updated_at');
+    }
+
     public function requestfiles()
     {
         return $this->hasMany(RequestFile::class)->latest('updated_at');

@@ -36,6 +36,7 @@
                 @endif
 
             </div>
+            @include('stories._story-comments')
         </div>
     </div>
 

@@ -13,6 +13,11 @@ class Poem extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function poemComments()
+    {
+        return $this->hasMany(PoemComment::class);
+    }
+
     public function tags()
     {
 

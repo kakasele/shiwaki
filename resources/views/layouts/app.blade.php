@@ -37,6 +37,7 @@
 
     <body class="">
         <div id="app" class="">
+            
             @include('includes._nav')
 
             <main class="">
