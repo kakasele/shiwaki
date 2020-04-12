@@ -15,9 +15,7 @@
             <div
                 class="mt-3 text-base leading-6 text-gray-600 ashmif-content flex-1"
             >
-                {!!Str::of($article->body)->words(12,'
-            </div>
-            ')!!}
+                {!!Str::of($article->body)->words(12,'...')!!}
         </div>
     </div>
     <div class="author flex items-center mt-6">
@@ -61,4 +59,6 @@
             </div>
         </div>
     </div>
+</div>
+</div>
 </div>

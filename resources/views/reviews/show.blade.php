@@ -46,7 +46,6 @@
                     @endif 
                 @endif
             </div>
-            <div>
             @include('reviews._review-comments')
         </div>
     </div>
@@ -135,5 +134,6 @@
             </div>
         </div>
     </div>
+</div>
 </div>
 @endsection

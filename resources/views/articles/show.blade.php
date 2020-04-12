@@ -8,46 +8,48 @@
                 alt=""
             />
         </div>
-        <div>
-            <div class="p-3">
-                <h2 class="text-2xl text-gray-900 leading-6 mt-2">
+
+        <div class="p-3">
+            <div class="text-center my-3">
+                <h2
+                    class="text-2xl text-gray-700 leading-6 mt-2 text-center font-semibold"
+                >
                     {{$article->title}}
                 </h2>
                 <div class="text-gray-700 mt-3 text-base ashmif-content">
                     {!! $article->body !!}
                 </div>
-                @if (Auth::check()) 
-                    @if($article->user->id===auth()->user()->id)
-                        <div class="flex justify-end items-end mt-2">
-                            <a
-                                href="{{route('edit-article',$article->slug)}}"
-                                class="bg-blue-300 px-3 rounded-full text-white mr-2 hover:no-underline"
-                                href=""
-                                >Edit</a
+                @if (Auth::check()) @if($article->user->id===auth()->user()->id)
+                <div class="flex justify-end items-end mt-2">
+                    <a
+                        href="{{route('edit-article',$article->slug)}}"
+                        class="bg-blue-300 px-3 rounded-full text-white mr-2 hover:no-underline"
+                        href=""
+                        >Edit</a
+                    >
+                    <div class="">
+                        <form
+                            action="{{route('delete-article',$article->slug)}}"
+                            method="POST"
+                        >
+                            @csrf @method('DELETE')
+                            <button
+                                class="bg-red-400 px-3 rounded-full text-white outline-none focus:outline-none "
+                                type="submit"
                             >
-                            <div class="">
-                                <form
-                                    action="{{route('delete-article',$article->slug)}}"
-                                    method="POST"
-                                >
-                                    @csrf @method('DELETE')
-                                    <button
-                                        class="bg-red-400 px-3 rounded-full text-white outline-none focus:outline-none "
-                                        type="submit"
-                                    >
-                                        Delete
-                                    </button>
-                                </form>
-                            </div>
-                        </div>
-                    @endif 
-                @endif
+                                Delete
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                @endif @endif
             </div>
-            @include('articles._article-comments')
         </div>
+        @include('articles._article-comments')
     </div>
 
     <div class="block sm:flex-1 sm:ml-4 rounded">
+        <h1 class="pb-2 sm:hidden text-base text-blue-400">Posted by...</h1>
         <div class="shadow-sm bg-white rounded-lg px-4 p-3">
             <div class="author-info flex items-center mx-auto">
                 <div>
@@ -70,7 +72,7 @@
             </div>
             <div class="mt-3">
                 <a
-                    class="bg-indigo-400 shadow px-4 py-2 block text-center no-underline hover:no-underline sm:w-2/3 text-white rounded-full w-full font-semibold"
+                    class="bg-green-400 shadow px-4 py-2 block text-center no-underline hover:no-underline sm:w-2/3 text-white rounded-full w-full font-semibold"
                     href="{{route('member-profile',$article->user->username)}}"
                 >
                     View Profile
@@ -97,9 +99,7 @@
                 href="{{route('articles',['tag'=>$tag->name])}}"
                 >{{$tag->name}}</a
             >
-            @empty 
-            
-            @endforelse
+            @empty @endforelse
         </div>
         @else
         <p class="bg-white rounded-lg p-3 mt-2 shadow-sm text-gray-600">
@@ -108,10 +108,8 @@
         @endif
         <div class="mt-2 block shadow-sm rounded bg-white">
             <h1 class="px-3 pt-3 text-lg text-gray-500">
-                More from
-                <span class=""
-                    ><a href="">{{$article->user->username}}</a></span
-                >
+                More article from
+                <span class=""><a href="">{{$article->user->name}}</a></span>
             </h1>
             <div
                 class="main-carousel"
