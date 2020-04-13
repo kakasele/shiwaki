@@ -75,14 +75,14 @@
                 Save
             </button>
         </form>
-        <div class="flex px-3 justify-between mt-2">
+        {{-- <div class="flex px-3 justify-between mt-2">
             <p class="text-gray-600">Assigned to</p>
             <span class="text-blue-300">Suleiman Nassor</span>
-        </div>
-        <div class="flex px-3 justify-between pt-1 pb-3">
-            <p class="text-gray-600">Last updated</p>
+        </div> --}}
+        <div class="flex px-3 justify-between pt-3 pb-2">
+            <p class="text-gray-600">Posted</p>
             <span class="text-blue-300"
-                >{{$project->updated_at->diffForHumans()}}</span
+                >{{$project->created_at->diffForHumans()}}</span
             >
         </div>
         @can('manage', $project) 

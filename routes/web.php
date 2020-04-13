@@ -37,6 +37,14 @@ Route::post('/contact', 'ContactController@store')->middleware('auth')->name('co
  * Articles route group 
  * 
  * */
+Route::group(['prefix' => 'translated-works/', 'namespace' => 'TranslatedWorks'], function () {
+
+    Route::get('', 'TranslatedWorksController@index')->name('tx-works-index');
+    Route::post('', 'TranslatedWorksController@store')->name('store-tx-work');
+    Route::get('create', 'TranslatedWorksController@create')->name('new-tx-work')->middleware('auth');
+    Route::get('{tx-work:id}', 'TranslatedWorksController@show')->name('show-tx-work');
+});
+
 Route::group(['prefix' => 'habari/', 'namespace' => 'Articles'], function () {
 
     Route::get('', 'ArticlesController@index')->name('articles');
@@ -145,5 +153,6 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:mana
 
     Route::resource('/publications/reviews', 'PublicationsReviewsController', ['except' => ['create', 'store']]);
 });
+
 
 Auth::routes();

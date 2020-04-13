@@ -71,6 +71,11 @@ class User extends Authenticatable
         return $this->hasMany(TranslateRequest::class)->latest('updated_at');
     }
 
+    public function translatedworks()
+    {
+        return $this->hasMany(TranslatedWork::class);
+    }
+
     public function accessibleRequests()
     {
 

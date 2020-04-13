@@ -37,43 +37,50 @@
                 <li>
                     <a
                         href="{{route('articles')}}"
-                        class="no-underline hover:no-underline sm:ml-6 text-lg text-white tracking-wide"
+                        class="no-underline hover:no-underline sm:ml-6 text-lg sm:text-xl hover:undeline text-white tracking-wide"
                         >Habari</a
                     >
                 </li>
                 <li>
                     <a
                         href="{{route('stories')}}"
-                        class="no-underline hover:no-underline sm:ml-6 text-lg text-white tracking-wide"
+                        class="no-underline hover:no-underline sm:ml-6 text-lg sm:text-xl hover:undeline text-white tracking-wide"
                         >Hadithi</a
                     >
                 </li>
                 <li>
                     <a
                         href="{{route('poems')}}"
-                        class="no-underline hover:no-underline sm:ml-6 text-lg text-white tracking-wide"
-                        >Ushairi</a
+                        class="no-underline hover:no-underline sm:ml-6 text-lg sm:text-xl hover:undeline text-white tracking-wide"
+                        >Mashairi</a
                     >
                 </li>
                 <li>
                     <a
                         href="{{route('quotes')}}"
-                        class="no-underline hover:no-underline sm:ml-6 text-lg text-white tracking-wide"
+                        class="no-underline hover:no-underline sm:ml-6 text-lg sm:text-xl hover:undeline text-white tracking-wide"
                         >Nasaha</a
                     >
                 </li>
                 <li>
                     <a
                         href="{{route('reviews')}}"
-                        class="no-underline hover:no-underline sm:ml-6 text-lg text-white tracking-wide"
+                        class="no-underline hover:no-underline sm:ml-6 text-lg sm:text-xl hover:undeline text-white tracking-wide"
                         >Makala</a
                     >
                 </li>
                 <li>
                     <a
                         href="{{route('translate-index')}}"
-                        class="no-underline hover:no-underline sm:ml-6 text-lg text-white tracking-wide"
+                        class="no-underline hover:no-underline sm:ml-6 text-lg sm:text-xl hover:undeline text-white tracking-wide"
                         >Tafsiri</a
+                    >
+                </li>
+                                <li>
+                    <a
+                        href="{{route('tx-works-index')}}"
+                        class="no-underline hover:no-underline sm:ml-6 text-lg sm:text-xl hover:undeline text-white tracking-wide"
+                        >Translated Works</a
                     >
                 </li>
             </ul>
@@ -83,7 +90,7 @@
                 <!-- Authentication Links -->
                 @guest
                 <li
-                    class="nav-item sm:rounded-full sm:px-3  mr-3 text-white text-lg"
+                    class="nav-item sm:rounded-full sm:px-3  mr-3 text-white text-lg sm:text-xl hover:undeline"
                 >
                     <a class="nav-link sm:hover:text-white hover:no-underline" href="{{ route('login') }}"
                         >{{ __('Login') }}</a
@@ -91,7 +98,7 @@
                 </li>
                 @if (Route::has('register'))
                 <li
-                    class="nav-item sm:rounded-full sm:px-3 sm:bg-green-400 mr-3 text-white text-lg focus:text-white"
+                    class="nav-item sm:rounded-full sm:px-3 sm:bg-green-400 mr-3 text-white text-lg sm:text-xl hover:undeline focus:text-white"
                 >
                     <a class="nav-link" href="{{ route('register') }}"
                         >{{ __('Register') }}</a

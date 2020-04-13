@@ -37,7 +37,7 @@
                     </div>
                     <span
                         class="bg-red-300 px-2 rounded-full text-white font-bold shadow-sm"
-                        >Unassigned</span
+                        >New</span
                     >
                 </div>
                 <div class="proect-details">
