@@ -18,6 +18,6 @@ class TranslateRequestInvitationsController extends Controller
 
         $translateRequest->invite($user);
 
-        return back()->with('success', 'The invite was successfully sent sent');
+        return back()->with('success', 'The invite was successfully sent');
     }
 }
