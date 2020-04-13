@@ -47,14 +47,14 @@
                 <div>
                     <img
                         class="w-12 h-12 rounded-full"
-                        src="{{'storage' . '/' . $story->user->avatar()}}"
+                        src="{{asset('storage'.'/'. $story->user->avatar())}}"
                         alt=""
                     />
                 </div>
                 <span class="verified">
                     <img
                         class="w-4 mx-1 rounded-full"
-                        src="{{'storage' . '/' . '/images/verified.png'}}"
+                        src="{{asset('storage' . '/' . '/images/verified.png')}}"
                         alt=""
                     />
                 </span>

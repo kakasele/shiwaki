@@ -1,7 +1,7 @@
 <div class="bg-white flex flex-col rounded-lg shadow-lg overflow-hidden mt-2">
     <div class="mx-auto flex-shrink-0 mt-8 border-2 border-green-300 rounded-full h-12 w-12 text-center justify-center overflow-hidden">
         <img
-            src="{{'storage' . '/' .$story->user->avatar()}}"
+            src="{{asset('storage'.'/'. $story->user->avatar())}}"
             alt=""
             class="h-12 rounded-full mx-auto object-cover shadow-sm"
         />

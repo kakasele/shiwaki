@@ -7,7 +7,7 @@
         </div>
     <div class="flex-shrink-0 shadow-sm">
         <img
-            src="{{'storage'.'/'. $review->image_path}}"
+            src="{{asset('storage'.'/'. $review->image_path)}}"
             alt=""
             loading="lazy"
             class="h-48 w-full object-cover"
@@ -23,7 +23,7 @@
             <div class="flex-shrink-0">
                 <img
                     class="h-10 w-10 rounded-full"
-                    src="{{'storage'.'/'.$review->user->avatar()}}"
+                    src="{{asset('storage'.'/'. $review->user->avatar())}}"
                     alt=""
                 />
             </div>

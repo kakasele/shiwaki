@@ -16,7 +16,7 @@
                 <div class="bg-blue-100 flex justify-between items-center px-3 py-2">
                     <div class="flex flex-col items-center" title="Story contributor">
                         <div>
-                            <img class="w-10 h-10 border-2 border-white object-cover rounded-full" src="{{asset($work->user->avatar())}}" alt="">
+                            <img class="w-10 h-10 border-2 border-white object-cover rounded-full" src="{{asset('storage' .' /' . $work->user->avatar())}}" alt="">
                         </div>
                         <span class="text-gray-600">{{$work->user->username}}</span>
                     </div>

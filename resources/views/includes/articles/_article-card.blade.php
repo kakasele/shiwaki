@@ -22,7 +22,7 @@
         <div class="flex-shrink-0">
             <img
                 class="h-10 w-10 rounded-full"
-                src="{{asset($article->user->avatar())}}"
+                src="{{asset('storage' . '/'. $article->user->avatar())}}"
                 alt=""
             />
         </div>
