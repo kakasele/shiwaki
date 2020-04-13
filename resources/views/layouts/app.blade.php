@@ -33,6 +33,7 @@
         <link href="{{ asset('css/main.css') }}" rel="stylesheet" />
         @livewireStyles
         <link rel="stylesheet" href="https://www.unpkg.com/trix@1.2.3/dist/trix.css">
+        <link rel="shortcut icon" href="{{ URL::asset('favicon.ico') }}">
     </head>
 
     <body class="">

@@ -53,7 +53,7 @@ class ReviewPolicy
      */
     public function update(User $user, Review $review)
     {
-        return $user->is($review->user);
+        return $user->is($review->user) || $user->hasAnyRoles(['admin', 'owner']);
     }
 
     /**

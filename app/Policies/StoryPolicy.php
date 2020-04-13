@@ -53,7 +53,7 @@ class StoryPolicy
      */
     public function update(User $user, Story $story)
     {
-        return $user->is($story->user);
+        return $user->is($story->user) || $user->hasAnyRoles(['admin', 'owner']);
     }
 
     /**

@@ -53,7 +53,7 @@ class PoemPolicy
      */
     public function update(User $user, Poem $poem)
     {
-        return $user->is($poem->user);
+        return $user->is($poem->user) || $user->hasAnyRoles(['admin', 'owner']);
     }
 
     /**

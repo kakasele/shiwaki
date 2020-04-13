@@ -10,7 +10,7 @@
         </div>
 
         <div class="p-3">
-            <div class="text-center my-3">
+            <div class="my-3">
                 <h2
                     class="text-2xl text-gray-700 leading-6 mt-2 text-center font-semibold"
                 >

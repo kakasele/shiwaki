@@ -53,9 +53,8 @@ class ArticlePolicy
      */
     public function update(User $user, Article $article)
     {
-        return $user->is($article->user);
+        return $user->is($article->user) || $user->hasAnyRoles(['admin', 'owner']);
     }
-
     /**
      * Determine whether the user can delete the article.
      *
