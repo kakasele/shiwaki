@@ -1,7 +1,7 @@
 <div class="bg-white flex flex-col rounded-lg shadow-lg overflow-hidden mt-2">
     <div class="flex-shrink-0 shadow-sm">
         <img
-            src="{{asset($article->image_path)}}"
+            src="{{asset('storage'.'/'.$article->image_path)}}"
             alt=""
             loading="lazy"
             class="h-48 w-full object-cover"
