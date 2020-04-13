@@ -9,7 +9,7 @@
         <div class="single-comment mt-2">
             <div class="comment px-3 flex items-center">
                 <img
-                    src="{{asset($comment->user->avatar())}}"
+                    src="{{'storage' . '/' . $comment->user->avatar()}}"
                     class="w-12 h-12 rounded-full shadow-sm flex-shrink-0 z-10 mb-auto"
                     alt=""
                 />

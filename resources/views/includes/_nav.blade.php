@@ -122,7 +122,7 @@
                     >
                         <img
                             class="w-8 h-8 sm:w-12 sm:h-12 rounded-full object-cover shadow-m border-2 border-white"
-                            src="{{ asset(Auth::user()->avatar()) }}"
+                            src="{{'storage' . '/' . Auth::user()->avatar() }}"
                             alt=""
                         />
                         <span class="ml-2">{{auth()->user()->name}}</span>

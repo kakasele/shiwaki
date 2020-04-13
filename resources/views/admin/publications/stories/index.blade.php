@@ -55,7 +55,7 @@
                                     <div class="flex-shrink-0 h-10 w-10">
                                         <img
                                             class="h-10 w-10 rounded-full"
-                                            src="{{asset($story->user->avatar())}}"
+                                            src="{{'storage' . '/' . $story->user->avatar()}}"
                                             alt=""
                                         />
                                     </div>

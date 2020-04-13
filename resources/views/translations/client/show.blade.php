@@ -31,7 +31,7 @@
         <div class="client-avatar p-3 flex flex-col text-center">
             <img
                 class="w-12 h-12 rounded-full object-cover items-center mx-auto border-2 border-green-200"
-                src="{{asset($project->user->avatar())}}"
+                src="{{'storage' . '/' . $project->user->avatar()}}"
                 alt=""
             />
             <span class="text-gray-700 text-sm">{{$project->user->name}}</span>

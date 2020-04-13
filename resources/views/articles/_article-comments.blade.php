@@ -9,7 +9,7 @@
     @forelse($article->comments as $comment)
     <div class="comment px-3 mb-3 flex items-center">
         <img
-            src="{{asset($comment->user->avatar())}}"
+            src="{{'storage' . '/' . $comment->user->avatar()}}"
             class="w-12 h-12 rounded-full shadow-sm flex-shrink-0 z-10 mb-auto"
             alt=""
         />

@@ -4,7 +4,7 @@
         <div>
             <img
                 class="object-cover w-full"
-                src="{{asset($article->image_path)}}"
+                src="{{'storage' . '/' . $article->image_path}}"
                 alt=""
             />
         </div>
@@ -55,14 +55,14 @@
                 <div>
                     <img
                         class="w-12 h-12 rounded-full"
-                        src="{{asset($article->user->avatar())}}"
+                        src="{{'storage' . '/' . $article->user->avatar()}}"
                         alt=""
                     />
                 </div>
                 <span class="verified">
                     <img
                         class="w-4 mx-1 rounded-full"
-                        src="{{asset('/images/verified.png')}}"
+                        src="{{'storage' . '/' . '/images/verified.png'}}"
                         alt=""
                     />
                 </span>

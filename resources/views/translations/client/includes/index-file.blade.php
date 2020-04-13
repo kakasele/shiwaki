@@ -16,7 +16,7 @@
         <span class="w-full">{{$file->name}}</span>
         <span class="w-full flex-1 mx-2 text-gray-600">{{round($file->file_size,2)}}MB</span>
             <a
-        href="{{asset($file->file_path)}}"
+        href="{{'storage' . '/' . $file->file_path}}"
         target="_"
         class="text-indigo-600 hover:no-underline text-semibold"
         ><svg

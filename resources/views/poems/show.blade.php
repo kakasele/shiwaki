@@ -47,14 +47,14 @@
                 <div>
                     <img
                         class="w-12 h-12 rounded-full"
-                        src="{{asset($poem->user->avatar())}}"
+                        src="{{'storage' . '/' . $poem->user->avatar()}}"
                         alt=""
                     />
                 </div>
                 <span class="verified">
                     <img
                         class="w-4 mx-1 rounded-full"
-                        src="{{asset('/images/verified.png')}}"
+                        src="{{'storage' . '/' . '/images/verified.png'}}"
                         alt=""
                     />
                 </span>
