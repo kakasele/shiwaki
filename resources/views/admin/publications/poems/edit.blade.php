@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container mt-6">
-            <h1 class="mx-auto sm:text-center mb-3 text-xl font-semibold text-gray-600">Read & Approve</h1>
+            <h1 class="mx-auto sm:text-center mb-3 text-xl font-semibold text-gray-600">Soma na uhakiki</h1>
         @if (session('error'))
             <div class="alert alert-error">
                 {{session('error')}}
@@ -14,7 +14,7 @@
             @method('put')
             <div class="form-group">
                 <label for="title" class="text-sm block text-gray-600"
-                    >Title</label
+                    >Kichwa</label
                 >
                 <input
                     type="text"
@@ -26,7 +26,7 @@
             </div>
             <div class="form-group">
                 <label for="title" class="text-sm block text-gray-600"
-                    >Body</label
+                    >&#x26A7;</label
                 >
                 <input id="x" type="hidden" name="body" value="{{$poem->body}}">
                 <trix-editor input="x" class="ashmif-content"></trix-editor>
@@ -35,7 +35,7 @@
                 <button 
                 type="submit"
                 class="bg-blue-400 px-2 py-1 rounded-full text-white shadow font-semibold"
-                >Save Changes</button>
+                >Chapisha</button>
             </div>
         </form>
     </div>

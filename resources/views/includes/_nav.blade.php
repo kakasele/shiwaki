@@ -76,13 +76,13 @@
                         >Ofisi</a
                     >
                 </li>
-                                <li>
+                                {{-- <li>
                     <a
                         href="{{route('tx-works-index')}}"
                         class="no-underline hover:no-underline sm:ml-6 text-lg sm:text-xl hover:undeline text-white tracking-wide"
                         > Kazi Zilotafsiriwa</a
                     >
-                </li>
+                </li> --}}
             </ul>
 
             <!-- Right Side Of Navbar -->

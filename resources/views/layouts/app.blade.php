@@ -9,6 +9,16 @@
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 
+        <!--Facebook share-->
+        <meta property="og:url"           content="https://shiwaki.net/" />
+        <meta property="og:type"          content="website" />
+        <meta property="og:title"         content="Shiwaki />
+        <meta property="og:description"   content="SHIWAKI (Shirika La Waandishi wa Kiswahili) ni muungano wa waandishi wa lugha ya kiswahili. Jukumu kubwa la muungano huu ni kutoa nafasi ya kuonyesha kwa ufasaha kazi za Fasihi kutoka kwa waandishi mbalimbali pamoja na kufasiri kazi zilizo kwenye lugha tofauti.
+
+Ufasiri huu, umelengwa katika kuongeza hadhira ya wasomaji wa nathari na shairi katika lugha ya kiswahili.
+
+SHIWAKI ina malengo ya kuipeleka Fasihi ya Kiswahili duniani kote kutokana na uongezeko wa kuthaminiwa kwa lugha hii ulimwenguni." />
+        <meta property="og:image"         content="https://shiwaki.net/" />
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
         <script src="https://unpkg.com/turbolinks"></script>
@@ -46,6 +56,14 @@
                 @include('includes._footer')
             </main>
         </div>
+          <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
         @include('sweetalert::alert')
         @livewireScripts
     </body>

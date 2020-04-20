@@ -21,8 +21,9 @@
                 <div class="text-gray-700 mt-3 text-base ashmif-content">
                     {!! $article->body !!}
                 </div>
+
                 @can('update',$article)
-                <div class="flex justify-end items-end mt-2">
+                <div class="flex justify-end items-end">
                     <a
                         href="{{route('edit-article',$article->slug)}}"
                         class="bg-blue-300 px-3 rounded-full text-white mr-2 hover:no-underline"
@@ -51,7 +52,7 @@
     </div>
 
     <div class="block sm:flex-1 sm:ml-4 rounded">
-        <h1 class="pb-2 sm:hidden text-base text-blue-400">Posted by...</h1>
+        <h1 class="pb-2 sm:hidden text-base text-blue-400">Imechapishwa na...</h1>
         <div class="shadow-sm bg-white rounded-lg px-4 p-3">
             <div class="author-info flex items-center mx-auto">
                 <div>
@@ -80,6 +81,15 @@
                     Tazama Wasifu
                 </a>
             </div>
+        </div>
+        <div class="rounded-lg flex flex-wrap p-2 mt-2 items-center text-lg">
+            <div class="fb-share-button mr-3" data-href="shiwaki.net/{{$article->path()}}" data-layout="button_count">
+            </div>
+            <a class="twitter-share-button mt-2"
+                href="https://twitter.com/intent/tweet?text='{{ (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"}}"
+                data-size="large">
+                <i class="fab fa-twitter text-blue-500"></i>
+            </a>
         </div>
         @if ($article->tags->count()>0)
         <div

@@ -37,10 +37,6 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    // public function setPasswordAttribute($value)
-    // {
-    //     $this->attributes['password'] = bcrypt($value);
-    // }
 
     public function avatar()
     {
@@ -152,5 +148,10 @@ class User extends Authenticatable
     public function reviewcomments()
     {
         return $this->hasMany(ReviewComment::class);
+    }
+
+    public function isVerified()
+    {
+        return $this->hasAnyRoles(['admin', 'owner', 'author']);
     }
 }

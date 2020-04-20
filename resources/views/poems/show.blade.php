@@ -71,6 +71,15 @@
                 </a>
             </div>
         </div>
+        <div class="rounded-lg flex flex-wrap p-2 mt-2 items-center text-lg">
+            <div class="fb-share-button mr-3" data-href="shiwaki.net/{{$poem->path()}}" data-layout="button_count">
+            </div>
+            <a class="twitter-share-button mt-2"
+                href="https://twitter.com/intent/tweet?text='{{ (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"}}"
+                data-size="large">
+                <i class="fab fa-twitter text-blue-500"></i>
+            </a>
+        </div>
                 @if ($poem->tags->count()>0)
         <div
             class="bg-white rounded-lg flex justify-around flex-wrap p-2 mt-2 shadow-xs"

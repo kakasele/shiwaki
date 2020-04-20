@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Quote extends Model
 {
-    protected $fillable = ['user_id', 'source', 'body'];
+    protected $fillable = ['user_id', 'source', 'body', 'slug'];
 
     public function user()
     {

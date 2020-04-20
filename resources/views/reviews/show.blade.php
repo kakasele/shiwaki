@@ -1,4 +1,6 @@
-@extends('layouts.app') @section('content')
+@extends('layouts.app') 
+
+@section('content')
 <div class="container mt-6 sm:flex">
     <div class="bg-white sm:w-2/3 rounded overflow-hidden shadow-sm mb-2">
         <div class="text-center my-3">
@@ -10,7 +12,7 @@
         <div>
             <img
                 class="object-cover w-full"
-                src="{{'storage' . '/' . $review->image_path}}"
+                src="{{asset('storage' . '/' . $review->image_path)}}"
                 alt=""
             />
         </div>
@@ -25,7 +27,7 @@
                                 href="{{route('edit-review',$review->slug)}}"
                                 class="bg-blue-300 px-3 rounded-full text-white mr-2 hover:no-underline"
                                 href=""
-                                >Edit</a
+                                >Hariri</a
                             >
                             <div class="">
                                 <form
@@ -37,7 +39,7 @@
                                         class="bg-red-400 px-3 rounded-full text-white outline-none focus:outline-none "
                                         type="submit"
                                     >
-                                        Delete
+                                        Futa
                                     </button>
                                 </form>
                             </div>
@@ -49,7 +51,7 @@
     </div>
 
     <div class="block sm:flex-1 sm:ml-4 rounded">
-        <h1 class="pb-2 sm:hidden text-base text-blue-400">Posted by...</h1>
+        <h1 class="pb-2 sm:hidden text-base text-blue-400">Imechapishwa na...</h1>
         <div class="shadow-sm bg-white rounded-lg px-4 p-3">
             <div class="author-info flex items-center mx-auto">
                 <div>
@@ -73,11 +75,20 @@
             <div class="mt-3">
                 <a
                     class="bg-green-400 shadow px-4 py-2 block text-center no-underline hover:no-underline sm:w-2/3 text-white rounded-full w-full font-semibold"
-                    href="{{route('member-profile',$review->user->name)}}"
+                    href="{{route('member-profile',$review->user->username)}}"
                 >
-                    View Profile
+                    Tazama Wasifu
                 </a>
             </div>
+        </div>
+        <div class="rounded-lg flex flex-wrap p-2 mt-2 items-center text-lg">
+            <div class="fb-share-button mr-3" data-href="shiwaki.net/{{$review->path()}}" data-layout="button_count">
+            </div>
+            <a class="twitter-share-button mt-2"
+                href="https://twitter.com/intent/tweet?text='{{ (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"}}"
+                data-size="large">
+                <i class="fab fa-twitter text-blue-500"></i>
+            </a>
         </div>
                 @if ($review->tags->count()>0)
         <div
@@ -111,12 +122,12 @@
         </div>
         @else
         <p class="bg-white rounded-lg p-3 mt-2 shadow-sm text-gray-600">
-            This review has no tags
+            Makala haya hayana vitambulisho
         </p>
         @endif
         <div class="mt-2 block shadow-sm rounded bg-white">
             <h1 class="px-3 pt-3 text-lg text-gray-500">
-                More reviews from
+               Mengine kutoka kwa
                 <span class=""><a href="">{{$review->user->name}}</a></span>
             </h1>
             <div

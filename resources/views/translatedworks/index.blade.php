@@ -16,7 +16,8 @@
                 <div class="bg-blue-100 flex justify-between items-center px-3 py-2">
                     <div class="flex flex-col items-center" title="Story contributor">
                         <div>
-                            <img class="w-10 h-10 border-2 border-white object-cover rounded-full" src="{{asset('storage' .' /' . $work->user->avatar())}}" alt="">
+                            <img class="w-10 h-10 border-2 border-white object-cover rounded-full" src="{{asset('storage' .'/' . $work->user->avatar())}}" alt="">
+                            
                         </div>
                         <span class="text-gray-600">{{$work->user->username}}</span>
                     </div>
@@ -25,7 +26,7 @@
                         <a class="text-blue-300 hover:text-blue-300 hover:no-underline" href="{{$work->original_url}}" target="_">{{$work->foreign_title}}</a>
                     </div>                    
                     <div class="flex flex-col items-center text-gray-600">
-                        <span>Posted</span>
+                        <span>Ilichapishwa</span>
                         <small>{{$work->created_at->toFormattedDateString()}}</small>
                     </div>
                 </div>

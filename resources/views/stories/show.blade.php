@@ -65,11 +65,19 @@
             <div class="mt-3">
                 <a
                     class="bg-green-400 shadow px-4 py-2 block text-center no-underline hover:no-underline sm:w-2/3 text-white rounded-full w-full font-semibold"
-                    href="{{route('member-profile',$story->user->name)}}"
+                    href="{{route('member-profile',$story->user->username)}}"
                 >
                     Tazama Wasifu
                 </a>
             </div>
+        </div>
+        <div class="rounded-lg flex flex-wrap p-2 mt-2 items-center text-lg">
+            <div class="fb-share-button mr-3" data-href="shiwaki.net/{{$story
+            <a class="twitter-share-button mt-2"
+                href="https://twitter.com/intent/tweet?text='{{ (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"}}"
+                data-size="large">
+                <i class="fab fa-twitter text-blue-500"></i>
+            </a>
         </div>
                 @if ($story->tags->count()>0)
         <div

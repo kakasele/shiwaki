@@ -6,7 +6,7 @@
         <a
             class="bg-blue-400 px-3 py-1 rounded-full text-white shadow sm:mr-8 font-semibold hover:no-underline"
             href="{{route('new-story')}}"
-            >New Story</a
+            >Andika Hadith</a
         >
     </div>
     <div
@@ -17,7 +17,7 @@
             @include('includes.stories._story-card')
         </a>
         @empty
-        <p>No relevant stories yet</p>
+        <p>Hadithi Iliochapishwa</p>
         @endforelse
     </div>
 </div>

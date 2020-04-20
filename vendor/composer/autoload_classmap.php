@@ -35,6 +35,7 @@ return array(
     'App\\Http\\Controllers\\Reviews\\ReviewsController' => $baseDir . '/app/Http/Controllers/Reviews/ReviewsController.php',
     'App\\Http\\Controllers\\Stories\\StoriesController' => $baseDir . '/app/Http/Controllers/Stories/StoriesController.php',
     'App\\Http\\Controllers\\Stories\\StoryCommentsController' => $baseDir . '/app/Http/Controllers/Stories/StoryCommentsController.php',
+    'App\\Http\\Controllers\\TranslatedWorks\\TranslatedWorksController' => $baseDir . '/app/Http/Controllers/TranslatedWorks/TranslatedWorksController.php',
     'App\\Http\\Controllers\\Translations\\TranslateRequestCommentController' => $baseDir . '/app/Http/Controllers/Translations/TranslateRequestCommentController.php',
     'App\\Http\\Controllers\\Translations\\TranslateRequestController' => $baseDir . '/app/Http/Controllers/Translations/TranslateRequestController.php',
     'App\\Http\\Controllers\\Translations\\TranslateRequestFilesController' => $baseDir . '/app/Http/Controllers/Translations/TranslateRequestFilesController.php',

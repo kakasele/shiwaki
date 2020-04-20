@@ -6,7 +6,7 @@
         <a
             class="bg-blue-400 px-3 py-1 rounded-full text-white shadow sm:mr-8 font-semibold hover:no-underline"
             href="{{route('new-review')}}"
-            >New Review</a
+            >Andika Makala</a
         >
     </div>
     <div
@@ -17,7 +17,7 @@
             @include('includes.reviews._review-card')
         </a>
         @empty
-        <p>No relevant reviews yet</p>
+        <p>Hakuna makala yaliochapishwa</p>
         @endforelse
     </div>
 </div>

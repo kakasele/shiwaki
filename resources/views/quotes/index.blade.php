@@ -1,6 +1,7 @@
 @extends('layouts.app') 
 @section('content')
 <div class="container mt-6">
+    <h1 class="text-2xl text-gray-700 sm:ml-8 sm:mb-2">Nasaha</h1>
     <div class="sm:flex sm:justify-start hidden sm:ml-8">
         <a
             class="bg-blue-400 px-3 py-1 rounded-full text-white shadow sm:mr-8 font-semibold hover:no-underline"
@@ -26,7 +27,7 @@
                     >{{$quote->source}}</span
                 >
             </div>
-                            @if (Auth::check()) 
+             @if (Auth::check()) 
                     @if($quote->user->id===auth()->user()->id)
                     <div class="flex justify-end items-end mt-2 mr-3">
                         <a
@@ -51,13 +52,26 @@
                     @endif 
                 @endif
             <div class="border-t border-green-300 mt-2 px-6 py-2 bg-gray-200">
-                <span class="text-sm text-gray-500">Imeshirikishwa na</span>
+                <span class="text-sm text-gray-500">Imesambazwa na</span>
                 <a
                     class="ml-2 text-sm text-blue-300"
-                    href="{{route('member-profile',$quote->user->name)}}"
+                    href="{{route('member-profile',$quote->user->username)}}"
                     >{{$quote->user->name}}</a
                 >
             </div>
+            <div class="rounded-b-lg flex justify-around flex-wrap py-1 bg-white">
+            <div class="fb-share-button" 
+                data-href="shiwaki.net/quotes" 
+                data-layout="button_count">
+            </div>
+
+            <a class="twitter-share-button mt-2"
+                href="https://twitter.com/intent/tweet?text='{{ (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"}}"
+                data-size="large">
+                <i class="fab fa-twitter text-blue-500"></i>
+            </a>
+            
+        </div>              
         </div>
         @endforeach
     </div>

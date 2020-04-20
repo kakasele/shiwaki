@@ -6,7 +6,7 @@
         <a
             class="bg-blue-400 px-3 py-1 rounded-full text-white shadow sm:mr-8 font-semibold hover:no-underline"
             href="{{route('new-poem')}}"
-            >New Poem</a
+            >Chapisha Shairi</a
         >
     </div>
     <div
@@ -17,7 +17,7 @@
             @include('includes.poems._poem-card')
         </a>
         @empty
-        <p>No relevant poems yet</p>
+        <p>Hakuna shairi lililochapishwa</p>
         @endforelse
     </div>
 </div>

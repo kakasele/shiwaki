@@ -42,7 +42,7 @@ Route::group(['prefix' => 'translated-works/', 'namespace' => 'TranslatedWorks']
     Route::get('', 'TranslatedWorksController@index')->name('tx-works-index');
     Route::post('', 'TranslatedWorksController@store')->name('store-tx-work');
     Route::get('create', 'TranslatedWorksController@create')->name('new-tx-work')->middleware('auth');
-    Route::get('{tx-work:id}', 'TranslatedWorksController@show')->name('show-tx-work');
+    Route::get('{tx-work}', 'TranslatedWorksController@show')->name('show-tx-work');
 });
 
 Route::group(['prefix' => 'habari/', 'namespace' => 'Articles'], function () {

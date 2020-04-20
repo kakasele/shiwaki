@@ -6,7 +6,7 @@
         <a
             class="bg-blue-400 px-3 py-1 rounded-full text-white shadow sm:mr-8 font-semibold hover:no-underline"
             href="{{route('new-article')}}"
-            >New Article</a
+            >Chapisha Habari</a
         >
     </div>
     <div
@@ -17,7 +17,7 @@
             @include('includes.articles._article-card')
         </a>
         @empty
-        <p>No relevant articles yet</p>
+        <p>Hakuna habari iliyochapishwa</p>
         @endforelse
     </div>
 </div>

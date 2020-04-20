@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Quote;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 
 class QuotesController extends Controller
@@ -41,23 +42,19 @@ class QuotesController extends Controller
     public function store(Request $request)
     {
 
-        $validator = Validator::make(request()->all(), [
+        $attributes = request()->validate([
             'source' => 'required',
             'body' => 'required',
         ]);
 
 
-        if ($validator->fails()) {
+        $attributes['slug'] = Str::slug(request('title', '-'));
 
-            alert('Aaaah...nah', $validator->messages()->all(), 'error');
-
-            return back();
-        }
-
-        auth()->user()->quotes()->create([
+        $story = auth()->user()->quotes()->create([
             'source' => request('source'),
             'body' => request('body'),
         ]);
+
 
         return redirect(route('quotes'))
             ->with('success', 'Your quote has been published');

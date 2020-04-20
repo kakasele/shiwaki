@@ -31,7 +31,7 @@ class PublicationsReviewsController extends Controller
     {
         return view('reviews.show', [
             'review' => $review,
-            'user_review' => $review->user->reviews()->get()
+            'user_reviews' => $review->user->reviews()->get()
         ]);
     }
 

@@ -519,6 +519,7 @@ class ComposerStaticInitab119fdfe5f3d99c81abc29c076d5021
         'App\\Http\\Controllers\\Reviews\\ReviewsController' => __DIR__ . '/../..' . '/app/Http/Controllers/Reviews/ReviewsController.php',
         'App\\Http\\Controllers\\Stories\\StoriesController' => __DIR__ . '/../..' . '/app/Http/Controllers/Stories/StoriesController.php',
         'App\\Http\\Controllers\\Stories\\StoryCommentsController' => __DIR__ . '/../..' . '/app/Http/Controllers/Stories/StoryCommentsController.php',
+        'App\\Http\\Controllers\\TranslatedWorks\\TranslatedWorksController' => __DIR__ . '/../..' . '/app/Http/Controllers/TranslatedWorks/TranslatedWorksController.php',
         'App\\Http\\Controllers\\Translations\\TranslateRequestCommentController' => __DIR__ . '/../..' . '/app/Http/Controllers/Translations/TranslateRequestCommentController.php',
         'App\\Http\\Controllers\\Translations\\TranslateRequestController' => __DIR__ . '/../..' . '/app/Http/Controllers/Translations/TranslateRequestController.php',
         'App\\Http\\Controllers\\Translations\\TranslateRequestFilesController' => __DIR__ . '/../..' . '/app/Http/Controllers/Translations/TranslateRequestFilesController.php',
