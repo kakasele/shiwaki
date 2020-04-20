@@ -62,7 +62,7 @@
                 <span class="verified">
                     <img
                         class="w-4 mx-1 rounded-full"
-                        src="{{asset('storage'.'/'. '/images/verified.png')}}"
+                        src="{{asset('images/verified.png')}}"
                         alt=""
                     />
                 </span>
@@ -86,12 +86,18 @@
             @forelse ($review->tags as $tag)
             <a
                 class="
-                 @if($tag->name==='Laravel')
+                 @if($tag->name==='Uandishi')
                  bg-green-300
-                 @elseif($tag->name==='Business')
+                 @elseif($tag->name==='Fasihi')
                  bg-pink-300
-                 @elseif($tag->name==='Tech')
-                 bg-blue-300                 
+                 @elseif($tag->name==='Maisha')
+                 bg-blue-300      
+                 @elseif($tag->name==='Biashara')
+                 bg-red-300                    
+                 @elseif($tag->name==='Dini')
+                 bg-indigo-300  
+                 @elseif($tag->name==='Dini')
+                 bg-purple-300                                                
                  @else
                  bg-purple-500
                  @endif

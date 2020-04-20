@@ -73,14 +73,14 @@
                     <a
                         href="{{route('translate-index')}}"
                         class="no-underline hover:no-underline sm:ml-6 text-lg sm:text-xl hover:undeline text-white tracking-wide"
-                        >Tafsiri</a
+                        >Ofisi</a
                     >
                 </li>
                                 <li>
                     <a
                         href="{{route('tx-works-index')}}"
                         class="no-underline hover:no-underline sm:ml-6 text-lg sm:text-xl hover:undeline text-white tracking-wide"
-                        >Translated Works</a
+                        > Kazi Zilotafsiriwa</a
                     >
                 </li>
             </ul>
@@ -93,7 +93,7 @@
                     class="nav-item sm:rounded-full sm:px-3  mr-3 text-white text-lg sm:text-xl hover:undeline"
                 >
                     <a class="nav-link sm:hover:text-white hover:no-underline" href="{{ route('login') }}"
-                        >{{ __('Login') }}</a
+                        >{{ __('Ingia') }}</a
                     >
                 </li>
                 @if (Route::has('register'))
@@ -101,7 +101,7 @@
                     class="nav-item sm:rounded-full sm:px-3 sm:bg-green-400 mr-3 text-white text-lg sm:text-xl hover:undeline focus:text-white"
                 >
                     <a class="nav-link" href="{{ route('register') }}"
-                        >{{ __('Register') }}</a
+                        >{{ __('Jisajili') }}</a
                     >
                 </li>
                 @endif 
@@ -122,7 +122,7 @@
                     >
                         <img
                             class="w-8 h-8 sm:w-12 sm:h-12 rounded-full object-cover shadow-m border-2 border-white"
-                            src="{{'storage' . '/' . Auth::user()->avatar() }}"
+                            src="{{asset('storage' . '/' . Auth::user()->avatar())}}"
                             alt=""
                         />
                         <span class="ml-2">{{auth()->user()->name}}</span>
@@ -162,7 +162,7 @@
                                     d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
                                 ></path>
                             </svg>
-                            My Profile
+                            Wasifu Wangu
                         </a>
                         <a
                             class="flex items-center block px-2 py-1 no-underline hover:no-underline hover:bg-blue-400 hover:text-white"
@@ -183,7 +183,7 @@
                                     d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
                                 ></path>
                             </svg>
-                            {{ __('Logout') }}
+                            {{ __('Toka') }}
                         </a>
 
                         <form

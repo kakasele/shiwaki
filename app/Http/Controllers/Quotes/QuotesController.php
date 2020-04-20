@@ -43,7 +43,7 @@ class QuotesController extends Controller
 
         $validator = Validator::make(request()->all(), [
             'source' => 'required',
-            'body' => 'required|max:280',
+            'body' => 'required',
         ]);
 
 

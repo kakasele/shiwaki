@@ -20,7 +20,7 @@
                             href="{{route('edit-story',$story->slug)}}"
                             class="bg-blue-300 px-3 rounded-full text-white mr-2 hover:no-underline"
                             href=""
-                            >Edit</a
+                            >Hariri</a
                         >
                         <div class="">
                             <form action="{{route('delete-story',$story->slug)}}" method="POST">
@@ -29,7 +29,7 @@
                                     class="bg-red-400 px-3 rounded-full text-white outline-none focus:outline-none "
                                     type="submit"
                                 >
-                                    Delete
+                                    Futa
                                 </button>
                             </form>
                         </div>
@@ -41,7 +41,7 @@
     </div>
 
     <div class="block sm:flex-1 sm:ml-4 rounded">
-        <h1 class="pb-2 sm:hidden text-base text-blue-400">Published by...</h1>
+        <h1 class="pb-2 sm:hidden text-base text-blue-400">Imeandikwa na...</h1>
         <div class="shadow-sm bg-white rounded-lg px-4 p-3">
             <div class="author-info flex items-center mx-auto">
                 <div>
@@ -54,7 +54,7 @@
                 <span class="verified">
                     <img
                         class="w-4 mx-1 rounded-full"
-                        src="{{asset('storage' . '/' . '/images/verified.png')}}"
+                        src="{{asset('images/verified.png')}}"
                         alt=""
                     />
                 </span>
@@ -67,7 +67,7 @@
                     class="bg-green-400 shadow px-4 py-2 block text-center no-underline hover:no-underline sm:w-2/3 text-white rounded-full w-full font-semibold"
                     href="{{route('member-profile',$story->user->name)}}"
                 >
-                    View Profile
+                    Tazama Wasifu
                 </a>
             </div>
         </div>
@@ -78,12 +78,18 @@
             @forelse ($story->tags as $tag)
             <a
                 class="
-                 @if($tag->name==='Laravel')
+                 @if($tag->name==='Uandishi')
                  bg-green-300
-                 @elseif($tag->name==='Business')
+                 @elseif($tag->name==='Fasihi')
                  bg-pink-300
-                 @elseif($tag->name==='Tech')
-                 bg-blue-300                 
+                 @elseif($tag->name==='Maisha')
+                 bg-blue-300      
+                 @elseif($tag->name==='Biashara')
+                 bg-red-300                    
+                 @elseif($tag->name==='Dini')
+                 bg-indigo-300  
+                 @elseif($tag->name==='Dini')
+                 bg-purple-300                                                
                  @else
                  bg-purple-500
                  @endif
@@ -97,12 +103,12 @@
         </div>
         @else
         <p class="bg-white rounded-lg p-3 mt-2 shadow-sm text-gray-600">
-            This storie has no tags
+            Haina hii haina vitambulisho.
         </p>
         @endif
         <div class="mt-2 block shadow-sm rounded bg-white">
             <h1 class="px-3 pt-3 text-lg text-gray-500">
-                Other from stories
+                Hadith nyingine kutoka kwa...
                 <span class=""><a href="">{{$story->user->name}}</a></span>
             </h1>
             <div

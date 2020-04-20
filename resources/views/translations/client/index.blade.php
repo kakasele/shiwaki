@@ -24,13 +24,13 @@
                     <div class="flex items-center">
                         <img
                             class="h-10 w-10 inline-block border-2 border-green-300 shadow sm:shadow-sm object-cover rounded-full"
-                            src="{{'storage' . '/' . $project->user->avatar()}}"
+                            src="{{asset('storage'.'/'. $project->user->avatar())}}"
                             alt="User Avatar"
                         />
                         @foreach ($project->members as $member)
                         <img
                             class="h-10 w-10 -ml-2 inline-block border-2 border-green-300 shadow sm:shadow-sm object-cover rounded-full"
-                            src="{{'storage' . '/' . $member->avatar()}}"
+                            src="{{asset('storage' . '/' . $member->avatar())}}"
                             alt="User Avatar"
                         />                            
                         @endforeach

@@ -41,9 +41,9 @@
             <div class="">
                 <button
                     type="submit"
-                    class="bg-blue-400 px-4 py-2 h-4/5 comment-btn text-white -ml-3 pl-3 text-lg font-semibold outline-none focus:no-outline active:no-outline"
+                    class="bg-blue-400 px-4 py-2 flex-shrink-0 comment-btn text-white -ml-3 pl-3 text-lg font-semibold outline-none focus:no-outline active:no-outline"
                 >
-                    Post
+                    <i class="far fa-1x fa-paper-plane"></i>
                 </button>
             </div>
         </form>

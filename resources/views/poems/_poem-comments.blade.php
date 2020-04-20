@@ -1,7 +1,7 @@
 <div class="comments bg-blue-100 pb-3 py-4">
     @if($poem->poemcomments->count() < 1)
     <h1 class="px-3 pt-3 text-gray-600">
-        Be the first to comment &#x1F91F;
+         Kuwa wa kwanza kuchangia &#x1F91F;
     </h1>
     @endif @forelse($poem->poemcomments as $comment)
     <div class="comment px-3 mb-3 flex items-center">
@@ -38,7 +38,7 @@
                     type="submit"
                     class="bg-green-400 px-4 py-2 h-4/5 comment-btn text-white -ml-3 pl-3 text-lg font-semibold outline-none focus:no-outline active:no-outline"
                 >
-                    Post
+                    <i class="far fa-1x fa-paper-plane"></i>
                 </button>
             </div>
         </form>

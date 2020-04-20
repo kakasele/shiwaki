@@ -3,7 +3,7 @@
 @section('content')
 <div class="container mt-16">
     <div class="form-container bg-white sm:w-1/2 mx-auto p-3 rounded-lg">
-        <h1 class="text-lg text-gray-700 pt-3">Update your details</h1>
+        <h1 class="text-lg text-gray-700 pt-3">Badilisha wasifu wako</h1>
         <form class="mt-8" action="{{route('save-profile',$profileUser->username)}}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PATCH')
@@ -101,7 +101,7 @@
                             ></path>
                         </svg>
                     </span>
-                    Update your account
+                    Badilisha
                 </button>
             </div>
         </form>

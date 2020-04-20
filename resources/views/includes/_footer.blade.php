@@ -89,7 +89,7 @@
                     <div class="social mt-1">
                         <span><a href=""><i class="fab 2x text-4xl mr-3 hover:text-white fa-facebook"></i></a></span>
                         <span><a target="_" href="https://twitter.com/Shi_Wa_Ki"><i class="fab 2x text-4xl mr-3 hover:text-white fa-twitter"></i></a></span>
-                        <span><a href=""><i class="fab 2x text-4xl mr-3 hover:text-white fa-instagram"></i></a></span>
+                        <span><a target="_" href="https://www.instagram.com/shi_wa_ki/"><i class="fab 2x text-4xl mr-3 hover:text-white fa-instagram"></i></a></span>
                     </div>
                 </div>
             </div>
@@ -97,10 +97,10 @@
     </div>
     <div class="container mt-6 mx-auto">
         <div class="text-center text-gray-400">
-            <p>&copy; Shiwaki 2020. All rights reserved</p>
+            <p>&copy; Shiwaki 2020. Haki zote zimehifadhiwa.</p>
             <div class="flex justify-center items-center text-base">
                 <p>
-                    Designed & Coded with
+                    Imesafiniwa na kutengezwa kwa
                     <span class="inline-block text-sm"
                         ><svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -114,10 +114,10 @@
                                 d="M13.59 1.778c-.453-.864-3.295-3.755-6.59.431C3.54-1.977.862.914.41 1.778c-.825 1.596-.33 4.014.823 5.18L7.001 13l5.767-6.043c1.152-1.165 1.647-3.582.823-5.18z"
                             /></svg
                     ></span>
-                    by
+                    na
                     <span
                         ><a
-                            class="hover:no-underline hover:text-white"
+                            class="hover:no-underline hover:text-white underline"
                             href="https://twitter.com/kasule_boy"
                             >Abu Junaid</a
                         ></span

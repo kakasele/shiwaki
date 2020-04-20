@@ -17,7 +17,7 @@
                                 href="{{route('edit-poem',$poem->slug)}}"
                                 class="bg-blue-300 px-3 rounded-full text-white mr-2 hover:no-underline"
                                 href=""
-                                >Edit</a
+                                >Hariri</a
                             >
                             <div class="">
                                 <form
@@ -29,7 +29,7 @@
                                         class="bg-red-400 px-3 rounded-full text-white outline-none focus:outline-none "
                                         type="submit"
                                     >
-                                        Delete
+                                        Futa
                                     </button>
                                 </form>
                             </div>
@@ -65,9 +65,9 @@
             <div class="mt-3">
                 <a
                     class="bg-green-400 shadow px-4 py-2 block text-center no-underline hover:no-underline sm:w-2/3 text-white rounded-full w-full font-semibold"
-                    href="{{route('member-profile',$poem->user->name)}}"
+                    href="{{route('member-profile',$poem->user->username)}}"
                 >
-                    View Profile
+                     Tazama Wasifu
                 </a>
             </div>
         </div>
@@ -78,12 +78,18 @@
             @forelse ($poem->tags as $tag)
             <a
                 class="
-                 @if($tag->name==='Laravel')
+                 @if($tag->name==='Uandishi')
                  bg-green-300
-                 @elseif($tag->name==='Business')
+                 @elseif($tag->name==='Fasihi')
                  bg-pink-300
-                 @elseif($tag->name==='Tech')
-                 bg-blue-300                 
+                 @elseif($tag->name==='Maisha')
+                 bg-blue-300      
+                 @elseif($tag->name==='Biashara')
+                 bg-red-300                    
+                 @elseif($tag->name==='Dini')
+                 bg-indigo-300  
+                 @elseif($tag->name==='Dini')
+                 bg-purple-300                                                
                  @else
                  bg-purple-500
                  @endif
@@ -97,13 +103,13 @@
         </div>
         @else
         <p class="bg-white rounded-lg p-3 mt-2 shadow-sm text-gray-600">
-            This poem has no tags
+            Shairi hili halina vitambulisho
         </p>
         @endif
         <div class="mt-2 block shadow-sm rounded bg-white">
             <h1 class="px-3 pt-3 text-lg text-gray-500">
-                Other from poems
-                <span class=""><a href="">{{$poem->user->name}}</a></span>
+                Mengine kutoka kwa
+                <span class="">{{$poem->user->name}}</span>
             </h1>
             <div
                 class="main-carousel"

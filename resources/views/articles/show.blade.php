@@ -1,4 +1,6 @@
-@extends('layouts.app') @section('content')
+@extends('layouts.app') 
+
+@section('content')
 <div class="container mt-6 sm:flex">
     <div class="bg-white sm:w-2/3 rounded overflow-hidden shadow-sm mb-2">
         <div>
@@ -25,7 +27,7 @@
                         href="{{route('edit-article',$article->slug)}}"
                         class="bg-blue-300 px-3 rounded-full text-white mr-2 hover:no-underline"
                         href=""
-                        >Edit</a
+                        >Hariri</a
                     >
                     <div class="">
                         <form
@@ -37,7 +39,7 @@
                                 class="bg-red-400 px-3 rounded-full text-white outline-none focus:outline-none "
                                 type="submit"
                             >
-                                Delete
+                                Futa
                             </button>
                         </form>
                     </div>
@@ -62,7 +64,7 @@
                 <span class="verified">
                     <img
                         class="w-4 mx-1 rounded-full"
-                        src="{{asset('storage'.'/'. images/verified.png')}}"
+                        src="{{asset('images/verified.png')}}"
                         alt=""
                     />
                 </span>
@@ -75,7 +77,7 @@
                     class="bg-green-400 shadow px-4 py-2 block text-center no-underline hover:no-underline sm:w-2/3 text-white rounded-full w-full font-semibold"
                     href="{{route('member-profile',$article->user->username)}}"
                 >
-                    View Profile
+                    Tazama Wasifu
                 </a>
             </div>
         </div>
@@ -86,29 +88,36 @@
             @forelse ($article->tags as $tag)
             <a
                 class="
-                 @if($tag->name==='Laravel')
+                 @if($tag->name==='Uandishi')
                  bg-green-300
-                 @elseif($tag->name==='Business')
+                 @elseif($tag->name==='Fasihi')
                  bg-pink-300
-                 @elseif($tag->name==='Tech')
-                 bg-blue-300                 
+                 @elseif($tag->name==='Maisha')
+                 bg-blue-300      
+                 @elseif($tag->name==='Biashara')
+                 bg-red-300                    
+                 @elseif($tag->name==='Dini')
+                 bg-indigo-300  
+                 @elseif($tag->name==='Teknolojia')
+                 bg-purple-300                                                
                  @else
                  bg-purple-500
                  @endif
-                 px-3 rounded-full text-white hover:no-underline hover:text-white shadow-sm my-1"
+                 px-3 rounded-full text-white hover:no-underline hover:text-white shadow my-1"
                 href="{{route('articles',['tag'=>$tag->name])}}"
                 >{{$tag->name}}</a
             >
-            @empty @endforelse
+            @empty 
+            @endforelse
         </div>
         @else
         <p class="bg-white rounded-lg p-3 mt-2 shadow-sm text-gray-600">
-            This article has no tags
+            Habari hii haina vitambulisho
         </p>
         @endif
         <div class="mt-2 block shadow-sm rounded bg-white">
-            <h1 class="px-3 pt-3 text-lg text-gray-500">
-                More article from
+            <h1 class="px-3 pt-3 text-gray-500">
+                Habari zaidi kutoka kwa....
                 <span class=""><a href="">{{$article->user->name}}</a></span>
             </h1>
             <div

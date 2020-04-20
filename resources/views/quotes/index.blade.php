@@ -5,7 +5,7 @@
         <a
             class="bg-blue-400 px-3 py-1 rounded-full text-white shadow sm:mr-8 font-semibold hover:no-underline"
             href="{{route('new-quote')}}"
-            >New quote</a
+            >Andika Nasaha</a
         >
     </div>
     <div
@@ -33,7 +33,7 @@
                             href="{{route('edit-quote',$quote->id)}}"
                             class="bg-blue-300 px-3 rounded-full text-white mr-2 hover:no-underline"
                             href=""
-                            >Edit</a
+                            >Hariri</a
                         >
                         <div class="">
                             <form action="{{route('delete-quote',$quote->id)}}" method="POST">
@@ -43,7 +43,7 @@
                                     class="bg-red-400 px-3 rounded-full text-white outline-none focus:outline-none "
                                     type="submit"
                                 >
-                                    Delete
+                                    Futa
                                 </button>
                             </form>
                         </div>
@@ -51,7 +51,7 @@
                     @endif 
                 @endif
             <div class="border-t border-green-300 mt-2 px-6 py-2 bg-gray-200">
-                <span class="text-sm text-gray-500">Shared by</span>
+                <span class="text-sm text-gray-500">Imeshirikishwa na</span>
                 <a
                     class="ml-2 text-sm text-blue-300"
                     href="{{route('member-profile',$quote->user->name)}}"
@@ -61,28 +61,10 @@
         </div>
         @endforeach
     </div>
-    <a
-        href="{{route('new-quote')}}"
-        class="shiwaki-pen bg-green-400 text-lg shadow font-normal rounded-full w-16 h-16 right-0 mr-6 flex items-center sm:hidden"
-        style="{right:25px; bottom:25px;position:fixed;}"
-    >
-        <svg
-            class="text-white text-sm h-10 justify-center mx-auto"
-            fill="none"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            viewBox="0 0 24 24"
-        >
-            <path
-                d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-            ></path>
-        </svg>
-    </a>
+
     <div class="sm:ml-8">
         {{$quotes->links()}}
     </div>
 </div>
-
+<a href="{{route('new-quote')}}" class="sm:hidden absolute fixed z-50 w-12 h-12 bg-green-300 rounded-full flex items-center justify-around shadow-outline" style="bottom:50px; right:30px; position:fixed;"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-white"><path d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg></a>
 @endsection

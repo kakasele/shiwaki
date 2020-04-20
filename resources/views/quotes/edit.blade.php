@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container mt-24">
-    <h1 class="mx-auto sm:text-center mb-3 text-xl font-semibold text-gray-600">Share your quote</h1>
+    <h1 class="mx-auto sm:text-center mb-3 text-xl font-semibold text-gray-600">Rekebisha Nasaha</h1>
         @if (session('error'))
             <div class="alert alert-error">
                 {{session('error')}}
@@ -14,7 +14,7 @@
             @method('PATCH')
             <div class="form-group">
                 <label for="title" class="text-sm block text-gray-600"
-                    >Source</label
+                    >Chimbuko</label
                 >
                 <input
                     type="text"
@@ -26,7 +26,7 @@
             </div>
             <div class="form-group">
                 <label for="title" class="text-sm block text-gray-600"
-                    >Body</label
+                    >Mwili</label
                 >
                 <textarea
                     type="text"
@@ -41,7 +41,7 @@
                 <button 
                 type="submit"
                 class="bg-blue-400 px-4 py-1 rounded-full text-white text-xl outline-none shadow w-full sm:block sm:w-auto"
-                >Publish Quote</button>
+                >Chapisha</button>
             </div>
         </form>
     </div>

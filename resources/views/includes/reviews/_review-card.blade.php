@@ -34,12 +34,6 @@
                     </p>
                     <div class="flex text-sm leading-5 text-gray-500">
                         <time datetime="2020-03-25">{{$review->created_at->toFormattedDateString()}}</time>
-                        <span class="mx-1">
-                            &middot;
-                        </span>
-                        <span>
-                            3 min read
-                        </span>
                     </div>
                 </div>
                 <div class="text-pink-400 mr-6 flex items-center">

@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container mt-6">
-    <h1 class="mx-auto sm:text-center mb-3 text-xl font-semibold text-gray-600 mt-3">Edit your Poem</h1>
+    <h1 class="mx-auto sm:text-center mb-3 text-xl font-semibold text-gray-600 mt-3">Hariri Shhairi</h1>
         @if (session('error'))
             <div class="alert alert-error">
                 {{session('error')}}
@@ -14,7 +14,7 @@
             @method('PATCH')
             <div class="form-group">
                 <label for="title" class="text-sm block text-gray-600"
-                    >Title</label
+                    >Kichwa</label
                 >
                 <input
                     type="text"
@@ -26,7 +26,7 @@
             </div>
             <div class="form-group">
                 <label for="title" class="text-sm block text-gray-600"
-                    >Body</label
+                    >Mwili</label
                 >
 
                 <input id="x" type="hidden" name="body" value="{{$poem->body}}">
@@ -35,7 +35,7 @@
             <div class="form-group">
                 <label for="tags" 
                 class="text-sm block text-gray-600"
-                    >Tags</label
+                    >Vitambulisho</label
                 >
                 <select name="tags[]" multiple class="appearance-none bg-gray-100 p-2 rounded">
                     @foreach ($tags as $tag)
@@ -47,7 +47,7 @@
                 <button 
                 type="submit"
                 class="bg-blue-400 px-4 py-1 rounded-full text-white text-xl outline-none shadow w-full sm:block sm:w-auto"
-                >Save Changes</button>
+                >Chapisha</button>
             </div>
         </form>
     </div>

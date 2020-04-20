@@ -18,7 +18,7 @@
                        {{$profileUser->bio}}
                     </p>
                     <p class="text-gray-500 mt-1">
-                        Member since
+                        Nimejiunga
                         <span class=""
                             >{{$profileUser->created_at->toFormattedDateString()}}</span
                         >
@@ -29,21 +29,21 @@
                     <a
                         href="{{route("member-profile-edit",$profileUser->username)}}"
                         class="inline-block bg-green-300 px-3 py-1 rounded-full text-white text-lg font-semibold shadow-outline hover:no-underline"
-                        >Edit Profile</a
+                        >Hariri Wasifu</a
                     >
                 </div>                    
                 @endif
             </div>
             <div class="py-3 grid grid-cols-2 gap-2 sm:grid-cols-4">
-                <div class="border-l-4 border-blue-300 bg-white rounded-lg shadow-sm py-3"><span class="font-semiblod text-blue-300 text-2xl rounded-full">{{$articles->count()}}</span> <h1 class="text-gray-600 text-xl">Articles</h1></div>
-                <div class="border-l-4 border-blue-300 bg-white rounded-lg shadow-sm py-3"><span class="font-semiblod text-blue-300 text-2xl rounded-full">{{$reviews->count()}}</span> <h1 class="text-gray-600 text-xl">Reviews</h1></div>
-                <div class="border-l-4 border-blue-300 bg-white rounded-lg shadow-sm py-3"><span class="font-semiblod text-blue-300 text-2xl rounded-full">{{$stories->count()}}</span> <h1 class="text-gray-600 text-xl">Stories</h1></div>
-                <div class="border-l-4 border-blue-300 bg-white rounded-lg shadow-sm py-3"><span class="font-semiblod text-blue-300 text-2xl rounded-full">{{$poems->count()}}</span> <h1 class="text-gray-600 text-xl">Poems</h1></div>
+                <div class="border-l-4 border-blue-300 bg-white rounded-lg shadow-sm py-3"><span class="font-semiblod text-blue-300 text-2xl rounded-full">{{$articles->count()}}</span> <h1 class="text-gray-600 text-xl">Habari</h1></div>
+                <div class="border-l-4 border-blue-300 bg-white rounded-lg shadow-sm py-3"><span class="font-semiblod text-blue-300 text-2xl rounded-full">{{$reviews->count()}}</span> <h1 class="text-gray-600 text-xl">Makala</h1></div>
+                <div class="border-l-4 border-blue-300 bg-white rounded-lg shadow-sm py-3"><span class="font-semiblod text-blue-300 text-2xl rounded-full">{{$stories->count()}}</span> <h1 class="text-gray-600 text-xl">Hadithi</h1></div>
+                <div class="border-l-4 border-blue-300 bg-white rounded-lg shadow-sm py-3"><span class="font-semiblod text-blue-300 text-2xl rounded-full">{{$poems->count()}}</span> <h1 class="text-gray-600 text-xl">Mashairi</h1></div>
             </div>
         </header>
 
         <div class="bg-white mt-3 p-3 rounded-lg border-b-2 border-dashed border-blue-300 mb-3">
-            <h1 class="text-xl sm:text-xl text-gray-600">Articles</h1>
+            <h1 class="text-xl sm:text-xl text-gray-600">Habari</h1>
             <div class="articles grid sm:grid-cols-3 gap-4">
                 @foreach ($articles as $article)
                     <a class="hover:no-underline" href="/{{$article->path()}}">
@@ -54,7 +54,7 @@
         </div>
 
        <div class="bg-white mt-3 p-3 rounded-lg border-b-2 border-dashed border-blue-300 mb-3">
-            <h1 class="text-xl sm:text-xl text-gray-600">Reviews</h1>
+            <h1 class="text-xl sm:text-xl text-gray-600">Makala</h1>
             <div class="reviews grid sm:grid-cols-3 gap-4">
                 @foreach ($reviews as $review)
                     <a class="hover:no-underline" href="/{{$review->path()}}">
@@ -64,7 +64,7 @@
             </div>
         </div> 
        <div class="bg-white mt-3 p-3 rounded-lg border-b-2 border-dashed border-blue-300 mb-3">
-            <h1 class="text-xl sm:text-xl text-gray-600">Stories</h1>
+            <h1 class="text-xl sm:text-xl text-gray-600">Hadithi</h1>
             <div class="stories grid sm:grid-cols-3 gap-4">
                 @foreach ($stories as $story)
                     <a class="hover:no-underline" href="/{{$review->path()}}">

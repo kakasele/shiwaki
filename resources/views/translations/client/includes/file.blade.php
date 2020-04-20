@@ -14,7 +14,7 @@
     </svg>
     <span class="w-full text-gray-600">{{$file->name}}</span>
     <a
-        href="{{'storage' . '/' . $file->file_path}}"
+        href="{{asset('storage' . '/' . $file->file_path)}}"
         target="_"
         class="text-indigo-600 hover:no-underline text-semibold"
         ><svg
