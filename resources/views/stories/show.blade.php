@@ -51,13 +51,15 @@
                         alt=""
                     />
                 </div>
+                @if ($story->user->isVerified())
                 <span class="verified">
                     <img
                         class="w-4 mx-1 rounded-full"
                         src="{{asset('images/verified.png')}}"
                         alt=""
                     />
-                </span>
+                </span>                    
+                @endif
                 <span class="text-2xl text-gray-700"
                     >{{$story->user->name}}</span
                 >

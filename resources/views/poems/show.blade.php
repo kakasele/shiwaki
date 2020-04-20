@@ -46,18 +46,20 @@
             <div class="author-info flex items-center mx-auto">
                 <div>
                     <img
-                        class="w-12 h-12 rounded-full"
+                        class="w-12 h-12 rounded-full mr-1"
                         src="{{asset('storage'.'/'. $poem->user->avatar())}}"
                         alt=""
                     />
                 </div>
+                @if ($poem->user->isVerified())
                 <span class="verified">
                     <img
                         class="w-4 mx-1 rounded-full"
-                        src="{{asset('storage' . '/'. 'images/verified.png')}}"
+                        src="{{asset('images/verified.png')}}"
                         alt=""
                     />
-                </span>
+                </span>                    
+                @endif
                 <span class="text-2xl text-gray-700"
                     >{{$poem->user->name}}</span
                 >
