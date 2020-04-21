@@ -17,7 +17,7 @@
             @include('includes.stories._story-card')
         </a>
         @empty
-        <p>Hadithi Iliochapishwa</p>
+        <p>Hakuna hadithi Iliochapishwa</p>
         @endforelse
     </div>
 </div>

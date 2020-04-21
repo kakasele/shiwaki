@@ -115,7 +115,7 @@
         </div>
         @else
         <p class="bg-white rounded-lg p-3 mt-2 shadow-sm text-gray-600">
-            Haina hii haina vitambulisho.
+            Hadithi hii haina vitambulisho.
         </p>
         @endif
         <div class="mt-2 block shadow-sm rounded bg-white">
