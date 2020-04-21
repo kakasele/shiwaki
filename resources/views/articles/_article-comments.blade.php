@@ -7,7 +7,8 @@
     
     
     @forelse($article->comments as $comment)
-    <div class="comment px-3 mb-3 flex items-center">
+    <div class="flex flex-col px-3 mb-3">
+    <div class="comment flex items-center -mb-1 ">
         <img
             src="{{asset('storage'.'/'. $comment->user->avatar())}}"
             class="w-12 h-12 rounded-full shadow-sm flex-shrink-0 z-10 mb-auto"
@@ -19,6 +20,9 @@
             {{$comment->body}}
         </p>
     </div>
+    <small class="text-xs flex text-right text-gray-500 italic ml-10">{{$comment->user->name}}</small>
+    </div>
+
     @empty @endforelse
 
     <div class="text-input p-3">

@@ -71,7 +71,7 @@
                 <p>Unaweza kuwasiliana nasi kupitia njia zifuatazo</p>
 
                 <p>
-                    Kuwasilisha malalamiko, tuma ujumbee wako wa
+                    Kuwasilisha malalamiko, tuma ujumbee wako kwa
                     <span class="font-semibold underline "
                         ><a
                             class="hover:text-white text-white"

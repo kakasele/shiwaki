@@ -19,9 +19,13 @@
                     {{$comment->body}}
                 </p>
             </div>
+            <div>
+            <span class="ml-16 mb-3 italic text-xs text-gray-500"
+                >{{$comment->user->name}}</span>
             <span class="ml-16 mb-3 italic text-xs text-gray-500"
                 >{{$comment->updated_at->diffForHumans()}}</span
-            >
+            >            
+            </div>
         </div>
         @endforeach
     </div>
