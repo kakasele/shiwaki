@@ -59,17 +59,19 @@
                     >{{$quote->user->name}}</a
                 >
             </div>
-            <div class="rounded-b-lg flex justify-around flex-wrap py-1 bg-white">
-            <div class="fb-share-button" 
+            <div class="rounded-b-lg flex justify-around flex-wrap py-1 bg-white items-center">
+            <div class="fb-share-button mb-1" 
                 data-href="shiwaki.net/quotes" 
                 data-layout="button_count">
             </div>
 
-            <a class="twitter-share-button mt-2"
+            <a class="twitter-share-button "
                 href="https://twitter.com/intent/tweet?text='{{ (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"}}"
                 data-size="large">
                 <i class="fab fa-twitter text-blue-500"></i>
             </a>
+            <a  class="" href="whatsapp://send?text={{'https://shiwaki.net/nasaha'}}" data-action="share/whatsapp/share"><i class="fab fa-whatsapp text-green-600"></i></a>
+
             
         </div>              
         </div>

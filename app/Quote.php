@@ -15,6 +15,6 @@ class Quote extends Model
 
     public function path()
     {
-        return 'quotes/' . $this->id;
+        return 'nasaha/' . $this->id;
     }
 }

@@ -15,7 +15,7 @@ class Review extends Model
 
     public function path()
     {
-        return 'reviews/' . $this->slug;
+        return 'makala/' . $this->slug;
     }
 
     public function tags()

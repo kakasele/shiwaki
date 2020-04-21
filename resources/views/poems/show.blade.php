@@ -41,7 +41,7 @@
     </div>
 
     <div class="block sm:flex-1 sm:ml-4 rounded">
-        <h1 class="pb-2 sm:hidden text-base text-blue-400">Posted by...</h1>
+        <h1 class="my-3 sm:hidden text-base text-blue-400">Imechapishwa na </h1>
         <div class="shadow-sm bg-white rounded-lg px-4 p-3">
             <div class="author-info flex items-center mx-auto">
                 <div>
@@ -73,14 +73,15 @@
                 </a>
             </div>
         </div>
-        <div class="rounded-lg flex flex-wrap p-2 mt-2 items-center text-lg">
-            <div class="fb-share-button mr-3" data-href="shiwaki.net/{{$poem->path()}}" data-layout="button_count">
+        <div class="rounded-lg flex flex-wrap p-2 items-center text-2xl justify-around">
+            <div class="fb-share-button mr-3 mb-1" data-href="shiwaki.net/{{$poem->path()}}" data-layout="button_count">
             </div>
-            <a class="twitter-share-button mt-2"
-                href="https://twitter.com/intent/tweet?text='{{ (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"}}"
+            <a class="twitter-share-button flex items-center mt-2"
+                href="https://twitter.com/intent/tweet?text={{'https://shiwaki.net/' . $poem->path()}}"
                 data-size="large">
                 <i class="fab fa-twitter text-blue-500"></i>
             </a>
+            <a  class="mt-2" href="whatsapp://send?text={{'https://shiwaki.net/' . $poem->path()}}" data-action="share/whatsapp/share"><i class="fab fa-whatsapp text-green-600"></i></a>
         </div>
                 @if ($poem->tags->count()>0)
         <div

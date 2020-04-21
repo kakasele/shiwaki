@@ -72,8 +72,8 @@
                 <li>
                     <a
                         href="{{route('translate-index')}}"
-                        class="no-underline hover:no-underline sm:ml-6 text-lg sm:text-xl hover:undeline text-white tracking-wide"
-                        >Ofisi</a
+                        class="no-underline hover:no-underline sm:ml-6 text-lg sm:text-xl hover:undeline text-white tracking-wide underline"
+                        >Tafsiri</a
                     >
                 </li>
                                 {{-- <li>
